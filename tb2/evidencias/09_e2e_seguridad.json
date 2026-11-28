@@ -1,0 +1,110 @@
+{
+    "fecha":  "2026-11-28T11:51:41",
+    "pasos":  [
+                  {
+                      "paso":  "login admin y analista",
+                      "correcto":  true,
+                      "detalle":  "tokens JWT HS256 emitidos"
+                  },
+                  {
+                      "paso":  "conexión WebSocket",
+                      "correcto":  true,
+                      "detalle":  "estado Open, subprotocolo \u0027jwt\u0027"
+                  },
+                  {
+                      "paso":  "evento hello",
+                      "correcto":  true,
+                      "detalle":  "usuario admin, canales: prediction, metrics, logs, training"
+                  },
+                  {
+                      "paso":  "POST /train",
+                      "correcto":  true,
+                      "detalle":  "HTTP 200"
+                  },
+                  {
+                      "paso":  "progreso por WebSocket",
+                      "correcto":  true,
+                      "detalle":  "19 eventos de progreso de 3 nodos; fin v60 en 144 ms"
+                  },
+                  {
+                      "paso":  "métricas por WebSocket",
+                      "correcto":  true,
+                      "detalle":  "3 fotos del clúster recibidas"
+                  },
+                  {
+                      "paso":  "logs por WebSocket",
+                      "correcto":  true,
+                      "detalle":  "8 líneas de log recibidas"
+                  },
+                  {
+                      "paso":  "predicción (clúster)",
+                      "correcto":  true,
+                      "detalle":  "ATE 5/2031: Violencia contra la mujer e IGF (40.1%); 3.993 ms"
+                  },
+                  {
+                      "paso":  "misma predicción (caché Redis)",
+                      "correcto":  true,
+                      "detalle":  "1.767 ms"
+                  },
+                  {
+                      "paso":  "evento prediction en vivo",
+                      "correcto":  true,
+                      "detalle":  "usuario analista, ATE"
+                  },
+                  {
+                      "paso":  "persistido en MongoDB",
+                      "correcto":  true,
+                      "detalle":  "predictions con ATE/2031 = 2"
+                  },
+                  {
+                      "paso":  "clave en Redis con TTL",
+                      "correcto":  true,
+                      "detalle":  "TTL = 597 s"
+                  },
+                  {
+                      "paso":  "sin token -\u003e 401",
+                      "correcto":  true,
+                      "detalle":  "401 UNAUTHORIZED"
+                  },
+                  {
+                      "paso":  "firma alterada -\u003e 401",
+                      "correcto":  true,
+                      "detalle":  "401 INVALID_TOKEN: token inválido: firma del token inválida"
+                  },
+                  {
+                      "paso":  "analista entrena -\u003e 403",
+                      "correcto":  true,
+                      "detalle":  "403 FORBIDDEN"
+                  },
+                  {
+                      "paso":  "analista lee logs -\u003e 403",
+                      "correcto":  true,
+                      "detalle":  "403 FORBIDDEN"
+                  },
+                  {
+                      "paso":  "CORS: origen permitido (preflight)",
+                      "correcto":  true,
+                      "detalle":  "204, Allow-Origin=http://localhost:8080"
+                  },
+                  {
+                      "paso":  "CORS: origen ajeno -\u003e 403",
+                      "correcto":  true,
+                      "detalle":  "403 CORS_ORIGIN_DENIED"
+                  },
+                  {
+                      "paso":  "login: 10 fallos y el 11.º -\u003e 429",
+                      "correcto":  true,
+                      "detalle":  "códigos: 401, 401, 401, 401, 401, 401, 401, 401, 401, 401, 429; demasiados intentos fallidos desde 172.18.0.3; espere 60 s"
+                  },
+                  {
+                      "paso":  "cuota del analista (300/min) -\u003e 429 QUOTA_EXCEEDED",
+                      "correcto":  true,
+                      "detalle":  "HTTP 200: 304, HTTP 429 QUOTA_EXCEEDED: 56"
+                  },
+                  {
+                      "paso":  "cabeceras de seguridad",
+                      "correcto":  true,
+                      "detalle":  "X-Content-Type-Options=nosniff; X-Frame-Options=DENY; Referrer-Policy=no-referrer"
+                  }
+              ]
+}

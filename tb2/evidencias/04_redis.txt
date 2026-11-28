@@ -1,0 +1,13 @@
+> DBSIZE
+6
+> SCAN de claves tb2:* (primeras 25)
+tb2:impact:v17:2026:12:10:tasa
+tb2:impact:v17:2026:3:10:casos
+tb2:metrics:latest
+tb2:model:current
+tb2:patrol:v17:2026:10:8:casos
+tb2:pred:v17:SAN JUAN DE LURIGANCHO:0:10:2026
+> TTL tb2:pred:v17:SAN JUAN DE LURIGANCHO:0:10:2026   (segundos que le quedan en caché)
+12
+> GET tb2:pred:v17:SAN JUAN DE LURIGANCHO:0:10:2026
+{"district":"SAN JUAN DE LURIGANCHO","ubigeo":"150132","zone":"Lima Este","mes":10,"anio":2026,"population":1300785,"probabilities":[{"class":"Violencia contra la mujer e IGF","probability":0.3813296636538719},{"class":"Hurto","probability":0.3122599725403003},{"class":"Robo","probability":0.16116673799593056},{"class":"Estafa","probability":0.08032397736809146},{"class":"Extorsión","probability":0.06255872275874909},{"class":"Secuestro","probability":0.0023609266786683183}],"top3":[{"class":"Violencia contra la mujer e IGF","probability":0.3813296636538719},{"class":"Hurto","probability":0.3122599725403003},{"class":"Robo","probability":0.16116673799593056}],"topClass":"Violencia contra la mujer e IGF","topProbability":0.3813296636538719,"topStreetCrime":"Hurto","topStreetProbability":0.3122599725403003,"recentMix":[{"class":"Violencia contra la mujer e IGF","probability":0.41},{"class":"Hurto","probability":0.3},{"class":"Robo","probability":0.15},{"class":"Estafa","probability":0.08},{"class":"Extorsión","probability":0.05},{"class":"Secuestro","probability":0}],"recentWindow":"oct-2025 a sep-2026","franjaSupuesta":[{"franja":"Madrugada (00-06)","probability":0.14822709519688168},{"franja":"Mañana (06-12)","probability":0.2563273893487577},{"franja":"Tarde (12-18)","probability":0.30173199434682596},{"franja":"Noche (18-24)","probability":0.29371352110753457}],"franjaNote":"Distribución horaria orientativa: el CSV no registra la hora del hecho. Se calcula con el supuesto de la PC3 (Tabla 11: P(franja | modalidad)) ponderado por las probabilidades del bosque; no es una predicción del modelo.","modelVersion":17,"featureSet":"tb2","nodesUsed":3,"treesUsed":67,"fromCache":false,"clusterMs":0.398,"latencyMs":0}

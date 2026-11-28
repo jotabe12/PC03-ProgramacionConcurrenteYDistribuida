@@ -1,0 +1,123 @@
+go version go1.24.13 linux/amd64
+go vet: sin observaciones
+?   	github.com/jotabe12/cc65-tb2-grupo3/cmd/coordinator	[no test files]
+?   	github.com/jotabe12/cc65-tb2-grupo3/cmd/loadtest	[no test files]
+?   	github.com/jotabe12/cc65-tb2-grupo3/cmd/node	[no test files]
+=== RUN   TestEndToEnd
+    api_test.go:192: train 6.159s; exactitud 49.10%, top-3 88.32%, F1 macro 0.183, persistencia 49.02%, base 38.82%
+    api_test.go:211: SJL 10/2026: Violencia contra la mujer e IGF 0.386 (calle: Hurto 0.316); ventana oct-2025 a sep-2026; clúster 1.119 ms, caché 0.359 ms
+    api_test.go:252: impacto mar-2026: top-10 cubre 53.2% de los delitos de calle esperados y 46.9% de la población (5536851 hab.); real: 53.3% de 9952 (óptimo 53.3%), coincidencia 10/10; #1 LIMA
+    api_test.go:255: línea base sin modelo (ranking por los 12 meses previos): 53.3%
+    api_test.go:284: peor latencia del clúster en 40 consultas: 0.860 ms
+--- PASS: TestEndToEnd (14.65s)
+=== RUN   TestSecurityPolicies
+--- PASS: TestSecurityPolicies (5.47s)
+=== RUN   TestWebSocketRealTime
+--- PASS: TestWebSocketRealTime (6.45s)
+=== RUN   TestTrainOptions
+--- PASS: TestTrainOptions (10.52s)
+=== RUN   TestDistributedEqualsLocal
+--- PASS: TestDistributedEqualsLocal (22.24s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/api	60.394s
+=== RUN   TestPasswordHashing
+--- PASS: TestPasswordHashing (3.59s)
+=== RUN   TestJWT
+--- PASS: TestJWT (0.00s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/auth	4.616s
+=== RUN   TestLateResponseIsDiscarded
+    cluster.go:162: nodo n1 registrado desde 127.0.0.1:36134
+    cluster.go:215: respuesta tardía o desconocida de n1 (id=r1, PONG) descartada
+    cluster.go:180: nodo n1 desconectado
+--- PASS: TestLateResponseIsDiscarded (0.52s)
+=== RUN   TestConcurrentCallsNoRace
+    cluster.go:162: nodo n1 registrado desde 127.0.0.1:40392
+    cluster.go:162: nodo n3 registrado desde 127.0.0.1:40416
+    cluster.go:162: nodo n2 registrado desde 127.0.0.1:40406
+    cluster.go:180: nodo n3 desconectado
+    cluster.go:180: nodo n1 desconectado
+    cluster.go:180: nodo n2 desconectado
+--- PASS: TestConcurrentCallsNoRace (0.11s)
+=== RUN   TestReconnectReplaces
+    cluster.go:162: nodo n1 registrado desde 127.0.0.1:44424
+    cluster.go:162: nodo n1 registrado desde 127.0.0.1:44436
+    cluster.go:180: nodo n1 desconectado
+    cluster.go:180: nodo n1 desconectado
+--- PASS: TestReconnectReplaces (0.22s)
+=== RUN   TestNodeDisconnectFailsPending
+    cluster.go:162: nodo n1 registrado desde 127.0.0.1:33808
+    cluster.go:180: nodo n1 desconectado
+--- PASS: TestNodeDisconnectFailsPending (0.10s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/cluster	1.979s
+=== RUN   TestNormalizeAndClasses
+--- PASS: TestNormalizeAndClasses (0.00s)
+=== RUN   TestTotalsMatchPC3
+    dataset_test.go:56: filas=376715 válidas=25849 denuncias=1987556 clases=[797215 647973 387224 100442 50677 4025] carga=1912.0 ms
+--- PASS: TestTotalsMatchPC3 (1.93s)
+=== RUN   TestLoadDeterministic
+--- PASS: TestLoadDeterministic (6.31s)
+=== RUN   TestShardsStratified
+    dataset_test.go:140: pc4: prueba 2026 con 164221 denuncias en 1760 vectores distintos
+    dataset_test.go:140: tb2: prueba 2026 con 164221 denuncias en 448 vectores distintos
+--- PASS: TestShardsStratified (6.61s)
+=== RUN   TestHistoryUsesOnlyPast
+--- PASS: TestHistoryUsesOnlyPast (1.21s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/dataset	17.101s
+=== RUN   TestLearnsPattern
+--- PASS: TestLearnsPattern (0.06s)
+=== RUN   TestDeterministicWorkers
+--- PASS: TestDeterministicWorkers (0.51s)
+=== RUN   TestClassWeights
+--- PASS: TestClassWeights (0.00s)
+=== RUN   TestRealDataDistributedForest
+    forest_test.go:183: base: prueba 2026 con 164221 denuncias (448 vectores); exactitud 48.32%, top-3 88.34%, línea base 38.82% (4.47s)
+    forest_test.go:183: tb2: prueba 2026 con 164221 denuncias (448 vectores); exactitud 49.10%, top-3 88.32%, línea base 38.82% (5.559s)
+--- PASS: TestRealDataDistributedForest (11.82s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/forest	13.454s
+=== RUN   TestRingKeepsLastN
+--- PASS: TestRingKeepsLastN (0.00s)
+=== RUN   TestWriterAndClassify
+--- PASS: TestWriterAndClassify (0.00s)
+=== RUN   TestConcurrentAdds
+--- PASS: TestConcurrentAdds (0.01s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/logbuf	1.038s
+=== RUN   TestLoadINEI
+--- PASS: TestLoadINEI (0.61s)
+=== RUN   TestSplitRef
+--- PASS: TestSplitRef (0.00s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/poblacion	1.643s
+?   	github.com/jotabe12/cc65-tb2-grupo3/internal/protocol	[no test files]
+=== RUN   TestMemoryTTL
+--- PASS: TestMemoryTTL (0.08s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/storage	1.104s
+?   	github.com/jotabe12/cc65-tb2-grupo3/internal/storage/dbstore	[no test files]
+=== RUN   TestSamplerMeasuresBusyLoop
+    sysmetrics_test.go:27: CPU 99.9% de un núcleo, RSS 18.8 MB (x=3365831)
+--- PASS: TestSamplerMeasuresBusyLoop (0.30s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/sysmetrics	1.326s
+=== RUN   TestNotTrainedAndUnknownDistrict
+2026/11/28 16:50:32 [n1] inicia entrenamiento v1: shard 1/3, 3 árboles, variables tb2, años 2018-2025
+2026/11/28 16:50:35 [n1] entrenado v1: shard 1/3, 607779 denuncias, 3 árboles con 16 goroutines en 620.9 ms
+2026/11/28 16:50:35 [n1] inicia entrenamiento v2: shard 1/3, 3 árboles, variables tb2, años 2018-2025
+2026/11/28 16:50:36 [n1] entrenado v2: shard 1/3, 607779 denuncias, 3 árboles con 16 goroutines en 861.2 ms
+2026/11/28 16:50:36 [n1] entrenamiento fallido: featureSet desconocido "xyz" (use pc4, base o tb2)
+--- PASS: TestNotTrainedAndUnknownDistrict (3.65s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/worker	4.685s
+=== RUN   TestAcceptKeyRFC
+--- PASS: TestAcceptKeyRFC (0.00s)
+=== RUN   TestEchoPingAndClose
+--- PASS: TestEchoPingAndClose (0.01s)
+=== RUN   TestRejectsUnmaskedFrames
+--- PASS: TestRejectsUnmaskedFrames (0.00s)
+PASS
+ok  	github.com/jotabe12/cc65-tb2-grupo3/internal/ws	1.035s
+?   	github.com/jotabe12/cc65-tb2-grupo3/openapi	[no test files]

@@ -1,0 +1,8 @@
+NAME                       IMAGE            COMMAND                  SERVICE       CREATED       STATUS                 PORTS
+tb2-grupo3-coordinator-1   tb2-grupo3-app   "/app/coordinator"       coordinator   4 hours ago   Up 4 hours (healthy)   8080/tcp, 9090/tcp
+tb2-grupo3-ml-node-1-1     tb2-grupo3-app   "/app/node"              ml-node-1     4 hours ago   Up 4 hours             8080/tcp, 9090/tcp
+tb2-grupo3-ml-node-2-1     tb2-grupo3-app   "/app/node"              ml-node-2     4 hours ago   Up 4 hours             8080/tcp, 9090/tcp
+tb2-grupo3-ml-node-3-1     tb2-grupo3-app   "/app/node"              ml-node-3     4 hours ago   Up 4 hours             8080/tcp, 9090/tcp
+tb2-grupo3-mongo-1         mongo:7          "docker-entrypoint.s…"   mongo         4 hours ago   Up 4 hours (healthy)   27017/tcp
+tb2-grupo3-redis-1         redis:7-alpine   "docker-entrypoint.s…"   redis         4 hours ago   Up 4 hours (healthy)   6379/tcp
+tb2-grupo3-web-1           tb2-grupo3-web   "/docker-entrypoint.…"   web           4 hours ago   Up 4 hours (healthy)   127.0.0.1:8080->80/tcp

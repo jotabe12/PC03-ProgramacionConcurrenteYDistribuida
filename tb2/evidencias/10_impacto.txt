@@ -1,0 +1,25 @@
+PREGUNTA DE IMPACTO SOCIAL
+¿En qué distritos de Lima Metropolitana y Callao, en qué mes y para qué delitos de calle conviene priorizar el patrullaje preventivo, y a cuántas personas cubre esa priorización?
+
+RESPUESTA (modelo v62, Random Forest distribuido de 32 árboles, población INEI)
+- Distritos que aparecen en el top-10 de más meses de 2026: SANTIAGO DE SURCO (12 meses), SANTA ANITA (12 meses), CALLAO (12 meses), LA VICTORIA (12 meses), COMAS (12 meses), SAN JUAN DE LURIGANCHO (12 meses), LIMA (12 meses), ATE (12 meses), SAN MARTIN DE PORRES (12 meses), LOS OLIVOS (8 meses).
+- Priorizar 10 distritos cubre en promedio a 5,566,692 habitantes por mes (47.2 % de Lima y Callao).
+- Verificación enero-septiembre 2026: los distritos priorizados concentraron 47,408 de 87,843 delitos de calle reales (54.0 % en promedio por mes; el máximo posible con 10 distritos era 54.5 %).
+- Línea base sin modelo (los 10 distritos con más delitos de calle en los 12 meses previos): 54.1 % en promedio por mes. El ranking depende sobre todo del volumen histórico; el bosque aporta la composición por modalidad y el pronóstico de meses sin datos.
+- En promedio, 9.0 de los 10 distritos priorizados coincidieron con el top real de cada mes.
+- Delito de calle a vigilar (el más probable según el bosque) en los distritos priorizados de los 12 meses: Hurto en 120 casos.
+- La franja horaria sugerida es un supuesto (el CSV no registra la hora del hecho) y no forma parte de la respuesta del modelo.
+
+Detalle por mes:
+  enero      verificación cubre 5,536,851 hab. (46.9 %), 53.2 % de los delitos de calle esperados | real 54.9 % (sin modelo 54.9 %, óptimo 55.1 %), coinciden 9/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SAN MARTIN DE PORRES
+  febrero    verificación cubre 5,536,851 hab. (46.9 %), 53.1 % de los delitos de calle esperados | real 55.7 % (sin modelo 55.7 %, óptimo 55.7 %), coinciden 10/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, ATE
+  marzo      verificación cubre 5,536,851 hab. (46.9 %), 53.2 % de los delitos de calle esperados | real 53.3 % (sin modelo 53.3 %, óptimo 53.3 %), coinciden 10/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, ATE
+  abril      verificación cubre 5,631,597 hab. (47.7 %), 53.3 % de los delitos de calle esperados | real 53.2 % (sin modelo 53.3 %, óptimo 54.6 %), coinciden 8/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  mayo       verificación cubre 5,631,597 hab. (47.7 %), 53.3 % de los delitos de calle esperados | real 53.8 % (sin modelo 54.3 %, óptimo 54.7 %), coinciden 9/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  junio      verificación cubre 5,536,851 hab. (46.9 %), 53.4 % de los delitos de calle esperados | real 53.4 % (sin modelo 53.4 %, óptimo 54.0 %), coinciden 9/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  julio      verificación cubre 5,610,699 hab. (47.5 %), 53.5 % de los delitos de calle esperados | real 53.0 % (sin modelo 53.1 %, óptimo 53.6 %), coinciden 8/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  agosto     verificación cubre 5,536,851 hab. (46.9 %), 53.7 % de los delitos de calle esperados | real 53.9 % (sin modelo 53.9 %, óptimo 54.4 %), coinciden 9/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  septiembre verificación cubre 5,631,597 hab. (47.7 %), 53.6 % de los delitos de calle esperados | real 54.8 % (sin modelo 54.8 %, óptimo 55.1 %), coinciden 9/10. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  octubre    pronóstico   cubre 5,536,851 hab. (46.9 %), 53.7 % de los delitos de calle esperados. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  noviembre  pronóstico   cubre 5,536,851 hab. (46.9 %), 53.7 % de los delitos de calle esperados. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA
+  diciembre  pronóstico   cubre 5,536,851 hab. (46.9 %), 53.6 % de los delitos de calle esperados. Primeros: LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA

@@ -1,0 +1,8 @@
+NAME                       CPU %     MEM USAGE / LIMIT    NET I/O
+tb2-grupo3-ml-node-1-1     0.11%     24.63MiB / 7.69GiB   1.59MB / 4.04MB
+tb2-grupo3-ml-node-3-1     0.02%     25.17MiB / 7.69GiB   1.59MB / 4.03MB
+tb2-grupo3-ml-node-2-1     0.09%     24.73MiB / 7.69GiB   1.59MB / 4.05MB
+tb2-grupo3-web-1           0.01%     13.79MiB / 7.69GiB   19MB / 19.2MB
+tb2-grupo3-coordinator-1   0.06%     26.11MiB / 7.69GiB   19.9MB / 35.1MB
+tb2-grupo3-redis-1         0.78%     7.391MiB / 7.69GiB   9MB / 5.68MB
+tb2-grupo3-mongo-1         0.56%     372MiB / 7.69GiB     14.8MB / 6.43MB

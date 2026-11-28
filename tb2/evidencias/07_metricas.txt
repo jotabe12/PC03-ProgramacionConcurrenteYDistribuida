@@ -1,0 +1,33 @@
+MÉTRICAS DEL MODELO FINAL (tb2, 32 árboles, prueba 2026: 164221 denuncias)
+Exactitud 49.10% | Top-3 88.32% | F1 macro 0.1834 | F1 ponderado 0.4179
+Línea base (siempre Violencia contra la mujer e IGF) 38.82% | Persistencia (modalidad más frecuente de los 12 meses previos) 49.02%
+
+Por clase (precisión / exhaustividad / F1 / reales):
+  Violencia contra la mujer e IGF      47.4%   80.0%   0.595    63,743
+  Hurto                                52.4%   48.8%   0.505    60,758
+  Robo                                  0.0%    0.0%   0.000    19,838
+  Estafa                                0.0%    0.0%   0.000    12,635
+  Extorsión                             0.0%    0.0%   0.000     6,877
+  Secuestro                             0.0%    0.0%   0.000       370
+
+Matriz de confusión (filas = real, columnas = predicha):
+               Violencia     Hurto      Robo    Estafa Extorsión Secuestro
+  Violencia c     50,971    12,772         0         0         0         0
+  Hurto           31,093    29,665         0         0         0         0
+  Robo            13,338     6,500         0         0         0         0
+  Estafa           7,168     5,467         0         0         0         0
+  Extorsión        4,757     2,120         0         0         0         0
+  Secuestro          251       119         0         0         0         0
+
+Importancia de variables (Gini):
+  % Violencia contra la mujer e IGF (12 meses previos)  24.2%
+  % Hurto (12 meses previos)                          21.8%
+  Distrito (UBIGEO)                                   16.3%
+  % Robo (12 meses previos)                            8.3%
+  Año                                                  6.7%
+  Zona urbana                                          5.7%
+  % Estafa (12 meses previos)                          5.3%
+  Mes                                                  4.5%
+  % Extorsión (12 meses previos)                       4.4%
+  Volumen de denuncias (12 meses previos, log2)        2.6%
+  % Secuestro (12 meses previos)                       0.1%

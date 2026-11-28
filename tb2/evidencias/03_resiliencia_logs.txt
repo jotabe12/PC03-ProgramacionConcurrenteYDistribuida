@@ -1,0 +1,9 @@
+ml-node-2-1    | 2026/11/28 11:33:44.412905 nodo ml-node-2 detenido
+ml-node-2-1    | 2026/11/28 11:33:44.892348 nodo ml-node-2 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-2-1    | 2026/11/28 11:33:44.893837 [ml-node-2] registrado en el coordinador coordinator:9090 (16 núcleos)
+ml-node-2-1    | 2026/11/28 11:33:44.894185 [ml-node-2] inicia entrenamiento v1: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1    | 2026/11/28 11:33:45.178400 [ml-node-2] entrenado v1: shard 2/3, 607778 denuncias, 11 árboles con 16 goroutines en 45.8 ms
+coordinator-1  | 2026/11/28 11:33:44.412967 nodo ml-node-2 desconectado
+coordinator-1  | 2026/11/28 11:33:44.893894 nodo ml-node-2 registrado desde 172.19.0.5:43236
+coordinator-1  | 2026/11/28 11:33:44.894004 reentrenando ml-node-2 (versión 1, shard 2/3, 11 árboles)
+coordinator-1  | 2026/11/28 11:33:45.178549 ml-node-2 listo de nuevo con la versión 1

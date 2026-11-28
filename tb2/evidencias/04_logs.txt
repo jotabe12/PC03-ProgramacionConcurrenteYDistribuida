@@ -1,0 +1,194 @@
+web-1        | 172.18.0.1 - - [28/Nov/2026:15:38:39 +0000] "GET /api/v1/districts HTTP/1.1" 403 169 "-" "PostmanRuntime/7.57.0" "-"
+ml-node-2-1  | 2026/11/28 11:54:50.222531 nodo ml-node-2 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-3-1  | 2026/11/28 11:54:50.399321 nodo ml-node-3 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-1-1  | 2026/11/28 11:54:50.593051 nodo ml-node-1 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-3-1  | 2026/11/28 11:54:50.400654 [ml-node-3] registrado en el coordinador coordinator:9090 (16 núcleos)
+web-1        | 172.18.0.1 - - [28/Nov/2026:15:38:39 +0000] "POST /api/v1/predict HTTP/1.1" 404 153 "-" "PostmanRuntime/7.57.0" "-"
+ml-node-1-1  | 2026/11/28 11:54:50.594313 [ml-node-1] registrado en el coordinador coordinator:9090 (16 núcleos)
+web-1        | 172.18.0.1 - - [28/Nov/2026:15:38:39 +0000] "POST /api/v1/predict HTTP/1.1" 400 70 "-" "PostmanRuntime/7.57.0" "-"
+ml-node-3-1  | 2026/11/28 11:54:50.594808 [ml-node-3] inicia entrenamiento v1: shard 3/3, 10 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 11:54:51.061905 [ml-node-3] entrenado v1: shard 3/3, 607778 denuncias, 10 árboles con 16 goroutines en 118.5 ms
+ml-node-2-1  | 2026/11/28 11:54:50.223936 [ml-node-2] registrado en el coordinador coordinator:9090 (16 núcleos)
+web-1        | 172.18.0.1 - - [28/Nov/2026:15:38:39 +0000] "POST /api/v1/predict HTTP/1.1" 400 168 "-" "PostmanRuntime/7.57.0" "-"
+ml-node-2-1  | 2026/11/28 11:54:50.594807 [ml-node-2] inicia entrenamiento v1: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:38:46 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 11:54:51.066626 [ml-node-2] entrenado v1: shard 2/3, 607778 denuncias, 11 árboles con 16 goroutines en 115.3 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:38:56 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-1-1  | 2026/11/28 11:54:50.594806 [ml-node-1] inicia entrenamiento v1: shard 1/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 11:57:44.181510 [ml-node-2] inicia entrenamiento v2: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 11:54:51.061542 [ml-node-1] entrenado v1: shard 1/3, 607779 denuncias, 11 árboles con 16 goroutines en 107.9 ms
+ml-node-1-1  | 2026/11/28 11:57:44.181465 [ml-node-1] inicia entrenamiento v2: shard 1/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 11:57:44.316363 [ml-node-2] entrenado v2: shard 2/3, 607778 denuncias, 11 árboles con 4 goroutines en 134.4 ms
+ml-node-3-1  | 2026/11/28 11:57:44.181496 [ml-node-3] inicia entrenamiento v2: shard 3/3, 10 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:39:06 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-1-1  | 2026/11/28 11:57:44.324544 [ml-node-1] entrenado v2: shard 1/3, 607779 denuncias, 11 árboles con 4 goroutines en 142.7 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:39:16 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:13:34.319382 [ml-node-2] inicia entrenamiento v3: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 11:57:44.315541 [ml-node-3] entrenado v2: shard 3/3, 607778 denuncias, 10 árboles con 4 goroutines en 133.7 ms
+ml-node-3-1  | 2026/11/28 15:13:34.319380 [ml-node-3] inicia entrenamiento v3: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:13:34.319385 [ml-node-1] inicia entrenamiento v3: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:13:34.573497 [ml-node-2] entrenado v3: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 252.8 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:39:26 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:13:34.573583 [ml-node-3] entrenado v3: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 253.1 ms
+ml-node-3-1  | 2026/11/28 15:14:16.744842 [ml-node-3] inicia entrenamiento v4: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:13:34.578365 [ml-node-1] entrenado v3: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 258.1 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:39:36 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-1-1  | 2026/11/28 15:14:16.744842 [ml-node-1] inicia entrenamiento v4: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:39:46 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:14:16.966864 [ml-node-3] entrenado v4: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 221.2 ms
+ml-node-1-1  | 2026/11/28 15:14:16.978739 [ml-node-1] entrenado v4: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 233.2 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:39:56 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:14:16.744846 [ml-node-2] inicia entrenamiento v4: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:14:18.749676 [ml-node-1] inicia entrenamiento v5: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:14:19.011912 [ml-node-1] entrenado v5: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 261.7 ms
+ml-node-1-1  | 2026/11/28 15:14:20.782054 [ml-node-1] inicia entrenamiento v6: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:18.749678 [ml-node-3] inicia entrenamiento v5: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:14:21.042988 [ml-node-1] entrenado v6: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 260.3 ms
+ml-node-1-1  | 2026/11/28 15:14:22.591643 [ml-node-1] inicia entrenamiento v7: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:18.987189 [ml-node-3] entrenado v5: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 236.8 ms
+ml-node-3-1  | 2026/11/28 15:14:20.782016 [ml-node-3] inicia entrenamiento v6: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:21.041886 [ml-node-3] entrenado v6: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 259.3 ms
+ml-node-1-1  | 2026/11/28 15:14:22.871893 [ml-node-1] entrenado v7: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 279.4 ms
+ml-node-3-1  | 2026/11/28 15:14:22.591620 [ml-node-3] inicia entrenamiento v7: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:16.984433 [ml-node-2] entrenado v4: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 239.1 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:40:06 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:40:16 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:14:22.880500 [ml-node-3] entrenado v7: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 288.2 ms
+ml-node-2-1  | 2026/11/28 15:14:18.749676 [ml-node-2] inicia entrenamiento v5: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:24.428894 [ml-node-3] inicia entrenamiento v8: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:24.691340 [ml-node-3] entrenado v8: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 261.9 ms
+ml-node-2-1  | 2026/11/28 15:14:18.988160 [ml-node-2] entrenado v5: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 237.9 ms
+ml-node-3-1  | 2026/11/28 15:14:26.063790 [ml-node-3] inicia entrenamiento v9: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:26.295469 [ml-node-3] entrenado v9: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 230.5 ms
+ml-node-3-1  | 2026/11/28 15:14:34.478429 [ml-node-3] inicia entrenamiento v10: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:14:34.772151 [ml-node-3] entrenado v10: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 293.1 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:40:26 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:14:46.905623 [ml-node-3] inicia entrenamiento v11: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:14:24.428959 [ml-node-1] inicia entrenamiento v8: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:20.782017 [ml-node-2] inicia entrenamiento v6: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:40:36 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:14:21.042847 [ml-node-2] entrenado v6: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 260.3 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:40:46 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:14:47.140528 [ml-node-3] entrenado v11: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 234.3 ms
+ml-node-1-1  | 2026/11/28 15:14:24.687013 [ml-node-1] entrenado v8: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 257.5 ms
+ml-node-1-1  | 2026/11/28 15:14:26.063890 [ml-node-1] inicia entrenamiento v9: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:40:56 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:15:55.914024 [ml-node-3] inicia entrenamiento v12: shard 3/3, 21 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:41:06 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:41:16 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-1-1  | 2026/11/28 15:14:26.317488 [ml-node-1] entrenado v9: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 252.8 ms
+ml-node-1-1  | 2026/11/28 15:14:34.478468 [ml-node-1] inicia entrenamiento v10: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:22.591622 [ml-node-2] inicia entrenamiento v7: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:22.881433 [ml-node-2] entrenado v7: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 288.9 ms
+ml-node-2-1  | 2026/11/28 15:14:24.428967 [ml-node-2] inicia entrenamiento v8: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:14:34.762594 [ml-node-1] entrenado v10: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 283.5 ms
+ml-node-3-1  | 2026/11/28 15:15:56.216318 [ml-node-3] entrenado v12: shard 3/3, 607778 denuncias, 21 árboles con 16 goroutines en 301.5 ms
+ml-node-3-1  | 2026/11/28 15:25:01.595388 [ml-node-3] inicia entrenamiento v13: shard 3/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:24.692570 [ml-node-2] entrenado v8: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 263.0 ms
+ml-node-3-1  | 2026/11/28 15:25:01.863226 [ml-node-3] entrenado v13: shard 3/3, 607778 denuncias, 22 árboles con 16 goroutines en 267.2 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:41:26 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:14:26.063790 [ml-node-2] inicia entrenamiento v9: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:41:36 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:41:46 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:41:56 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:42:06 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:42:16 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:42:26 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:14:26.321206 [ml-node-2] entrenado v9: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 256.8 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:42:36 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:14:34.478441 [ml-node-2] inicia entrenamiento v10: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:34.717757 [ml-node-2] entrenado v10: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 238.4 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:42:46 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-1-1  | 2026/11/28 15:14:46.905723 [ml-node-1] inicia entrenamiento v11: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:42:56 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:27:31.862100 [ml-node-3] inicia entrenamiento v14: shard 3/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:14:46.905618 [ml-node-2] inicia entrenamiento v11: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:27:32.134623 [ml-node-3] entrenado v14: shard 3/3, 607778 denuncias, 22 árboles con 16 goroutines en 271.6 ms
+ml-node-3-1  | 2026/11/28 15:27:37.095769 [ml-node-3] inicia entrenamiento v15: shard 3/3, 10 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:14:47.143277 [ml-node-1] entrenado v11: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 237.0 ms
+ml-node-2-1  | 2026/11/28 15:14:47.136432 [ml-node-2] entrenado v11: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 230.2 ms
+ml-node-1-1  | 2026/11/28 15:15:55.913957 [ml-node-1] inicia entrenamiento v12: shard 1/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:15:56.213872 [ml-node-1] entrenado v12: shard 1/3, 607779 denuncias, 22 árboles con 16 goroutines en 299.3 ms
+ml-node-1-1  | 2026/11/28 15:25:01.595436 [ml-node-1] inicia entrenamiento v13: shard 1/3, 23 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:15:55.913907 [ml-node-2] inicia entrenamiento v12: shard 2/3, 21 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:27:37.263948 [ml-node-3] entrenado v15: shard 3/3, 607778 denuncias, 10 árboles con 16 goroutines en 167.7 ms
+ml-node-1-1  | 2026/11/28 15:25:01.866788 [ml-node-1] entrenado v13: shard 1/3, 607779 denuncias, 23 árboles con 16 goroutines en 270.6 ms
+ml-node-3-1  | 2026/11/28 15:27:49.172147 [ml-node-3] inicia entrenamiento v16: shard 3/3, 10 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:27:31.862261 [ml-node-1] inicia entrenamiento v14: shard 1/3, 23 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:27:49.323688 [ml-node-3] entrenado v16: shard 3/3, 607778 denuncias, 10 árboles con 16 goroutines en 151.0 ms
+ml-node-1-1  | 2026/11/28 15:27:32.167427 [ml-node-1] entrenado v14: shard 1/3, 607779 denuncias, 23 árboles con 16 goroutines en 304.6 ms
+ml-node-1-1  | 2026/11/28 15:27:37.095675 [ml-node-1] inicia entrenamiento v15: shard 1/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:27:37.270939 [ml-node-1] entrenado v15: shard 1/3, 607779 denuncias, 11 árboles con 16 goroutines en 174.7 ms
+ml-node-1-1  | 2026/11/28 15:27:49.171999 [ml-node-1] inicia entrenamiento v16: shard 1/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:15:56.195905 [ml-node-2] entrenado v12: shard 2/3, 607778 denuncias, 21 árboles con 16 goroutines en 281.4 ms
+ml-node-1-1  | 2026/11/28 15:27:49.327780 [ml-node-1] entrenado v16: shard 1/3, 607779 denuncias, 11 árboles con 16 goroutines en 155.4 ms
+ml-node-2-1  | 2026/11/28 15:25:01.595363 [ml-node-2] inicia entrenamiento v13: shard 2/3, 22 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:43:06 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:25:01.862652 [ml-node-2] entrenado v13: shard 2/3, 607778 denuncias, 22 árboles con 16 goroutines en 266.5 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:43:17 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:27:31.862091 [ml-node-2] inicia entrenamiento v14: shard 2/3, 23 árboles, variables tb2, años 2018-2025
+ml-node-3-1  | 2026/11/28 15:29:13.671566 [ml-node-3] inicia entrenamiento v17: shard 3/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:29:13.671513 [ml-node-1] inicia entrenamiento v17: shard 1/3, 23 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:29:13.939982 [ml-node-1] entrenado v17: shard 1/3, 607779 denuncias, 23 árboles con 16 goroutines en 267.3 ms
+ml-node-1-1  | 2026/11/28 15:38:38.430438 [ml-node-1] inicia entrenamiento v18: shard 1/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:27:32.158826 [ml-node-2] entrenado v14: shard 2/3, 607778 denuncias, 23 árboles con 16 goroutines en 295.9 ms
+ml-node-3-1  | 2026/11/28 15:29:13.965240 [ml-node-3] entrenado v17: shard 3/3, 607778 denuncias, 22 árboles con 16 goroutines en 292.9 ms
+ml-node-3-1  | 2026/11/28 15:38:38.430470 [ml-node-3] inicia entrenamiento v18: shard 3/3, 10 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:27:37.095683 [ml-node-2] inicia entrenamiento v15: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-1-1  | 2026/11/28 15:38:38.585869 [ml-node-1] entrenado v18: shard 1/3, 607779 denuncias, 11 árboles con 4 goroutines en 155.0 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:43:27 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-3-1  | 2026/11/28 15:38:38.580776 [ml-node-3] entrenado v18: shard 3/3, 607778 denuncias, 10 árboles con 4 goroutines en 149.9 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:43:37 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:43:47 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:43:57 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:44:07 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:27:37.269762 [ml-node-2] entrenado v15: shard 2/3, 607778 denuncias, 11 árboles con 16 goroutines en 173.6 ms
+ml-node-2-1  | 2026/11/28 15:27:49.172079 [ml-node-2] inicia entrenamiento v16: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:27:49.325138 [ml-node-2] entrenado v16: shard 2/3, 607778 denuncias, 11 árboles con 16 goroutines en 152.6 ms
+ml-node-2-1  | 2026/11/28 15:29:13.671551 [ml-node-2] inicia entrenamiento v17: shard 2/3, 22 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 15:29:13.969327 [ml-node-2] entrenado v17: shard 2/3, 607778 denuncias, 22 árboles con 16 goroutines en 297.2 ms
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:44:17 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:38:38.430446 [ml-node-2] inicia entrenamiento v18: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+web-1        | 127.0.0.1 - - [28/Nov/2026:15:44:27 +0000] "GET / HTTP/1.1" 200 617 "-" "Wget" "-"
+ml-node-2-1  | 2026/11/28 15:38:38.578245 [ml-node-2] entrenado v18: shard 2/3, 607778 denuncias, 11 árboles con 4 goroutines en 147.4 ms
+web-1        | 172.18.0.1 - - [28/Nov/2026:15:44:34 +0000] "GET /api/v1/health HTTP/1.1" 200 1066 "-" "-" "-"
+coordinator-1  | 2026/11/28 15:41:21.462120 GET /api/v1/health -> 200 (3.888 ms)
+coordinator-1  | 2026/11/28 15:41:26.501725 GET /api/v1/health -> 200 (4.214 ms)
+coordinator-1  | 2026/11/28 15:41:31.543919 GET /api/v1/health -> 200 (3.748 ms)
+coordinator-1  | 2026/11/28 15:41:36.582427 GET /api/v1/health -> 200 (3.849 ms)
+coordinator-1  | 2026/11/28 15:41:41.620975 GET /api/v1/health -> 200 (4.061 ms)
+coordinator-1  | 2026/11/28 15:41:46.660559 GET /api/v1/health -> 200 (4.054 ms)
+coordinator-1  | 2026/11/28 15:41:51.698550 GET /api/v1/health -> 200 (3.674 ms)
+coordinator-1  | 2026/11/28 15:41:56.735734 GET /api/v1/health -> 200 (3.608 ms)
+coordinator-1  | 2026/11/28 15:42:01.774368 GET /api/v1/health -> 200 (3.620 ms)
+coordinator-1  | 2026/11/28 15:42:06.809659 GET /api/v1/health -> 200 (3.686 ms)
+coordinator-1  | 2026/11/28 15:42:11.847326 GET /api/v1/health -> 200 (3.822 ms)
+coordinator-1  | 2026/11/28 15:42:16.883922 GET /api/v1/health -> 200 (3.943 ms)
+coordinator-1  | 2026/11/28 15:42:21.922544 GET /api/v1/health -> 200 (3.915 ms)
+coordinator-1  | 2026/11/28 15:42:26.963289 GET /api/v1/health -> 200 (3.802 ms)
+coordinator-1  | 2026/11/28 15:42:32.001088 GET /api/v1/health -> 200 (3.588 ms)
+coordinator-1  | 2026/11/28 15:42:37.038525 GET /api/v1/health -> 200 (3.632 ms)
+coordinator-1  | 2026/11/28 15:42:42.077038 GET /api/v1/health -> 200 (3.682 ms)
+coordinator-1  | 2026/11/28 15:42:47.116763 GET /api/v1/health -> 200 (4.279 ms)
+coordinator-1  | 2026/11/28 15:42:52.155136 GET /api/v1/health -> 200 (3.646 ms)
+coordinator-1  | 2026/11/28 15:42:57.199603 GET /api/v1/health -> 200 (3.504 ms)
+coordinator-1  | 2026/11/28 15:43:02.240191 GET /api/v1/health -> 200 (3.731 ms)
+coordinator-1  | 2026/11/28 15:43:07.278152 GET /api/v1/health -> 200 (3.885 ms)
+coordinator-1  | 2026/11/28 15:43:12.317214 GET /api/v1/health -> 200 (3.676 ms)
+coordinator-1  | 2026/11/28 15:43:17.355278 GET /api/v1/health -> 200 (3.655 ms)
+coordinator-1  | 2026/11/28 15:43:22.397669 GET /api/v1/health -> 200 (3.608 ms)
+coordinator-1  | 2026/11/28 15:43:27.439838 GET /api/v1/health -> 200 (3.475 ms)
+coordinator-1  | 2026/11/28 15:43:32.482617 GET /api/v1/health -> 200 (3.570 ms)
+coordinator-1  | 2026/11/28 15:43:37.519409 GET /api/v1/health -> 200 (3.744 ms)
+coordinator-1  | 2026/11/28 15:43:42.565310 GET /api/v1/health -> 200 (3.655 ms)
+coordinator-1  | 2026/11/28 15:43:47.603517 GET /api/v1/health -> 200 (3.928 ms)
+coordinator-1  | 2026/11/28 15:43:52.640599 GET /api/v1/health -> 200 (3.797 ms)
+coordinator-1  | 2026/11/28 15:43:57.678569 GET /api/v1/health -> 200 (3.734 ms)
+coordinator-1  | 2026/11/28 15:44:02.715238 GET /api/v1/health -> 200 (3.687 ms)
+coordinator-1  | 2026/11/28 15:44:07.755528 GET /api/v1/health -> 200 (3.705 ms)
+coordinator-1  | 2026/11/28 15:44:12.795971 GET /api/v1/health -> 200 (3.741 ms)
+coordinator-1  | 2026/11/28 15:44:17.833819 GET /api/v1/health -> 200 (3.766 ms)
+coordinator-1  | 2026/11/28 15:44:22.871216 GET /api/v1/health -> 200 (3.822 ms)
+coordinator-1  | 2026/11/28 15:44:27.910477 GET /api/v1/health -> 200 (3.568 ms)
+coordinator-1  | 2026/11/28 15:44:32.947915 GET /api/v1/health -> 200 (3.563 ms)
+coordinator-1  | 2026/11/28 15:44:34.397596 GET /api/v1/health -> 200 (5.054 ms)

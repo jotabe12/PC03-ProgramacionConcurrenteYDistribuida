@@ -1,0 +1,513 @@
+Base de datos: tb2_denuncias
+  cluster_metrics: 535 documentos
+  impact_reports: 51 documentos
+  patrol_recommendations: 4 documentos
+  predictions: 3661 documentos
+  training_jobs: 71 documentos
+  users: 2 documentos
+
+--- usuario de la aplicacion (privilegio minimo y restriccion por IP) ---
+{
+  _id: 'tb2_denuncias.tb2_app',
+  userId: UUID('cffe4740-6b5f-49ff-888e-a4086a98f4c3'),
+  user: 'tb2_app',
+  db: 'tb2_denuncias',
+  mechanisms: [
+    'SCRAM-SHA-1',
+    'SCRAM-SHA-256'
+  ],
+  authenticationRestrictions: [
+    {
+      clientSource: [
+        '172.29.20.10'
+      ]
+    }
+  ],
+  roles: [
+    {
+      role: 'readWrite',
+      db: 'tb2_denuncias'
+    }
+  ],
+  inheritedRoles: [
+    {
+      role: 'readWrite',
+      db: 'tb2_denuncias'
+    }
+  ],
+  inheritedPrivileges: [
+    {
+      resource: {
+        db: 'tb2_denuncias',
+        collection: ''
+      },
+      actions: [
+        'changeStream',
+        'collStats',
+        'compactStructuredEncryptionData',
+        'convertToCapped',
+        'createCollection',
+        'createIndex',
+        'createSearchIndexes',
+        'dbHash',
+        'dbStats',
+        'dropCollection',
+        'dropIndex',
+        'dropSearchIndex',
+        'find',
+        'insert',
+        'killCursors',
+        'listCollections',
+        'listIndexes',
+        'listSearchIndexes',
+        'updateSearchIndex',
+        'planCacheRead',
+        'remove',
+        'renameCollectionSameDB',
+        'update'
+      ]
+    },
+    {
+      resource: {
+        db: 'tb2_denuncias',
+        collection: 'system.js'
+      },
+      actions: [
+        'changeStream',
+        'collStats',
+        'compactStructuredEncryptionData',
+        'convertToCapped',
+        'createCollection',
+        'createIndex',
+        'createSearchIndexes',
+        'dbHash',
+        'dbStats',
+        'dropCollection',
+        'dropIndex',
+        'dropSearchIndex',
+        'find',
+        'insert',
+        'killCursors',
+        'listCollections',
+        'listIndexes',
+        'listSearchIndexes',
+        'updateSearchIndex',
+        'planCacheRead',
+        'remove',
+        'renameCollectionSameDB',
+        'update'
+      ]
+    }
+  ],
+  inheritedAuthenticationRestrictions: []
+}
+
+--- users (la contrasena se guarda como hash PBKDF2, nunca en claro; se muestran solo los primeros caracteres) ---
+[
+  {
+    username: 'admin',
+    role: 'admin',
+    iterations: 210000,
+    updatedAt: ISODate('2026-11-28T11:15:51.886Z'),
+    salt: 'Wo5SXnlp...',
+    hash: '9MND8NbKkjrL...'
+  },
+  {
+    username: 'analista',
+    role: 'analista',
+    iterations: 210000,
+    updatedAt: ISODate('2026-11-28T11:15:51.964Z'),
+    salt: 'RAaOm+UT...',
+    hash: '3k6YitrgoR4t...'
+  }
+]
+
+--- training_jobs (ultimos 3, resumidos) ---
+[
+  {
+    jobId: 'job-1795880318-v18',
+    version: Long('18'),
+    requestedBy: 'admin',
+    mode: 'final',
+    featureSet: 'tb2',
+    durationMs: 155.794,
+    nodeCount: 3,
+    totalTrees: 32,
+    trainRecords: Long('1823335'),
+    evaluation: {
+      accuracy: 0.49102124576028644,
+      top3Accuracy: 0.8832427034301338,
+      macroF1: 0.18339950261835403
+    }
+  },
+  {
+    jobId: 'job-1795879753-v17',
+    version: Long('17'),
+    requestedBy: 'admin',
+    mode: 'final',
+    featureSet: 'tb2',
+    durationMs: 298.419,
+    nodeCount: 3,
+    totalTrees: 67,
+    trainRecords: Long('1823335'),
+    evaluation: {
+      accuracy: 0.48994342989020895,
+      top3Accuracy: 0.8835289031244482,
+      macroF1: 0.18310165224051367
+    }
+  },
+  {
+    jobId: 'job-1795879669-v16',
+    version: Long('16'),
+    requestedBy: 'admin',
+    mode: 'final',
+    featureSet: 'tb2',
+    durationMs: 156.328,
+    nodeCount: 3,
+    totalTrees: 32,
+    trainRecords: Long('1823335'),
+    evaluation: {
+      accuracy: 0.49102124576028644,
+      top3Accuracy: 0.8832427034301338,
+      macroF1: 0.18339950261835403
+    }
+  }
+]
+
+--- predictions (ultimas 2) ---
+[
+  {
+    createdAt: ISODate('2026-11-28T15:38:37.993Z'),
+    user: 'analista',
+    district: 'SAN JUAN DE LURIGANCHO',
+    zone: 'Lima Este',
+    mes: 10,
+    anio: 2026,
+    probabilities: [
+      {
+        class: 'Violencia contra la mujer e IGF',
+        probability: 0.3813296636538719
+      },
+      {
+        class: 'Hurto',
+        probability: 0.3122599725403003
+      },
+      {
+        class: 'Robo',
+        probability: 0.16116673799593056
+      },
+      {
+        class: 'Estafa',
+        probability: 0.08032397736809146
+      },
+      {
+        class: 'Extorsión',
+        probability: 0.06255872275874909
+      },
+      {
+        class: 'Secuestro',
+        probability: 0.0023609266786683183
+      }
+    ],
+    topClass: 'Violencia contra la mujer e IGF',
+    topProbability: 0.3813296636538719,
+    topStreetCrime: 'Hurto',
+    modelVersion: Long('17'),
+    featureSet: 'tb2',
+    nodesUsed: 3,
+    treesUsed: 67,
+    fromCache: true,
+    latencyMs: 0.328
+  },
+  {
+    createdAt: ISODate('2026-11-28T15:38:37.917Z'),
+    user: 'analista',
+    district: 'SAN JUAN DE LURIGANCHO',
+    zone: 'Lima Este',
+    mes: 10,
+    anio: 2026,
+    probabilities: [
+      {
+        class: 'Violencia contra la mujer e IGF',
+        probability: 0.3813296636538719
+      },
+      {
+        class: 'Hurto',
+        probability: 0.3122599725403003
+      },
+      {
+        class: 'Robo',
+        probability: 0.16116673799593056
+      },
+      {
+        class: 'Estafa',
+        probability: 0.08032397736809146
+      },
+      {
+        class: 'Extorsión',
+        probability: 0.06255872275874909
+      },
+      {
+        class: 'Secuestro',
+        probability: 0.0023609266786683183
+      }
+    ],
+    topClass: 'Violencia contra la mujer e IGF',
+    topProbability: 0.3813296636538719,
+    topStreetCrime: 'Hurto',
+    modelVersion: Long('17'),
+    featureSet: 'tb2',
+    nodesUsed: 3,
+    treesUsed: 67,
+    fromCache: true,
+    latencyMs: 0.239
+  }
+]
+
+--- impact_reports (ultimo, resumen y 3 filas) ---
+[
+  {
+    anio: 2026,
+    mes: 12,
+    orden: 'tasa',
+    modelVersion: Long('17'),
+    summary: {
+      topN: 10,
+      districts: 50,
+      populationTop: Long('1355011'),
+      populationTotal: Long('11817321'),
+      populationPct: 11.466312880897455,
+      expectedStreetTop: 3296.930942242519,
+      expectedStreetTotal: 10004.582613524139,
+      expectedCoveragePct: 32.95420778259901
+    },
+    rows: [
+      {
+        rank: 1,
+        district: 'LIMA',
+        ubigeo: '150101',
+        zone: 'Lima Centro',
+        population: Long('265003'),
+        expectedTotal: 1690,
+        streetShare: 0.6884141640034818,
+        expectedStreet: 1163.4199371658842,
+        ratePer100k: 439.02142132952616,
+        topStreetCrime: 'Hurto',
+        topStreetProbability: 0.4844346259956929,
+        probabilities: [
+          {
+            class: 'Violencia contra la mujer e IGF',
+            probability: 0.20580214523335003
+          },
+          {
+            class: 'Hurto',
+            probability: 0.4844346259956929
+          },
+          {
+            class: 'Robo',
+            probability: 0.1537746916622368
+          },
+          {
+            class: 'Estafa',
+            probability: 0.10578368926671014
+          },
+          {
+            class: 'Extorsión',
+            probability: 0.048584879348193534
+          },
+          {
+            class: 'Secuestro',
+            probability: 0.0016199669973584198
+          }
+        ],
+        franjaSugerida: 'Tarde (12-18)',
+        franjaSupuesta: [
+          {
+            franja: 'Madrugada (00-06)',
+            probability: 0.11555199165218079
+          },
+          {
+            franja: 'Mañana (06-12)',
+            probability: 0.29383339561783384
+          },
+          {
+            franja: 'Tarde (12-18)',
+            probability: 0.3490790776605539
+          },
+          {
+            franja: 'Noche (18-24)',
+            probability: 0.24153553506943137
+          }
+        ]
+      },
+      {
+        rank: 2,
+        district: 'BARRANCO',
+        ubigeo: '150104',
+        zone: 'Lima Centro',
+        population: Long('37459'),
+        expectedTotal: 147.58333333333334,
+        streetShare: 0.6809113247844794,
+        expectedStreet: 100.49116301610941,
+        ratePer100k: 268.26974296193015,
+        topStreetCrime: 'Hurto',
+        topStreetProbability: 0.5504369878057224,
+        probabilities: [
+          {
+            class: 'Violencia contra la mujer e IGF',
+            probability: 0.21704316005777957
+          },
+          {
+            class: 'Hurto',
+            probability: 0.5504369878057224
+          },
+          {
+            class: 'Robo',
+            probability: 0.10544404704401743
+          },
+          {
+            class: 'Estafa',
+            probability: 0.10204551963886219
+          },
+          {
+            class: 'Extorsión',
+            probability: 0.023144613312029126
+          },
+          {
+            class: 'Secuestro',
+            probability: 0.0018856766227104548
+          }
+        ],
+        franjaSugerida: 'Tarde (12-18)',
+        franjaSupuesta: [
+          {
+            franja: 'Madrugada (00-06)',
+            probability: 0.10504650698285395
+          },
+          {
+            franja: 'Mañana (06-12)',
+            probability: 0.3000119033287116
+          },
+          {
+            franja: 'Tarde (12-18)',
+            probability: 0.358634877733735
+          },
+          {
+            franja: 'Noche (18-24)',
+            probability: 0.23630671195469966
+          }
+        ]
+      },
+      {
+        rank: 3,
+        district: 'MIRAFLORES',
+        ubigeo: '150122',
+        zone: 'Lima Centro',
+        population: Long('122493'),
+        expectedTotal: 363.9166666666667,
+        streetShare: 0.7628121907686392,
+        expectedStreet: 277.60006975722064,
+        ratePer100k: 226.6252518570209,
+        topStreetCrime: 'Hurto',
+        topStreetProbability: 0.6332874249166517,
+        probabilities: [
+          {
+            class: 'Violencia contra la mujer e IGF',
+            probability: 0.1316158069825884
+          },
+          {
+            class: 'Hurto',
+            probability: 0.6332874249166517
+          },
+          {
+            class: 'Robo',
+            probability: 0.10531215351630947
+          },
+          {
+            class: 'Estafa',
+            probability: 0.10557200498322943
+          },
+          {
+            class: 'Extorsión',
+            probability: 0.0228648819515843
+          },
+          {
+            class: 'Secuestro',
+            probability: 0.001347730384093584
+          }
+        ],
+        franjaSugerida: 'Tarde (12-18)',
+        franjaSupuesta: [
+          {
+            franja: 'Madrugada (00-06)',
+            probability: 0.10217819357415778
+          },
+          {
+            franja: 'Mañana (06-12)',
+            probability: 0.3022705016443413
+          },
+          {
+            franja: 'Tarde (12-18)',
+            probability: 0.3610996417631408
+          },
+          {
+            franja: 'Noche (18-24)',
+            probability: 0.23445166301836
+          }
+        ]
+      }
+    ]
+  }
+]
+
+--- cluster_metrics (ultima instantanea, resumida) ---
+[
+  {
+    timestamp: ISODate('2026-11-28T15:43:45.249Z'),
+    nodes: [
+      {
+        id: 'ml-node-1',
+        stats: {
+          cpuPct: 0,
+          rssMB: 25.23828125
+        }
+      },
+      {
+        id: 'ml-node-2',
+        stats: {
+          cpuPct: 0,
+          rssMB: 25.69921875
+        }
+      },
+      {
+        id: 'ml-node-3',
+        stats: {
+          cpuPct: 0,
+          rssMB: 25.5234375
+        }
+      }
+    ],
+    requests: {
+      predictCacheHits: Long('9'),
+      predictClusterCalls: Long('6'),
+      patrullaje: Long('4'),
+      impacto: Long('54'),
+      httpErrors: Long('83'),
+      denied: Long('22'),
+      rateLimited: Long('58'),
+      predict: Long('15')
+    },
+    cacheHitPct: 60,
+    latency: {
+      predict_cluster: {
+        count: 6,
+        avgMs: 0.8771666666666667,
+        p50Ms: 0.941,
+        p95Ms: 0.989,
+        p99Ms: 0.989,
+        maxMs: 0.989,
+        pctUnder100ms: 100
+      }
+    }
+  }
+]

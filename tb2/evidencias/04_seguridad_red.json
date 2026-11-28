@@ -1,0 +1,68 @@
+[
+    {
+        "prueba":  "Redis sin autenticación",
+        "esperado":  "NOAUTH",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "NOAUTH Authentication required."
+    },
+    {
+        "prueba":  "Redis: tb2app escribe la clave otra:clave",
+        "esperado":  "NOPERM",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "NOPERM No permissions to access a key"
+    },
+    {
+        "prueba":  "Redis: tb2app ejecuta FLUSHALL",
+        "esperado":  "NOPERM",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "NOPERM User tb2app has no permissions to run the \u0027flushall\u0027 command"
+    },
+    {
+        "prueba":  "MongoDB: tb2_app desde 127.0.0.1 (no es el coordinador)",
+        "esperado":  "Authentication failed",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "docker : MongoServerError: Authentication failed. At C:\\Users\\jde\\Documents\\Antigravity\\PC03-ProgramacionConcurrenteYDistribuida\\tb2\\scripts\\04_evidencias_bd.ps..."
+    },
+    {
+        "prueba":  "ml-node-1 -\u003e mongo:27017",
+        "esperado":  "sin acceso",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "docker : nc: bad address \u0027mongo\u0027 At C:\\Users\\jde\\Documents\\Antigravity\\PC03-ProgramacionConcurrenteYDistribuida\\tb2\\scripts\\04_evidencias_bd.ps1:77 char:6 + $o ..."
+    },
+    {
+        "prueba":  "ml-node-1 -\u003e redis:6379",
+        "esperado":  "sin acceso",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "docker : nc: bad address \u0027redis\u0027 At C:\\Users\\jde\\Documents\\Antigravity\\PC03-ProgramacionConcurrenteYDistribuida\\tb2\\scripts\\04_evidencias_bd.ps1:79 char:6 + $o ..."
+    },
+    {
+        "prueba":  "web (nginx) -\u003e mongo:27017",
+        "esperado":  "sin acceso",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "docker : nc: bad address \u0027mongo\u0027 At C:\\Users\\jde\\Documents\\Antigravity\\PC03-ProgramacionConcurrenteYDistribuida\\tb2\\scripts\\04_evidencias_bd.ps1:82 char:6 + $o ..."
+    },
+    {
+        "prueba":  "Equipo -\u003e 127.0.0.1:27017",
+        "esperado":  "cerrado",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "conexión rechazada"
+    },
+    {
+        "prueba":  "Equipo -\u003e 127.0.0.1:6379",
+        "esperado":  "cerrado",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "conexión rechazada"
+    },
+    {
+        "prueba":  "Equipo -\u003e 127.0.0.1:9090",
+        "esperado":  "cerrado",
+        "resultado":  "BLOQUEADO (correcto)",
+        "detalle":  "conexión rechazada"
+    },
+    {
+        "prueba":  "Equipo -\u003e 127.0.0.1:8080 (UI y API por nginx)",
+        "esperado":  "abierto (única puerta)",
+        "resultado":  "PERMITIDO",
+        "detalle":  "HTTP 200"
+    }
+]

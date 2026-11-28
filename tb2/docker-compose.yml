@@ -1,0 +1,172 @@
+# TB2 · Grupo 3 — despliegue local con Docker Compose (7 contenedores en 3 redes).
+#
+#   navegador ──127.0.0.1:8080──▶ web (nginx + SPA)        red frontend
+#                                   │ /api, /ws, /swagger
+#                                   ▼
+#                               coordinator ──TCP 9090──▶ ml-node-1..3   red cluster (interna)
+#                                   │
+#                                   └──▶ mongo:27017, redis:6379          red datos (interna)
+#
+# Mínimo privilegio (equivalente a una ACL extendida): solo la UI se publica, y solo en
+# 127.0.0.1; los nodos no ven las bases de datos; MongoDB y Redis no tienen puertos en el
+# equipo; el usuario de MongoDB solo acepta conexiones desde la IP del coordinador y el de
+# Redis solo puede tocar claves "tb2:*".
+#
+# Las variables vienen de .env (lo crea scripts\01_levantar.ps1 a partir de .env.example).
+name: tb2-grupo3
+
+x-data: &data
+  type: bind
+  source: ./data
+  target: /data
+  read_only: true
+
+x-node: &node
+  build: .
+  image: tb2-grupo3-app
+  command: ["/app/node"]
+  restart: unless-stopped
+  volumes: [*data]
+  networks: [cluster]
+  depends_on:
+    coordinator:
+      condition: service_healthy
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Falta .env - ejecute scripts\01_levantar.ps1}
+      MONGO_APP_DB: tb2_denuncias
+      MONGO_APP_USER: tb2_app
+      MONGO_APP_PASSWORD: ${MONGO_APP_PASSWORD:?Falta .env}
+      COORDINATOR_DATOS_IP: ${COORDINATOR_DATOS_IP:-172.29.20.10}
+    volumes:
+      - mongo-data:/data/db
+      - ./docker/mongo-init:/docker-entrypoint-initdb.d:ro
+    networks: [datos]
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD:?Falta .env}
+    # ACL: el usuario "default" queda deshabilitado; tb2app solo lee/escribe claves tb2:* y no
+    # puede ejecutar comandos peligrosos (FLUSHALL, KEYS, CONFIG, ...).
+    command: ["redis-server", "--save", "", "--appendonly", "no",
+              "--user", "default", "off",
+              "--user", "tb2app", "on", ">${REDIS_PASSWORD}", "~tb2:*", "+@read", "+@write", "+@keyspace", "+@connection", "-@dangerous"]
+    networks: [datos]
+    healthcheck:
+      test: ["CMD-SHELL", "REDISCLI_AUTH=\"$$REDIS_PASSWORD\" redis-cli --user tb2app ping | grep -q PONG"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  coordinator:
+    build: .
+    image: tb2-grupo3-app
+    command: ["/app/coordinator"]
+    restart: unless-stopped
+    environment:
+      HTTP_ADDR: ":8080"
+      TCP_ADDR: ":9090"
+      DATA_PATH: "/data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv"
+      POBLACION_PATH: "/data/6894980-peru-poblacion-total-proyectada-al-30-de-junio-de-cada-ano-segun-departamento-provincia-y-distrito-2018-2026.xlsx"
+      MONGO_URI: "mongodb://tb2_app:${MONGO_APP_PASSWORD}@mongo:27017/tb2_denuncias?authSource=tb2_denuncias&serverSelectionTimeoutMS=3000"
+      MONGO_DB: tb2_denuncias
+      REDIS_ADDR: "redis:6379"
+      REDIS_USER: tb2app
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET:?Falta .env}
+      JWT_TTL: 8h
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:?Falta .env}
+      ANALISTA_USER: ${ANALISTA_USER:-analista}
+      ANALISTA_PASSWORD: ${ANALISTA_PASSWORD:?Falta .env}
+      CORS_ORIGINS: "http://localhost:8080,http://127.0.0.1:8080"
+      TRUST_PROXY: "true"
+      ANALISTA_RPM: "300"
+      LOGIN_MAX_FALLOS: "10"
+      CACHE_TTL: 10m
+      METRICS_INTERVAL: 30s
+      LIVE_INTERVAL: 2s
+      HEARTBEAT: 2s
+      EXPECTED_NODES: "3"
+      AUTO_TRAIN: "true"
+    volumes: [*data]
+    expose: ["8080", "9090"]   # sin "ports": solo es alcanzable dentro de las redes de Docker
+    networks:
+      frontend: {}
+      cluster: {}
+      datos:
+        ipv4_address: ${COORDINATOR_DATOS_IP:-172.29.20.10}
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080/api/v1/health > /dev/null || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 40
+      start_period: 5s
+
+  ml-node-1:
+    <<: *node
+    environment: { NODE_ID: ml-node-1, COORDINATOR_ADDR: "coordinator:9090", DATA_PATH: "/data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv" }
+
+  ml-node-2:
+    <<: *node
+    environment: { NODE_ID: ml-node-2, COORDINATOR_ADDR: "coordinator:9090", DATA_PATH: "/data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv" }
+
+  ml-node-3:
+    <<: *node
+    environment: { NODE_ID: ml-node-3, COORDINATOR_ADDR: "coordinator:9090", DATA_PATH: "/data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv" }
+
+  web:
+    build: ./web
+    image: tb2-grupo3-web
+    restart: unless-stopped
+    ports: ["127.0.0.1:8080:80"]   # única puerta de entrada, solo desde este equipo
+    networks: [frontend]
+    depends_on:
+      coordinator:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ > /dev/null || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  # Herramienta para la prueba de carga (no se levanta con "up"):
+  #   docker compose --profile herramientas run --rm loadtest -url http://coordinator:8080 -levels 10,50,100
+  loadtest:
+    image: tb2-grupo3-app
+    profiles: [herramientas]
+    entrypoint: ["/app/loadtest"]
+    environment:
+      ADMIN_USER: ${ADMIN_USER:-admin}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+    networks: [frontend]
+
+networks:
+  frontend: {}
+  cluster:
+    internal: true
+  datos:
+    internal: true
+    ipam:
+      config:
+        - subnet: ${DATOS_SUBNET:-172.29.20.0/24}
+
+volumes:
+  mongo-data:
