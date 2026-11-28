@@ -2,7 +2,15 @@
 import { useEffect, useState } from "react";
 import { api, fmt, fmt1, ms, MONTHS, CLASSES, CLASS_COLOR, STREET, title } from "./api.js";
 import { Bars } from "./charts.jsx";
-import { useLive } from "./live.jsx";
+import { defineSlice, useSlice } from "./store.js";
+
+// Se conservan al cambiar de página: el formulario, el último resultado y el feed
+// (que sigue llenándose por WebSocket aunque la página no esté abierta).
+const FORM = defineSlice("predict.form", { district: "SAN JUAN DE LURIGANCHO", mes: 10, anio: 2026 });
+const RESULT = defineSlice("predict.result", null);
+const FEED = defineSlice("predict.feed", [], {
+  prediction: (f, d, t) => [{ ...d, t }, ...f].slice(0, 12),
+});
 
 export function useDistricts() {
   const [list, setList] = useState([]);
@@ -14,16 +22,17 @@ export function useDistricts() {
 
 export function PredictPage() {
   const districts = useDistricts();
-  const [district, setDistrict] = useState("SAN JUAN DE LURIGANCHO");
-  const [mes, setMes] = useState(10);
-  const [anio, setAnio] = useState(2026);
-  const [res, setRes] = useState(null);
+  const [form, setForm] = useSlice(FORM);
+  const [res, setRes] = useSlice(RESULT);
+  const [feed] = useSlice(FEED);
+  const { district, mes, anio } = form;
+  const setDistrict = (v) => setForm((f) => ({ ...f, district: v }));
+  const setMes = (v) => setForm((f) => ({ ...f, mes: v }));
+  const setAnio = (v) => setForm((f) => ({ ...f, anio: v }));
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
-  const [feed, setFeed] = useState([]);
 
-  useLive("prediction", (d, t) => setFeed((f) => [{ ...d, t }, ...f].slice(0, 12)));
-
+  // Solo se consulta al pulsar «Predecir»: entrar a la página no genera predicciones.
   const run = async (e) => {
     if (e) e.preventDefault();
     setBusy(true);
@@ -36,7 +45,6 @@ export function PredictPage() {
       setBusy(false);
     }
   };
-  useEffect(() => { run(); }, []); // primera consulta de ejemplo
 
   return (
     <>
@@ -64,8 +72,13 @@ export function PredictPage() {
         <button className="btn" type="submit" disabled={busy}>{busy ? "Consultando…" : "Predecir"}</button>
       </form>
       {error && <p className="error">{error.message}{error.hint ? `. ${error.hint}` : ""}</p>}
-      {res && (
-        <div className="grid g-side">
+      <div className="grid g-side">
+        {!res ? (
+          <section className="panel">
+            <h2>Sin consulta todavía</h2>
+            <p className="hint">Elija el distrito, el mes y el año, y pulse «Predecir». El resultado se conserva al cambiar de página.</p>
+          </section>
+        ) : (
           <div className="stack">
             <section className="panel">
               <h2>{title(res.district)}, {MONTHS[res.mes - 1]} de {res.anio}</h2>
@@ -101,10 +114,11 @@ export function PredictPage() {
               <Bars max={1} color="var(--seq-300)" rows={res.franjaSupuesta.map((f) => ({ label: f.franja, value: f.probability, display: `${fmt1(100 * f.probability)} %` }))} />
             </section>
           </div>
+        )}
           <section className="panel">
             <h2>Predicciones en vivo</h2>
             <p className="sub">Consultas de todos los usuarios, recibidas por WebSocket.</p>
-            {feed.length === 0 ? <p className="hint">Aún no llegan consultas. Haga una predicción para verla aparecer aquí.</p> : (
+            {feed.length === 0 ? <p className="hint">Aún no llegan consultas en esta sesión. Las predicciones de cualquier usuario aparecen aquí al momento.</p> : (
               <ul className="feed">
                 {feed.map((f, i) => (
                   <li key={i}>
@@ -115,8 +129,7 @@ export function PredictPage() {
               </ul>
             )}
           </section>
-        </div>
-      )}
+      </div>
     </>
   );
 }

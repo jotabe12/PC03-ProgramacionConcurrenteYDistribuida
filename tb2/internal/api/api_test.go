@@ -252,6 +252,10 @@ func TestEndToEnd(t *testing.T) {
 	t.Logf("impacto mar-2026: top-10 cubre %.1f%% de los delitos de calle esperados y %.1f%% de la población (%d hab.); "+
 		"real: %.1f%% de %d (óptimo %.1f%%), coincidencia %d/10; #1 %s", im.Summary.ExpectedCoveragePct, im.Summary.PopulationPct,
 		im.Summary.PopulationTop, bt.RealCoveragePct, bt.RealStreetTotal, bt.OracleCoveragePct, bt.OverlapAtN, im.Rows[0].District)
+	t.Logf("línea base sin modelo (ranking por los 12 meses previos): %.1f%%", bt.HistoricalCoveragePct)
+	if bt.HistoricalCoveragePct <= 0 || bt.HistoricalCoveragePct > bt.OracleCoveragePct+1e-9 {
+		t.Fatalf("línea base histórica fuera de rango: %.1f%% (óptimo %.1f%%)", bt.HistoricalCoveragePct, bt.OracleCoveragePct)
+	}
 	if bt.RealCoveragePct < 0.8*bt.OracleCoveragePct {
 		t.Fatalf("el ranking cubre %.1f%% de lo real, muy lejos del óptimo %.1f%%", bt.RealCoveragePct, bt.OracleCoveragePct)
 	}
@@ -529,10 +533,14 @@ func TestWebSocketRealTime(t *testing.T) {
 // Opciones de entrenamiento: nodos, modo de validación y conjunto pc4 (ablation).
 func TestTrainOptions(t *testing.T) {
 	e := setup(t, nil)
+	e.srv.lastVersion = 41 // como si MongoDB ya tuviera hasta v41 de una ejecución anterior
 	var job TrainingJob
 	if code := e.do("POST", "/api/v1/train", map[string]any{"nodes": 1, "trees": 4, "workers": 2}, &job); code != 200 ||
 		job.NodeCount != 1 || job.Nodes[0].Result.Shards != 1 || job.TrainRecords != 1823335 {
 		t.Fatalf("1 nodo: %d %+v", code, job)
+	}
+	if job.Version != 42 {
+		t.Fatalf("la numeración debe continuar tras un reinicio: v%d, se esperaba v42", job.Version)
 	}
 	var er ErrorResponse
 	if code := e.do("POST", "/api/v1/train", map[string]any{"nodes": 5}, &er); code != 409 || er.Code != "NOT_ENOUGH_NODES" {

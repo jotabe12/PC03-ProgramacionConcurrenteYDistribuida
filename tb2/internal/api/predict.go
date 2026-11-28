@@ -316,9 +316,27 @@ func (s *Server) impactReport(st *modelState, mes, anio, top int, orden string) 
 				bt.OverlapAtN++
 			}
 		}
+		// Línea base sin modelo: los N distritos con más delitos de calle (o mayor tasa)
+		// en los 12 meses previos. Permite medir cuánto aporta el bosque al ranking.
+		hist := make([]int, n)
+		histKey := make([]float64, n)
+		for i := range rows {
+			hist[i] = i
+			id := s.cat.Index[rows[i].District]
+			histKey[i] = s.hist.StreetAvg(id, m)
+			if orden == "tasa" {
+				histKey[i] /= float64(max(rows[i].Population, 1))
+			}
+		}
+		sort.SliceStable(hist, func(a, b int) bool { return histKey[hist[a]] > histKey[hist[b]] })
+		var histTop int64
+		for i := 0; i < top && i < n; i++ {
+			histTop += *rows[hist[i]].ActualStreet
+		}
 		if bt.RealStreetTotal > 0 {
 			bt.RealCoveragePct = 100 * float64(bt.RealStreetTop) / float64(bt.RealStreetTotal)
 			bt.OracleCoveragePct = 100 * float64(oracle) / float64(bt.RealStreetTotal)
+			bt.HistoricalCoveragePct = 100 * float64(histTop) / float64(bt.RealStreetTotal)
 		}
 		resp.Backtest = bt
 	}

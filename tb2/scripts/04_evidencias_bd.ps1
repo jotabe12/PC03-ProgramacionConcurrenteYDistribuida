@@ -4,8 +4,8 @@ $envs = Read-DotEnv
 $sec = @()   # resumen de pruebas de seguridad de red
 
 Write-Host "1) Contenedores y redes" -ForegroundColor Cyan
-docker compose ps | Tee-Object -FilePath (Join-Path $Evid "04_docker_compose_ps.txt")
-docker stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}" | Tee-Object -FilePath (Join-Path $Evid "04_docker_stats.txt")
+docker compose ps | Save-Tee (Join-Path $Evid "04_docker_compose_ps.txt")
+docker stats --no-stream --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}" | Save-Tee (Join-Path $Evid "04_docker_stats.txt")
 $redes = @()
 foreach ($n in @("frontend", "cluster", "datos")) {
     $info = docker network inspect "tb2-grupo3_$n" --format "{{.Name}} interna={{.Internal}} subred={{range .IPAM.Config}}{{.Subnet}}{{end}} contenedores={{range .Containers}}{{.Name}}({{.IPv4Address}}) {{end}}"
@@ -39,7 +39,7 @@ print('--- cluster_metrics (ultima instantanea, resumida) ---');
 printjson(db.cluster_metrics.find({}, { _id: 0, timestamp: 1, requests: 1, cacheHitPct: 1, 'latency.predict_cluster': 1, 'nodes.id': 1, 'nodes.stats.cpuPct': 1, 'nodes.stats.rssMB': 1 }).sort({ timestamp: -1 }).limit(1).toArray());
 '@
 $js | docker compose exec -T mongo sh -c "cat > /tmp/tb2_consultas.js"
-docker compose exec -T mongo mongosh --quiet -u root -p $envs["MONGO_ROOT_PASSWORD"] --authenticationDatabase admin /tmp/tb2_consultas.js | Tee-Object -FilePath (Join-Path $Evid "04_mongodb.txt")
+docker compose exec -T mongo mongosh --quiet -u root -p $envs["MONGO_ROOT_PASSWORD"] --authenticationDatabase admin /tmp/tb2_consultas.js | Save-Tee (Join-Path $Evid "04_mongodb.txt")
 
 Write-Host "3) Redis (usuario ACL tb2app)" -ForegroundColor Cyan
 $rc = { param([string[]]$cmd) docker compose exec -T -e "REDISCLI_AUTH=$($envs['REDIS_PASSWORD'])" redis redis-cli --user tb2app @cmd 2>&1 }
@@ -53,7 +53,7 @@ if ($pred) {
     $salida += "> TTL $pred   (segundos que le quedan en caché)"; $salida += (& $rc @("TTL", "$pred"))
     $salida += "> GET $pred"; $salida += (& $rc @("GET", "$pred"))
 }
-$salida | Tee-Object -FilePath (Join-Path $Evid "04_redis.txt")
+$salida | Save-Tee (Join-Path $Evid "04_redis.txt")
 
 Write-Host "4) Aislamiento y mínimo privilegio (deben FALLAR los accesos no autorizados)" -ForegroundColor Cyan
 function Add-Prueba($nombre, $esperado, $salidaCmd, [bool]$bloqueado) {

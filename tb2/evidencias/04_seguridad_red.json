@@ -33,7 +33,7 @@
         "prueba":  "ml-node-1 -\u003e redis:6379",
         "esperado":  "sin acceso",
         "resultado":  "BLOQUEADO (correcto)",
-        "detalle":  "SIN-ACCESO docker : nc: bad address \u0027redis\u0027 At C:\\Users\\jde\\Documents\\Antigravity\\PC03-ProgramacionConcurrenteYDistribuida\\tb2\\scripts\\04_evidencias_bd.ps1:79 c..."
+        "detalle":  "docker : nc: bad address \u0027redis\u0027 At C:\\Users\\jde\\Documents\\Antigravity\\PC03-ProgramacionConcurrenteYDistribuida\\tb2\\scripts\\04_evidencias_bd.ps1:79 char:6 + $o ..."
     },
     {
         "prueba":  "web (nginx) -\u003e mongo:27017",

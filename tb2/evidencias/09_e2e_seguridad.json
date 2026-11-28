@@ -1,5 +1,5 @@
 {
-    "fecha":  "2026-11-28T06:57:38",
+    "fecha":  "2026-11-28T11:51:41",
     "pasos":  [
                   {
                       "paso":  "login admin y analista",
@@ -14,7 +14,7 @@
                   {
                       "paso":  "evento hello",
                       "correcto":  true,
-                      "detalle":  "usuario admin, canales: logs, training, prediction, metrics"
+                      "detalle":  "usuario admin, canales: prediction, metrics, logs, training"
                   },
                   {
                       "paso":  "POST /train",
@@ -24,12 +24,12 @@
                   {
                       "paso":  "progreso por WebSocket",
                       "correcto":  true,
-                      "detalle":  "18 eventos de progreso de 3 nodos; fin v2 en 143 ms"
+                      "detalle":  "19 eventos de progreso de 3 nodos; fin v60 en 144 ms"
                   },
                   {
                       "paso":  "métricas por WebSocket",
                       "correcto":  true,
-                      "detalle":  "2 fotos del clúster recibidas"
+                      "detalle":  "3 fotos del clúster recibidas"
                   },
                   {
                       "paso":  "logs por WebSocket",
@@ -39,12 +39,12 @@
                   {
                       "paso":  "predicción (clúster)",
                       "correcto":  true,
-                      "detalle":  "ATE 5/2030: Violencia contra la mujer e IGF (40.1%); 3.762 ms"
+                      "detalle":  "ATE 5/2031: Violencia contra la mujer e IGF (40.1%); 3.993 ms"
                   },
                   {
                       "paso":  "misma predicción (caché Redis)",
                       "correcto":  true,
-                      "detalle":  "1.642 ms"
+                      "detalle":  "1.767 ms"
                   },
                   {
                       "paso":  "evento prediction en vivo",
@@ -54,7 +54,7 @@
                   {
                       "paso":  "persistido en MongoDB",
                       "correcto":  true,
-                      "detalle":  "predictions con ATE/2030 = 4"
+                      "detalle":  "predictions con ATE/2031 = 2"
                   },
                   {
                       "paso":  "clave en Redis con TTL",
@@ -99,7 +99,7 @@
                   {
                       "paso":  "cuota del analista (300/min) -\u003e 429 QUOTA_EXCEEDED",
                       "correcto":  true,
-                      "detalle":  "HTTP 200: 303, HTTP 429 QUOTA_EXCEEDED: 57"
+                      "detalle":  "HTTP 200: 304, HTTP 429 QUOTA_EXCEEDED: 56"
                   },
                   {
                       "paso":  "cabeceras de seguridad",

@@ -256,6 +256,9 @@ type ImpactBacktest struct {
 	RealStreetTotal   int64    `json:"realStreetTotal" bson:"realStreetTotal"`
 	RealCoveragePct   float64  `json:"realCoveragePct" bson:"realCoveragePct"`
 	OracleCoveragePct float64  `json:"oracleCoveragePct" bson:"oracleCoveragePct"` // si se hubiera conocido el futuro
+	// HistoricalCoveragePct: línea base sin modelo, que ordena los distritos por los
+	// delitos de calle de los 12 meses previos (o su tasa, si orden=tasa).
+	HistoricalCoveragePct float64 `json:"historicalCoveragePct" bson:"historicalCoveragePct"`
 	OverlapAtN        int      `json:"overlapAtN" bson:"overlapAtN"`
 	RealTopDistricts  []string `json:"realTopDistricts" bson:"realTopDistricts"`
 }

@@ -1,5 +1,6 @@
 // Panel de impacto social y plan de patrullaje.
 import { useEffect, useMemo, useState } from "react";
+import { defineSlice, useSlice } from "./store.js";
 import { api, fmt, fmt1, pctRaw, MONTHS, MONTHS_SHORT, title, CLASS_COLOR } from "./api.js";
 import { Bars, Heatmap } from "./charts.jsx";
 
@@ -59,7 +60,7 @@ function Answer({ d }) {
       <div className="facts">
         <span><b>{title(d.rows[0].district)}</b>primer distrito priorizado</span>
         <span><b>{fmt(s.expectedStreetTop)}</b>delitos de calle esperados en esos distritos</span>
-        {bt && <span><b>{pctRaw(bt.realCoveragePct, 1)}</b>de los delitos de calle reales del mes cayeron en ellos (óptimo posible {pctRaw(bt.oracleCoveragePct, 1)})</span>}
+        {bt && <span><b>{pctRaw(bt.realCoveragePct, 1)}</b>de los delitos de calle reales del mes cayeron en ellos (sin modelo, solo con el histórico: {pctRaw(bt.historicalCoveragePct, 1)}; óptimo posible {pctRaw(bt.oracleCoveragePct, 1)})</span>}
         {bt && <span><b>{bt.overlapAtN} de {s.topN}</b>coinciden con el top real del mes</span>}
         {!bt && <span><b>pronóstico</b>mes sin datos reales todavía (historia {d.historyFrom} a {d.historyTo})</span>}
       </div>
@@ -141,11 +142,18 @@ function YearHeat({ anio, orden }) {
   );
 }
 
+// Filtros que se conservan al cambiar de página.
+const IMPACT_FILTERS = defineSlice("impact.filters", { mes: 3, anio: 2026, top: 10, orden: "casos" });
+const PATROL_FILTERS = defineSlice("patrol.filters", { mes: 10, anio: 2026, top: 8, orden: "casos" });
+
+function useFilters(key) {
+  const [f, setF] = useSlice(key);
+  const set = (k) => (v) => setF((x) => ({ ...x, [k]: typeof v === "function" ? v(x[k]) : v }));
+  return { ...f, setMes: set("mes"), setAnio: set("anio"), setTop: set("top"), setOrden: set("orden") };
+}
+
 export function ImpactPage() {
-  const [mes, setMes] = useState(3);
-  const [anio, setAnio] = useState(2026);
-  const [top, setTop] = useState(10);
-  const [orden, setOrden] = useState("casos");
+  const { mes, setMes, anio, setAnio, top, setTop, orden, setOrden } = useFilters(IMPACT_FILTERS);
   const { data, error, loading } = useImpact(mes, anio, top, orden);
   return (
     <>
@@ -202,10 +210,7 @@ export function ImpactPage() {
 }
 
 export function PatrolPage() {
-  const [mes, setMes] = useState(10);
-  const [anio, setAnio] = useState(2026);
-  const [top, setTop] = useState(8);
-  const [orden, setOrden] = useState("casos");
+  const { mes, setMes, anio, setAnio, top, setTop, orden, setOrden } = useFilters(PATROL_FILTERS);
   const [state, setState] = useState({ data: null, error: null });
   useEffect(() => {
     let alive = true;

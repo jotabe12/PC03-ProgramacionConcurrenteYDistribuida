@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, loadSession, saveSession, setUnauthorizedHandler } from "./api.js";
 import { LiveProvider, useLiveStatus } from "./live.jsx";
+import { resetStore } from "./store.js";
 import { ImpactPage, PatrolPage } from "./impacto.jsx";
 import { PredictPage } from "./predict.jsx";
 import { TrainPage, EvalPage } from "./modelo.jsx";
@@ -123,12 +124,13 @@ function Shell({ session, onLogout }) {
 export default function App() {
   const [session, setSession] = useState(loadSession);
   useEffect(() => {
-    setUnauthorizedHandler(() => { saveSession(null); setSession(null); });
+    setUnauthorizedHandler(() => { saveSession(null); resetStore(); setSession(null); });
   }, []);
-  if (!session) return <Login onLogin={setSession} />;
+  const logout = () => { saveSession(null); resetStore(); setSession(null); };
+  if (!session) return <Login onLogin={(s) => { resetStore(); setSession(s); }} />;
   return (
     <LiveProvider token={session.token}>
-      <Shell session={session} onLogout={() => { saveSession(null); setSession(null); }} />
+      <Shell session={session} onLogout={logout} />
     </LiveProvider>
   );
 }

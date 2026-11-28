@@ -3,30 +3,33 @@ import { useEffect, useRef, useState } from "react";
 import { api, fmt, fmt1, ms } from "./api.js";
 import { Lines } from "./charts.jsx";
 import { useLive } from "./live.jsx";
+import { defineSlice, useSlice } from "./store.js";
 
 const NODE_COLORS = ["var(--series-1)", "var(--series-2)", "var(--series-3)", "var(--series-4)"];
 const WINDOW = 90; // muestras (3 minutos a 2 s)
 
+// La última foto y la serie de 3 minutos se acumulan aunque el panel esté cerrado,
+// así las gráficas no empiezan de cero cada vez que se vuelve a esta página.
+const METRICS = defineSlice("admin.metrics", { snap: null, cpu: {}, lat: [] }, {
+  metrics: (h, d) => {
+    const t = Date.now();
+    const cpu = { ...h.cpu };
+    (d.nodes || []).forEach((n) => { cpu[n.id] = [...(cpu[n.id] || []), { t, v: n.cpuPct }].slice(-WINDOW); });
+    cpu.coordinator = [...(cpu.coordinator || []), { t, v: d.coordinator.cpuPct }].slice(-WINDOW);
+    const lc = d.latencyCluster || {};
+    const lat = [...h.lat, { t, p50: lc.p50Ms || 0, p95: lc.p95Ms || 0, rate: d.predictPerSec || 0 }].slice(-WINDOW);
+    return { snap: d, cpu, lat };
+  },
+});
+
 export function AdminPage() {
-  const [snap, setSnap] = useState(null);
-  const [hist, setHist] = useState({ cpu: {}, lat: [] });
+  const [{ snap, cpu, lat }] = useSlice(METRICS);
+  const hist = { cpu, lat };
   const [logs, setLogs] = useState([]);
   const [level, setLevel] = useState("");
   const [metrics, setMetrics] = useState(null);
   const box = useRef(null);
 
-  useLive("metrics", (d) => {
-    const t = Date.now();
-    setSnap(d);
-    setHist((h) => {
-      const cpu = { ...h.cpu };
-      (d.nodes || []).forEach((n) => { cpu[n.id] = [...(cpu[n.id] || []), { t, v: n.cpuPct }].slice(-WINDOW); });
-      cpu.coordinator = [...(cpu.coordinator || []), { t, v: d.coordinator.cpuPct }].slice(-WINDOW);
-      const lc = d.latencyCluster || {};
-      const lat = [...h.lat, { t, p50: lc.p50Ms || 0, p95: lc.p95Ms || 0, rate: d.predictPerSec || 0 }].slice(-WINDOW);
-      return { cpu, lat };
-    });
-  });
   useLive("logs", (e) => setLogs((l) => [...l, e].slice(-400)));
 
   useEffect(() => {
@@ -61,7 +64,7 @@ export function AdminPage() {
           <div className="kpi"><span>Predicciones por segundo</span><b>{snap ? fmt1(snap.predictPerSec) : "—"}</b><small>{snap ? `${fmt(snap.predictTotal)} en total` : ""}</small></div>
           <div className="kpi"><span>Latencia p95 (clúster)</span><b>{snap && snap.latencyCluster ? ms(snap.latencyCluster.p95Ms) : "—"}</b><small>{snap && snap.latencyCluster ? `p50 ${ms(snap.latencyCluster.p50Ms)}, ${fmt1(snap.latencyCluster.pctUnder100ms)} % bajo 100 ms` : "sin consultas aún"}</small></div>
           <div className="kpi"><span>Aciertos de caché</span><b>{snap ? `${fmt1(snap.cacheHitPct)} %` : "—"}</b><small>Redis</small></div>
-          <div className="kpi"><span>Rechazos de seguridad</span><b>{snap ? fmt(snap.denied) : "—"}</b><small>{snap ? `${fmt(snap.rateLimited)} por cuota o intentos` : ""}</small></div>
+          <div className="kpi"><span>Rechazos de seguridad</span><b>{snap ? fmt(snap.denied + snap.rateLimited) : "—"}</b><small>{snap ? `${fmt(snap.denied)} sin permiso (401/403), ${fmt(snap.rateLimited)} por cuota o intentos (429)` : ""}</small></div>
         </div>
         <section className="panel">
           <h2>Nodos ML</h2>

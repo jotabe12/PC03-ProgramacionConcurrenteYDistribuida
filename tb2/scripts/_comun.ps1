@@ -130,6 +130,15 @@ function Save-Text {
     Write-Host "  -> guardado evidencias\$Archivo" -ForegroundColor DarkGray
 }
 
+# Como Tee-Object (muestra cada línea y la guarda), pero en UTF-8: el Tee-Object de
+# Windows PowerShell 5.1 escribe UTF-16 y GitHub muestra esos archivos como binarios.
+function Save-Tee {
+    param([Parameter(Mandatory)][string]$Ruta, [Parameter(ValueFromPipeline)]$Linea)
+    begin { $lineasTee = New-Object System.Collections.Generic.List[string] }
+    process { $texto = "$Linea"; $lineasTee.Add($texto); $texto }
+    end { [System.IO.File]::WriteAllLines($Ruta, $lineasTee.ToArray(), $Utf8) }
+}
+
 function Wait-Api {
     param([scriptblock]$Condicion, [int]$Segundos = 180, [string]$Mensaje = "esperando")
     $limite = (Get-Date).AddSeconds($Segundos)

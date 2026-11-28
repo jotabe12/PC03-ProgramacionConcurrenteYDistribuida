@@ -2,9 +2,20 @@
 import { useEffect, useState } from "react";
 import { api, fmt, fmt1, ms, pct, CLASS_COLOR } from "./api.js";
 import { Bars, Confusion } from "./charts.jsx";
-import { useLive } from "./live.jsx";
+import { defineSlice, setSlice, useSlice } from "./store.js";
 
 const DEFAULTS = { trees: 32, workers: 0, nodes: 3, maxDepth: 12, minLeaf: 50, mtry: 3, sampleFrac: 0.3, featureSet: "tb2", classWeight: "none", mode: "final" };
+
+// Estado del entrenamiento que sobrevive al cambiar de página: el avance por nodo
+// y los eventos llegan por WebSocket aunque la página no esté abierta.
+const TRAIN_FORM = defineSlice("train.form", DEFAULTS);
+const TRAIN_JOB = defineSlice("train.job", null);
+const TRAIN_BUSY = defineSlice("train.busy", false);
+const TRAIN_LIVE = defineSlice("train.live", { nodes: {}, events: [] }, {
+  training: (s, d, t) => d.event === "progreso"
+    ? { ...s, nodes: { ...s.nodes, [d.node]: d } }
+    : { nodes: d.event === "inicio" ? {} : s.nodes, events: [{ ...d, t }, ...s.events].slice(0, 8) },
+});
 
 const FEATURE_SETS = {
   tb2: "tb2: variables reales + patrón de los 12 meses previos (modelo del TB2)",
@@ -22,28 +33,18 @@ function Num({ label, name, form, set, min, max, step = 1, hint }) {
 }
 
 export function TrainPage() {
-  const [form, setForm] = useState(DEFAULTS);
-  const [busy, setBusy] = useState(false);
-  const [job, setJob] = useState(null);
+  const [form, setForm] = useSlice(TRAIN_FORM);
+  const [busy, setBusy] = useSlice(TRAIN_BUSY);
+  const [job, setJob] = useSlice(TRAIN_JOB);
   const [error, setError] = useState(null);
-  const [nodes, setNodes] = useState({});
-  const [events, setEvents] = useState([]);
-
-  useLive("training", (d, t) => {
-    if (d.event === "progreso") {
-      setNodes((n) => ({ ...n, [d.node]: d }));
-    } else {
-      if (d.event === "inicio") setNodes({});
-      setEvents((e) => [{ ...d, t }, ...e].slice(0, 8));
-    }
-  });
+  const [{ nodes, events }] = useSlice(TRAIN_LIVE);
 
   const submit = async (e) => {
     e.preventDefault();
     setBusy(true);
     setError(null);
     setJob(null);
-    setNodes({});
+    setSlice(TRAIN_LIVE, (s) => ({ ...s, nodes: {} }));
     try {
       setJob(await api("/api/v1/train", { method: "POST", body: form }));
     } catch (err) {

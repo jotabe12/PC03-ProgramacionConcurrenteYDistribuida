@@ -176,8 +176,8 @@ func (s *Server) train(p trainPlan) (*TrainingJob, int, string, error) {
 		trees = len(ids)
 	}
 	prev := s.current()
-	version := int64(1)
-	if prev != nil {
+	version := s.lastVersion + 1
+	if prev != nil && prev.Version >= version {
 		version = prev.Version + 1
 	}
 	// Reparto de árboles: bloques contiguos de ids globales (32 -> 11, 11, 10) y
