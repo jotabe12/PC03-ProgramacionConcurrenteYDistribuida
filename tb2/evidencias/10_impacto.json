@@ -1,5 +1,5 @@
 {
-    "fecha":  "2026-11-28T06:37:38",
+    "fecha":  "2026-11-28T12:03:46",
     "top":  10,
     "resumen":  [
                     {
@@ -14,6 +14,7 @@
                         "calleRealesTotal":  9669,
                         "coberturaRealPct":  54.9,
                         "coberturaOptimaPct":  55.1,
+                        "coberturaHistoricaPct":  54.9,
                         "coincidenTop":  9,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SAN MARTIN DE PORRES",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -30,6 +31,7 @@
                         "calleRealesTotal":  8755,
                         "coberturaRealPct":  55.7,
                         "coberturaOptimaPct":  55.7,
+                        "coberturaHistoricaPct":  55.7,
                         "coincidenTop":  10,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, ATE",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -46,6 +48,7 @@
                         "calleRealesTotal":  9952,
                         "coberturaRealPct":  53.3,
                         "coberturaOptimaPct":  53.3,
+                        "coberturaHistoricaPct":  53.3,
                         "coincidenTop":  10,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, ATE",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -62,6 +65,7 @@
                         "calleRealesTotal":  10070,
                         "coberturaRealPct":  53.2,
                         "coberturaOptimaPct":  54.6,
+                        "coberturaHistoricaPct":  53.3,
                         "coincidenTop":  8,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -78,6 +82,7 @@
                         "calleRealesTotal":  10584,
                         "coberturaRealPct":  53.8,
                         "coberturaOptimaPct":  54.7,
+                        "coberturaHistoricaPct":  54.3,
                         "coincidenTop":  9,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -94,6 +99,7 @@
                         "calleRealesTotal":  9769,
                         "coberturaRealPct":  53.4,
                         "coberturaOptimaPct":  54.0,
+                        "coberturaHistoricaPct":  53.4,
                         "coincidenTop":  9,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -110,6 +116,7 @@
                         "calleRealesTotal":  9691,
                         "coberturaRealPct":  53.0,
                         "coberturaOptimaPct":  53.6,
+                        "coberturaHistoricaPct":  53.1,
                         "coincidenTop":  8,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -126,6 +133,7 @@
                         "calleRealesTotal":  9756,
                         "coberturaRealPct":  53.9,
                         "coberturaOptimaPct":  54.4,
+                        "coberturaHistoricaPct":  53.9,
                         "coincidenTop":  9,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -142,6 +150,7 @@
                         "calleRealesTotal":  9597,
                         "coberturaRealPct":  54.8,
                         "coberturaOptimaPct":  55.1,
+                        "coberturaHistoricaPct":  54.8,
                         "coincidenTop":  9,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -158,6 +167,7 @@
                         "calleRealesTotal":  null,
                         "coberturaRealPct":  null,
                         "coberturaOptimaPct":  null,
+                        "coberturaHistoricaPct":  null,
                         "coincidenTop":  null,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -174,6 +184,7 @@
                         "calleRealesTotal":  null,
                         "coberturaRealPct":  null,
                         "coberturaOptimaPct":  null,
+                        "coberturaHistoricaPct":  null,
                         "coincidenTop":  null,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -190,6 +201,7 @@
                         "calleRealesTotal":  null,
                         "coberturaRealPct":  null,
                         "coberturaOptimaPct":  null,
+                        "coberturaHistoricaPct":  null,
                         "coincidenTop":  null,
                         "primeros3":  "LIMA, SAN JUAN DE LURIGANCHO, SANTA ANITA",
                         "delitoCalleProbable":  "Hurto (10)"
@@ -213,6 +225,7 @@
                                        "realStreetTotal":  9669,
                                        "realCoveragePct":  54.88675147378219,
                                        "oracleCoveragePct":  55.13496742165684,
+                                       "historicalCoveragePct":  54.88675147378219,
                                        "overlapAtN":  9,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -857,6 +870,7 @@
                                        "realStreetTotal":  8755,
                                        "realCoveragePct":  55.6938892061679,
                                        "oracleCoveragePct":  55.6938892061679,
+                                       "historicalCoveragePct":  55.6938892061679,
                                        "overlapAtN":  10,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -1501,6 +1515,7 @@
                                        "realStreetTotal":  9952,
                                        "realCoveragePct":  53.26567524115756,
                                        "oracleCoveragePct":  53.26567524115756,
+                                       "historicalCoveragePct":  53.26567524115756,
                                        "overlapAtN":  10,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -2145,6 +2160,7 @@
                                        "realStreetTotal":  10070,
                                        "realCoveragePct":  53.23733862959285,
                                        "oracleCoveragePct":  54.627606752730884,
+                                       "historicalCoveragePct":  53.286991062562066,
                                        "overlapAtN":  8,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -2789,6 +2805,7 @@
                                        "realStreetTotal":  10584,
                                        "realCoveragePct":  53.779289493575206,
                                        "oracleCoveragePct":  54.695767195767196,
+                                       "historicalCoveragePct":  54.28004535147392,
                                        "overlapAtN":  9,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -3433,6 +3450,7 @@
                                        "realStreetTotal":  9769,
                                        "realCoveragePct":  53.38315078308936,
                                        "oracleCoveragePct":  53.987102057528915,
+                                       "historicalCoveragePct":  53.38315078308936,
                                        "overlapAtN":  9,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -4077,6 +4095,7 @@
                                        "realStreetTotal":  9691,
                                        "realCoveragePct":  53.00794551645857,
                                        "oracleCoveragePct":  53.6064389639872,
+                                       "historicalCoveragePct":  53.100815189350946,
                                        "overlapAtN":  8,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -4721,6 +4740,7 @@
                                        "realStreetTotal":  9756,
                                        "realCoveragePct":  53.92578925789258,
                                        "oracleCoveragePct":  54.39729397293973,
+                                       "historicalCoveragePct":  53.92578925789258,
                                        "overlapAtN":  9,
                                        "realTopDistricts":  [
                                                                 "LIMA",
@@ -5365,6 +5385,7 @@
                                        "realStreetTotal":  9597,
                                        "realCoveragePct":  54.78795456913619,
                                        "oracleCoveragePct":  55.13181202459102,
+                                       "historicalCoveragePct":  54.76711472335105,
                                        "overlapAtN":  9,
                                        "realTopDistricts":  [
                                                                 "LIMA",
