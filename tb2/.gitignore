@@ -1,0 +1,11 @@
+# El CSV pesa 28 MB y ya está versionado en la raíz del repositorio:
+# scripts\01_levantar.ps1 lo copia a data\ si falta.
+data/*.csv
+# Secretos locales (se generan a partir de .env.example)
+.env
+# Frontend: dependencias y compilado
+web/node_modules/
+web/dist/
+# Material de trabajo que no aporta al repositorio
+informe/
+docs/CAPTURAS_TB2.md
