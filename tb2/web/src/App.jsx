@@ -98,6 +98,8 @@ function Shell({ session, onLogout }) {
   const Page = route.page;
   let lastGroup = null;
   useEffect(() => { document.title = `${route.label} · Patrullaje preventivo`; }, [route]);
+  // Una ruta inexistente o sin permiso (p. ej. #/admin como analista) se corrige en la barra de direcciones.
+  useEffect(() => { if (hash !== route.path) location.replace(`#/${route.path}`); }, [hash, route]);
   return (
     <div className="shell">
       <nav className="nav" aria-label="Menú principal">
