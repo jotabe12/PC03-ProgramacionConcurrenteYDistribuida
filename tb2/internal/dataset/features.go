@@ -199,6 +199,25 @@ func (h *History) MonthlyAvg(d, m int) float64 {
 	return float64(tot) / float64(end-start+1)
 }
 
+// StreetAvg es el promedio mensual de delitos de calle (hurto, robo, extorsión y
+// secuestro) del distrito en la ventana del mes m. Sirve de línea base sin modelo
+// para el ranking de patrullaje ("los mismos distritos de siempre").
+func (h *History) StreetAvg(d, m int) float64 {
+	start, end := h.Window(m)
+	if end < 0 {
+		return 0
+	}
+	var tot int64
+	for k := start; k <= end; k++ {
+		for c := 0; c < NumClasses; c++ {
+			if StreetCrime[c] {
+				tot += h.Counts[d][k][c]
+			}
+		}
+	}
+	return float64(tot) / float64(end-start+1)
+}
+
 // Actual devuelve las denuncias reales del distrito en el mes m (si hay datos).
 func (h *History) Actual(d, m int) ([NumClasses]int64, bool) {
 	if m < 0 || m > h.Last {

@@ -2,7 +2,7 @@ NAME                       IMAGE            STATUS                            PO
 tb2-grupo3-coordinator-1   tb2-grupo3-app   Up 8 seconds (healthy)            8080/tcp, 9090/tcp
 tb2-grupo3-ml-node-1-1     tb2-grupo3-app   Up 2 seconds                      8080/tcp, 9090/tcp
 tb2-grupo3-ml-node-2-1     tb2-grupo3-app   Up 3 seconds                      8080/tcp, 9090/tcp
-tb2-grupo3-ml-node-3-1     tb2-grupo3-app   Up 2 seconds                      8080/tcp, 9090/tcp
-tb2-grupo3-mongo-1         mongo:7          Up 39 minutes (healthy)           27017/tcp
-tb2-grupo3-redis-1         redis:7-alpine   Up 39 minutes (healthy)           6379/tcp
+tb2-grupo3-ml-node-3-1     tb2-grupo3-app   Up 3 seconds                      8080/tcp, 9090/tcp
+tb2-grupo3-mongo-1         mongo:7          Up 6 hours (healthy)              27017/tcp
+tb2-grupo3-redis-1         redis:7-alpine   Up 6 hours (healthy)              6379/tcp
 tb2-grupo3-web-1           tb2-grupo3-web   Up 3 seconds (health: starting)   127.0.0.1:8080->80/tcp

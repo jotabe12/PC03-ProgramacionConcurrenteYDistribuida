@@ -42,6 +42,9 @@ type Store interface {
 	GetUser(ctx context.Context, username string) (User, error)
 	UpsertUser(ctx context.Context, u User) error
 	Status(ctx context.Context) Status
+	// LastVersion devuelve la versión de modelo más alta guardada en training_jobs
+	// (0 si no hay), para que la numeración continúe tras reiniciar el coordinador.
+	LastVersion(ctx context.Context) int64
 	Close()
 }
 
@@ -152,5 +155,8 @@ func (m *Memory) Status(_ context.Context) Status {
 	}
 	return st
 }
+
+// LastVersion: en memoria no hay historial previo al proceso.
+func (m *Memory) LastVersion(_ context.Context) int64 { return 0 }
 
 func (m *Memory) Close() {}

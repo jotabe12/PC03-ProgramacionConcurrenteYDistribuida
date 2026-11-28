@@ -26,18 +26,20 @@ foreach ($m in 1..12) {
         calleRealesTop = $(if ($bt) { $bt.realStreetTop } else { $null }); calleRealesTotal = $(if ($bt) { $bt.realStreetTotal } else { $null })
         coberturaRealPct = $(if ($bt) { [math]::Round($bt.realCoveragePct, 1) } else { $null })
         coberturaOptimaPct = $(if ($bt) { [math]::Round($bt.oracleCoveragePct, 1) } else { $null })
+        coberturaHistoricaPct = $(if ($bt) { [math]::Round($bt.historicalCoveragePct, 1) } else { $null })
         coincidenTop = $(if ($bt) { $bt.overlapAtN } else { $null })
         primeros3 = $top3; delitoCalleProbable = $calle
     }
     $reportes += [ordered]@{ mes = $m; resumen = $d.summary; backtest = $bt; top = @($d.rows | Select-Object -First $Top) }
 }
-$filas | Format-Table mes, tipo, poblacionPct, coberturaEsperadaPct, coberturaRealPct, coberturaOptimaPct, coincidenTop, primeros3 -AutoSize
+$filas | Format-Table mes, tipo, poblacionPct, coberturaEsperadaPct, coberturaRealPct, coberturaHistoricaPct, coberturaOptimaPct, coincidenTop, primeros3 -AutoSize
 
 $ver = $filas | Where-Object { $_.tipo -eq "verificación" }
 $real = ($ver | Measure-Object calleRealesTop -Sum).Sum
 $tot = ($ver | Measure-Object calleRealesTotal -Sum).Sum
 $prom = ($ver | Measure-Object coberturaRealPct -Average).Average
 $opt = ($ver | Measure-Object coberturaOptimaPct -Average).Average
+$histo = ($ver | Measure-Object coberturaHistoricaPct -Average).Average
 $coinc = ($ver | Measure-Object coincidenTop -Average).Average
 $pobl = ($filas | Measure-Object poblacionCubierta -Average).Average
 $frecuentes = $reportes | ForEach-Object { $_.top } | Group-Object district | Sort-Object Count -Descending | Select-Object -First $Top
@@ -49,6 +51,7 @@ $txt += "RESPUESTA (modelo v$($h.Json.model.version), Random Forest distribuido 
 $txt += ("- Distritos que aparecen en el top-{0} de más meses de 2026: {1}." -f $Top, (($frecuentes | ForEach-Object { "$($_.Name) ($($_.Count) meses)" }) -join ", "))
 $txt += ("- Priorizar {0} distritos cubre en promedio a {1:N0} habitantes por mes ({2:N1} % de Lima y Callao)." -f $Top, $pobl, (($filas | Measure-Object poblacionPct -Average).Average))
 $txt += ("- Verificación enero-septiembre 2026: los distritos priorizados concentraron {0:N0} de {1:N0} delitos de calle reales ({2:N1} % en promedio por mes; el máximo posible con {3} distritos era {4:N1} %)." -f $real, $tot, $prom, $Top, $opt)
+$txt += ("- Línea base sin modelo (los {0} distritos con más delitos de calle en los 12 meses previos): {1:N1} % en promedio por mes. El ranking depende sobre todo del volumen histórico; el bosque aporta la composición por modalidad y el pronóstico de meses sin datos." -f $Top, $histo)
 $txt += ("- En promedio, {0:N1} de los {1} distritos priorizados coincidieron con el top real de cada mes." -f $coinc, $Top)
 $delitos = $reportes | ForEach-Object { $_.top } | Group-Object topStreetCrime | Sort-Object Count -Descending
 $txt += ("- Delito de calle a vigilar (el más probable según el bosque) en los distritos priorizados de los 12 meses: {0}." -f (($delitos | ForEach-Object { "$($_.Name) en $($_.Count) casos" }) -join ", "))
@@ -57,7 +60,7 @@ $txt += ""
 $txt += "Detalle por mes:"
 foreach ($f in $filas) {
     $extra = ""
-    if ($f.tipo -eq "verificación") { $extra = (" | real {0:N1} % (óptimo {1:N1} %), coinciden {2}/{3}" -f $f.coberturaRealPct, $f.coberturaOptimaPct, $f.coincidenTop, $Top) }
+    if ($f.tipo -eq "verificación") { $extra = (" | real {0:N1} % (sin modelo {1:N1} %, óptimo {2:N1} %), coinciden {3}/{4}" -f $f.coberturaRealPct, $f.coberturaHistoricaPct, $f.coberturaOptimaPct, $f.coincidenTop, $Top) }
     $txt += ("  {0,-10} {1,-12} cubre {2:N0} hab. ({3:N1} %), {4:N1} % de los delitos de calle esperados{5}. Primeros: {6}" -f $f.mes, $f.tipo, $f.poblacionCubierta, $f.poblacionPct, $f.coberturaEsperadaPct, $extra, $f.primeros3)
 }
 $txt | ForEach-Object { Write-Host $_ }

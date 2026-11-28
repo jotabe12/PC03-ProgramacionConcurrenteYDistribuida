@@ -201,6 +201,20 @@ func (s *Store) Status(ctx context.Context) storage.Status {
 	return st
 }
 
+func (s *Store) LastVersion(ctx context.Context) int64 {
+	if s.db == nil {
+		return s.mem.LastVersion(ctx)
+	}
+	var doc struct {
+		Version int64 `bson:"version"`
+	}
+	opts := options.FindOne().SetSort(bson.D{{Key: "version", Value: -1}}).SetProjection(bson.D{{Key: "version", Value: 1}})
+	if err := s.db.Collection(storage.CollTrainingJobs).FindOne(ctx, bson.D{}, opts).Decode(&doc); err != nil {
+		return 0 // sin documentos o sin conexión: se empieza en v1
+	}
+	return doc.Version
+}
+
 func (s *Store) Close() {
 	if s.client != nil {
 		_ = s.client.Disconnect(context.Background())

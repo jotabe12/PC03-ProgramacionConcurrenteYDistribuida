@@ -2,6 +2,7 @@
 // canal (training, prediction, metrics, logs) con useLive(). Reconecta con espera
 // exponencial y expone el estado para el indicador del menú.
 import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { dispatchLive } from "./store.js";
 
 const LiveCtx = createContext(null);
 
@@ -31,6 +32,7 @@ export function LiveProvider({ token, children }) {
         let msg;
         try { msg = JSON.parse(ev.data); } catch (_) { return; }
         if (msg.type === "hello") setHello(msg.data);
+        dispatchLive(msg.type, msg.data, msg.time); // estado de sesión (páginas cerradas incluidas)
         const set = listeners.current.get(msg.type);
         if (set) set.forEach((fn) => fn(msg.data, msg.time));
       };

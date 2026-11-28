@@ -76,6 +76,10 @@ type Server struct {
 	mu      sync.RWMutex
 	model   *modelState
 	jobs    []JobSummary
+	// lastVersion: última versión guardada en MongoDB al arrancar; la primera
+	// versión de este proceso es lastVersion+1 (evita repetir v1, v2... tras un
+	// reinicio y que una clave de caché tb2:pred:vN apunte a otro modelo).
+	lastVersion int64
 
 	retraining sync.Map
 	lat        *latencies
@@ -175,6 +179,10 @@ func New(cfg Config, coord *cluster.Coordinator, store storage.Store, t *dataset
 		if err := s.seedUser(ctx, u); err != nil {
 			return nil, err
 		}
+	}
+	s.lastVersion = store.LastVersion(ctx)
+	if s.lastVersion > 0 {
+		cfg.Logf("historial en MongoDB: el próximo modelo será v%d", s.lastVersion+1)
 	}
 	cfg.Logs.OnAdd = s.onLog
 	coord.OnRegister = s.onRegister

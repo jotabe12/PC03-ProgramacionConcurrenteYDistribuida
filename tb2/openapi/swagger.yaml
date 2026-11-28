@@ -415,6 +415,7 @@ components:
             realStreetTotal: { type: integer }
             realCoveragePct: { type: number }
             oracleCoveragePct: { type: number }
+            historicalCoveragePct: { type: number, description: "Línea base sin modelo: ranking por los delitos de calle de los 12 meses previos" }
             overlapAtN: { type: integer }
             realTopDistricts: { type: array, items: { type: string } }
         rows: { type: array, items: { $ref: "#/components/schemas/ImpactRow" } }
