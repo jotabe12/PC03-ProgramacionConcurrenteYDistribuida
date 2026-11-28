@@ -1,0 +1,1911 @@
+{
+    "fecha":  "2026-11-28T06:33:31",
+    "entorno":  {
+                    "equipo":  "NA-SHE-2",
+                    "sistemaOperativo":  "Microsoft Windows 10 Home 10.0.19045",
+                    "cpu":  "Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz",
+                    "nucleosFisicos":  8,
+                    "hilosLogicos":  16,
+                    "ramGB":  15.9,
+                    "docker":  "Docker Engine 29.9.3; Compose 5.7.1",
+                    "dockerVM":  "16 CPU, 8256692224 bytes, Docker Desktop",
+                    "despliegue":  "Local: Docker Desktop en el equipo del integrante (no en la nube)"
+                },
+    "health_inicial":  {
+                           "status":  200,
+                           "body":  {
+                                        "status":  "ok",
+                                        "time":  "2026-11-28T11:33:34.589246835Z",
+                                        "uptimeS":  1062.780063022,
+                                        "nodesExpected":  3,
+                                        "nodesConnected":  3,
+                                        "nodes":  [
+                                                      "ml-node-1",
+                                                      "ml-node-2",
+                                                      "ml-node-3"
+                                                  ],
+                                        "model":  {
+                                                      "trained":  true,
+                                                      "version":  1,
+                                                      "trainedAt":  "2026-11-28T11:15:57.64532472Z",
+                                                      "totalTrees":  32,
+                                                      "nodesReady":  [
+                                                                         "ml-node-1",
+                                                                         "ml-node-2",
+                                                                         "ml-node-3"
+                                                                     ],
+                                                      "accuracy":  0.49102124576028644,
+                                                      "top3Accuracy":  0.8832427034301338,
+                                                      "featureSet":  "tb2",
+                                                      "mode":  "final",
+                                                      "evalYear":  2026,
+                                                      "config":  {
+                                                                     "maxDepth":  12,
+                                                                     "minLeaf":  50,
+                                                                     "mtry":  3,
+                                                                     "sampleFrac":  0.3,
+                                                                     "seed":  42,
+                                                                     "classWeight":  "none"
+                                                                 }
+                                                  },
+                                        "storage":  {
+                                                        "mode":  "MongoDB + Redis",
+                                                        "mongo":  "conectado",
+                                                        "redis":  "conectado",
+                                                        "database":  "tb2_denuncias",
+                                                        "collections":  {
+                                                                            "cluster_metrics":  35,
+                                                                            "impact_reports":  12,
+                                                                            "patrol_recommendations":  0,
+                                                                            "predictions":  0,
+                                                                            "training_jobs":  1,
+                                                                            "users":  2
+                                                                        },
+                                                        "cacheKeys":  2
+                                                    }
+                                    }
+                       },
+    "login":  {
+                  "admin":  "token emitido (227 caracteres)",
+                  "analista_me":  {
+                                      "expiresAt":  "2026-11-28T19:33:34Z",
+                                      "issuedAt":  "2026-11-28T11:33:34Z",
+                                      "role":  "analista",
+                                      "username":  "analista"
+                                  }
+              },
+    "predicciones_sin_cache":  [
+                                   {
+                                       "district":  "SAN JUAN DE LURIGANCHO",
+                                       "mes":  1,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4039,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  3.314,
+                                       "serverMs":  0.934,
+                                       "clusterMs":  0.428
+                                   },
+                                   {
+                                       "district":  "LIMA",
+                                       "mes":  2,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.4586,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.877,
+                                       "serverMs":  0.816,
+                                       "clusterMs":  0.365
+                                   },
+                                   {
+                                       "district":  "CALLAO",
+                                       "mes":  3,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.5069,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.404,
+                                       "serverMs":  0.779,
+                                       "clusterMs":  0.34
+                                   },
+                                   {
+                                       "district":  "COMAS",
+                                       "mes":  4,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.527,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.238,
+                                       "serverMs":  0.721,
+                                       "clusterMs":  0.324
+                                   },
+                                   {
+                                       "district":  "SAN MARTIN DE PORRES",
+                                       "mes":  5,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4117,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.214,
+                                       "serverMs":  0.733,
+                                       "clusterMs":  0.339
+                                   },
+                                   {
+                                       "district":  "ATE",
+                                       "mes":  6,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3993,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.33,
+                                       "serverMs":  0.841,
+                                       "clusterMs":  0.401
+                                   },
+                                   {
+                                       "district":  "LOS OLIVOS",
+                                       "mes":  7,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4289,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.158,
+                                       "serverMs":  0.699,
+                                       "clusterMs":  0.334
+                                   },
+                                   {
+                                       "district":  "VILLA MARIA DEL TRIUNFO",
+                                       "mes":  8,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4468,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.057,
+                                       "serverMs":  0.686,
+                                       "clusterMs":  0.305
+                                   },
+                                   {
+                                       "district":  "SANTIAGO DE SURCO",
+                                       "mes":  9,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.5059,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.345,
+                                       "serverMs":  0.981,
+                                       "clusterMs":  0.325
+                                   },
+                                   {
+                                       "district":  "VILLA EL SALVADOR",
+                                       "mes":  10,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3872,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.037,
+                                       "serverMs":  0.677,
+                                       "clusterMs":  0.306
+                                   },
+                                   {
+                                       "district":  "SAN JUAN DE LURIGANCHO",
+                                       "mes":  11,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3949,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.171,
+                                       "serverMs":  0.667,
+                                       "clusterMs":  0.347
+                                   },
+                                   {
+                                       "district":  "LIMA",
+                                       "mes":  12,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.4778,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.06,
+                                       "serverMs":  0.703,
+                                       "clusterMs":  0.312
+                                   },
+                                   {
+                                       "district":  "CALLAO",
+                                       "mes":  1,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.5102,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.177,
+                                       "serverMs":  0.693,
+                                       "clusterMs":  0.325
+                                   },
+                                   {
+                                       "district":  "COMAS",
+                                       "mes":  2,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.5278,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.201,
+                                       "serverMs":  0.692,
+                                       "clusterMs":  0.317
+                                   },
+                                   {
+                                       "district":  "SAN MARTIN DE PORRES",
+                                       "mes":  3,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4168,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.196,
+                                       "serverMs":  0.706,
+                                       "clusterMs":  0.342
+                                   },
+                                   {
+                                       "district":  "ATE",
+                                       "mes":  4,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.418,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.174,
+                                       "serverMs":  0.747,
+                                       "clusterMs":  0.358
+                                   },
+                                   {
+                                       "district":  "LOS OLIVOS",
+                                       "mes":  5,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4286,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.321,
+                                       "serverMs":  0.75,
+                                       "clusterMs":  0.37
+                                   },
+                                   {
+                                       "district":  "VILLA MARIA DEL TRIUNFO",
+                                       "mes":  6,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4504,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.369,
+                                       "serverMs":  0.743,
+                                       "clusterMs":  0.348
+                                   },
+                                   {
+                                       "district":  "SANTIAGO DE SURCO",
+                                       "mes":  7,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.4984,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.32,
+                                       "serverMs":  0.709,
+                                       "clusterMs":  0.332
+                                   },
+                                   {
+                                       "district":  "VILLA EL SALVADOR",
+                                       "mes":  8,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  false,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3869,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.44,
+                                       "serverMs":  0.76,
+                                       "clusterMs":  0.319
+                                   }
+                               ],
+    "predicciones_con_cache":  [
+                                   {
+                                       "district":  "SAN JUAN DE LURIGANCHO",
+                                       "mes":  1,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4039,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.158,
+                                       "serverMs":  0.319,
+                                       "clusterMs":  0.428
+                                   },
+                                   {
+                                       "district":  "LIMA",
+                                       "mes":  2,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.4586,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.965,
+                                       "serverMs":  0.302,
+                                       "clusterMs":  0.365
+                                   },
+                                   {
+                                       "district":  "CALLAO",
+                                       "mes":  3,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.5069,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.726,
+                                       "serverMs":  0.292,
+                                       "clusterMs":  0.34
+                                   },
+                                   {
+                                       "district":  "COMAS",
+                                       "mes":  4,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.527,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.047,
+                                       "serverMs":  0.306,
+                                       "clusterMs":  0.324
+                                   },
+                                   {
+                                       "district":  "SAN MARTIN DE PORRES",
+                                       "mes":  5,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4117,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.98,
+                                       "serverMs":  0.295,
+                                       "clusterMs":  0.339
+                                   },
+                                   {
+                                       "district":  "ATE",
+                                       "mes":  6,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3993,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.927,
+                                       "serverMs":  0.295,
+                                       "clusterMs":  0.401
+                                   },
+                                   {
+                                       "district":  "LOS OLIVOS",
+                                       "mes":  7,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4289,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  2.008,
+                                       "serverMs":  0.316,
+                                       "clusterMs":  0.334
+                                   },
+                                   {
+                                       "district":  "VILLA MARIA DEL TRIUNFO",
+                                       "mes":  8,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4468,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.908,
+                                       "serverMs":  0.298,
+                                       "clusterMs":  0.305
+                                   },
+                                   {
+                                       "district":  "SANTIAGO DE SURCO",
+                                       "mes":  9,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.5059,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.926,
+                                       "serverMs":  0.286,
+                                       "clusterMs":  0.325
+                                   },
+                                   {
+                                       "district":  "VILLA EL SALVADOR",
+                                       "mes":  10,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3872,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.803,
+                                       "serverMs":  0.284,
+                                       "clusterMs":  0.306
+                                   },
+                                   {
+                                       "district":  "SAN JUAN DE LURIGANCHO",
+                                       "mes":  11,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3949,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.717,
+                                       "serverMs":  0.265,
+                                       "clusterMs":  0.347
+                                   },
+                                   {
+                                       "district":  "LIMA",
+                                       "mes":  12,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.4778,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.707,
+                                       "serverMs":  0.295,
+                                       "clusterMs":  0.312
+                                   },
+                                   {
+                                       "district":  "CALLAO",
+                                       "mes":  1,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.5102,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.773,
+                                       "serverMs":  0.301,
+                                       "clusterMs":  0.325
+                                   },
+                                   {
+                                       "district":  "COMAS",
+                                       "mes":  2,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.5278,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.76,
+                                       "serverMs":  0.272,
+                                       "clusterMs":  0.317
+                                   },
+                                   {
+                                       "district":  "SAN MARTIN DE PORRES",
+                                       "mes":  3,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4168,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.747,
+                                       "serverMs":  0.234,
+                                       "clusterMs":  0.342
+                                   },
+                                   {
+                                       "district":  "ATE",
+                                       "mes":  4,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.418,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.753,
+                                       "serverMs":  0.251,
+                                       "clusterMs":  0.358
+                                   },
+                                   {
+                                       "district":  "LOS OLIVOS",
+                                       "mes":  5,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4286,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.724,
+                                       "serverMs":  0.29,
+                                       "clusterMs":  0.37
+                                   },
+                                   {
+                                       "district":  "VILLA MARIA DEL TRIUNFO",
+                                       "mes":  6,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.4504,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.74,
+                                       "serverMs":  0.294,
+                                       "clusterMs":  0.348
+                                   },
+                                   {
+                                       "district":  "SANTIAGO DE SURCO",
+                                       "mes":  7,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Hurto",
+                                       "topProbability":  0.4984,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.8,
+                                       "serverMs":  0.318,
+                                       "clusterMs":  0.332
+                                   },
+                                   {
+                                       "district":  "VILLA EL SALVADOR",
+                                       "mes":  8,
+                                       "anio":  2029,
+                                       "status":  200,
+                                       "fromCache":  true,
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "topClass":  "Violencia contra la mujer e IGF",
+                                       "topProbability":  0.3869,
+                                       "topStreetCrime":  "Hurto",
+                                       "clientMs":  1.909,
+                                       "serverMs":  0.311,
+                                       "clusterMs":  0.319
+                                   }
+                               ],
+    "resumen_latencia":  {
+                             "sin_cache_cliente":  {
+                                                       "n":  20,
+                                                       "promedioMs":  2.32,
+                                                       "minimoMs":  2.037,
+                                                       "p50Ms":  2.214,
+                                                       "p95Ms":  2.877,
+                                                       "maximoMs":  3.314,
+                                                       "todosMenor100ms":  true
+                                                   },
+                             "sin_cache_servidor":  {
+                                                        "n":  20,
+                                                        "promedioMs":  0.752,
+                                                        "minimoMs":  0.667,
+                                                        "p50Ms":  0.721,
+                                                        "p95Ms":  0.934,
+                                                        "maximoMs":  0.981,
+                                                        "todosMenor100ms":  true
+                                                    },
+                             "con_cache_cliente":  {
+                                                       "n":  20,
+                                                       "promedioMs":  1.854,
+                                                       "minimoMs":  1.707,
+                                                       "p50Ms":  1.8,
+                                                       "p95Ms":  2.047,
+                                                       "maximoMs":  2.158,
+                                                       "todosMenor100ms":  true
+                                                   },
+                             "con_cache_servidor":  {
+                                                        "n":  20,
+                                                        "promedioMs":  0.291,
+                                                        "minimoMs":  0.234,
+                                                        "p50Ms":  0.295,
+                                                        "p95Ms":  0.318,
+                                                        "maximoMs":  0.319,
+                                                        "todosMenor100ms":  true
+                                                    },
+                             "nota":  "cliente = Stopwatch en PowerShell (incluye nginx y HTTP local); servidor = cabecera X-Response-Time-Ms del coordinador"
+                         },
+    "ejemplo_prediccion":  {
+                               "district":  "SAN JUAN DE LURIGANCHO",
+                               "ubigeo":  "150132",
+                               "zone":  "Lima Este",
+                               "mes":  10,
+                               "anio":  2026,
+                               "population":  1300785,
+                               "probabilities":  [
+                                                     {
+                                                         "class":  "Violencia contra la mujer e IGF",
+                                                         "probability":  0.3857896374538541
+                                                     },
+                                                     {
+                                                         "class":  "Hurto",
+                                                         "probability":  0.31639619963243604
+                                                     },
+                                                     {
+                                                         "class":  "Robo",
+                                                         "probability":  0.1478454819880426
+                                                     },
+                                                     {
+                                                         "class":  "Estafa",
+                                                         "probability":  0.08069327467819676
+                                                     },
+                                                     {
+                                                         "class":  "Extorsión",
+                                                         "probability":  0.06727631605463102
+                                                     },
+                                                     {
+                                                         "class":  "Secuestro",
+                                                         "probability":  0.0019990891669294797
+                                                     }
+                                                 ],
+                               "top3":  [
+                                            {
+                                                "class":  "Violencia contra la mujer e IGF",
+                                                "probability":  0.3857896374538541
+                                            },
+                                            {
+                                                "class":  "Hurto",
+                                                "probability":  0.31639619963243604
+                                            },
+                                            {
+                                                "class":  "Robo",
+                                                "probability":  0.1478454819880426
+                                            }
+                                        ],
+                               "topClass":  "Violencia contra la mujer e IGF",
+                               "topProbability":  0.3857896374538541,
+                               "topStreetCrime":  "Hurto",
+                               "topStreetProbability":  0.31639619963243604,
+                               "recentMix":  [
+                                                 {
+                                                     "class":  "Violencia contra la mujer e IGF",
+                                                     "probability":  0.41
+                                                 },
+                                                 {
+                                                     "class":  "Hurto",
+                                                     "probability":  0.3
+                                                 },
+                                                 {
+                                                     "class":  "Robo",
+                                                     "probability":  0.15
+                                                 },
+                                                 {
+                                                     "class":  "Estafa",
+                                                     "probability":  0.08
+                                                 },
+                                                 {
+                                                     "class":  "Extorsión",
+                                                     "probability":  0.05
+                                                 },
+                                                 {
+                                                     "class":  "Secuestro",
+                                                     "probability":  0
+                                                 }
+                                             ],
+                               "recentWindow":  "oct-2025 a sep-2026",
+                               "franjaSupuesta":  [
+                                                      {
+                                                          "franja":  "Madrugada (00-06)",
+                                                          "probability":  0.1464893391498117
+                                                      },
+                                                      {
+                                                          "franja":  "Mañana (06-12)",
+                                                          "probability":  0.25829234919131866
+                                                      },
+                                                      {
+                                                          "franja":  "Tarde (12-18)",
+                                                          "probability":  0.30278016298334115
+                                                      },
+                                                      {
+                                                          "franja":  "Noche (18-24)",
+                                                          "probability":  0.2924381486755285
+                                                      }
+                                                  ],
+                               "franjaNote":  "Distribución horaria orientativa: el CSV no registra la hora del hecho. Se calcula con el supuesto de la PC3 (Tabla 11: P(franja | modalidad)) ponderado por las probabilidades del bosque; no es una predicción del modelo.",
+                               "modelVersion":  1,
+                               "featureSet":  "tb2",
+                               "nodesUsed":  3,
+                               "treesUsed":  32,
+                               "fromCache":  false,
+                               "clusterMs":  0.401,
+                               "latencyMs":  0.75
+                           },
+    "validaciones":  [
+                         {
+                             "caso":  "mes fuera de rango",
+                             "esperado":  400,
+                             "obtenido":  400,
+                             "correcto":  true,
+                             "codigo":  "BAD_REQUEST",
+                             "clientMs":  7.386
+                         },
+                         {
+                             "caso":  "falta un campo",
+                             "esperado":  400,
+                             "obtenido":  400,
+                             "correcto":  true,
+                             "codigo":  "BAD_REQUEST",
+                             "clientMs":  1.558
+                         },
+                         {
+                             "caso":  "distrito inexistente",
+                             "esperado":  404,
+                             "obtenido":  404,
+                             "correcto":  true,
+                             "codigo":  "UNKNOWN_DISTRICT",
+                             "clientMs":  1.424
+                         },
+                         {
+                             "caso":  "método no permitido",
+                             "esperado":  405,
+                             "obtenido":  405,
+                             "correcto":  true,
+                             "codigo":  null,
+                             "clientMs":  0.76
+                         },
+                         {
+                             "caso":  "impacto sin parámetros",
+                             "esperado":  400,
+                             "obtenido":  400,
+                             "correcto":  true,
+                             "codigo":  "BAD_REQUEST",
+                             "clientMs":  1.367
+                         },
+                         {
+                             "caso":  "sin token",
+                             "esperado":  401,
+                             "obtenido":  401,
+                             "correcto":  true,
+                             "codigo":  "UNAUTHORIZED",
+                             "clientMs":  1.164
+                         },
+                         {
+                             "caso":  "token alterado",
+                             "esperado":  401,
+                             "obtenido":  401,
+                             "correcto":  true,
+                             "codigo":  "INVALID_TOKEN",
+                             "clientMs":  0.896
+                         },
+                         {
+                             "caso":  "analista intenta entrenar",
+                             "esperado":  403,
+                             "obtenido":  403,
+                             "correcto":  true,
+                             "codigo":  "FORBIDDEN",
+                             "clientMs":  1.365
+                         },
+                         {
+                             "caso":  "analista pide métricas",
+                             "esperado":  403,
+                             "obtenido":  403,
+                             "correcto":  true,
+                             "codigo":  "FORBIDDEN",
+                             "clientMs":  0.865
+                         }
+                     ],
+    "impacto":  {
+                    "sin_cache":  {
+                                      "status":  200,
+                                      "clientMs":  4.861,
+                                      "serverMs":  1.901,
+                                      "summary":  {
+                                                      "topN":  10,
+                                                      "districts":  50,
+                                                      "populationTop":  5536851,
+                                                      "populationTotal":  11817321,
+                                                      "populationPct":  46.85369044303696,
+                                                      "expectedStreetTop":  5381.187828921321,
+                                                      "expectedStreetTotal":  10119.766797531234,
+                                                      "expectedCoveragePct":  53.175018126248595
+                                                  },
+                                      "backtest":  {
+                                                       "realStreetTop":  5301,
+                                                       "realStreetTotal":  9952,
+                                                       "realCoveragePct":  53.26567524115756,
+                                                       "oracleCoveragePct":  53.26567524115756,
+                                                       "overlapAtN":  10,
+                                                       "realTopDistricts":  [
+                                                                                "LIMA",
+                                                                                "SAN JUAN DE LURIGANCHO",
+                                                                                "SANTA ANITA",
+                                                                                "ATE",
+                                                                                "SAN MARTIN DE PORRES",
+                                                                                "SANTIAGO DE SURCO",
+                                                                                "LA VICTORIA",
+                                                                                "CALLAO",
+                                                                                "COMAS",
+                                                                                "LOS OLIVOS"
+                                                                            ]
+                                                   }
+                                  },
+                    "con_cache":  {
+                                      "status":  200,
+                                      "clientMs":  4.029,
+                                      "fromCache":  true
+                                  }
+                },
+    "patrullaje":  {
+                       "question":  "¿En qué distritos de Lima Metropolitana y Callao, en qué mes y para qué delitos de calle conviene priorizar el patrullaje preventivo, y a cuántas personas cubre esa priorización?",
+                       "anio":  2026,
+                       "mes":  10,
+                       "orden":  "casos",
+                       "modelVersion":  1,
+                       "featureSet":  "tb2",
+                       "historyFrom":  "oct-2025",
+                       "historyTo":  "sep-2026",
+                       "summary":  {
+                                       "topN":  8,
+                                       "districts":  50,
+                                       "populationTop":  4560992,
+                                       "populationTotal":  11817321,
+                                       "populationPct":  38.5958204909556,
+                                       "expectedStreetTop":  4684.291646050144,
+                                       "expectedStreetTotal":  10092.55731848031,
+                                       "expectedCoveragePct":  46.41332715022403
+                                   },
+                       "rows":  [
+                                    {
+                                        "rank":  1,
+                                        "district":  "LIMA",
+                                        "ubigeo":  "150101",
+                                        "zone":  "Lima Centro",
+                                        "population":  265003,
+                                        "expectedTotal":  1690,
+                                        "streetShare":  0.6851730118250998,
+                                        "expectedStreet":  1157.9423899844187,
+                                        "ratePer100k":  436.95444579284714,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.4844524450600147,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.21719986374955624
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.4844524450600147
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.1433143187314272
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.0976271255640313
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.05447663998347707
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.002929608050180832
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.11361200451676884
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.2966014618441268
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.35036322871109415
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.23942330492801017
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  2,
+                                        "district":  "SAN JUAN DE LURIGANCHO",
+                                        "ubigeo":  "150132",
+                                        "zone":  "Lima Este",
+                                        "population":  1300785,
+                                        "expectedTotal":  1419.5,
+                                        "streetShare":  0.5335170868420391,
+                                        "expectedStreet":  757.3275047722746,
+                                        "ratePer100k":  58.220805496086946,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.31639619963243604,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.3857896374538541
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.31639619963243604
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.1478454819880426
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.08069327467819676
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.06727631605463102
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0019990891669294797
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.12390171215116065
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.2916292805693667
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.3407036825436645
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.243765324735808
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  3,
+                                        "district":  "SANTA ANITA",
+                                        "ubigeo":  "150137",
+                                        "zone":  "Lima Este",
+                                        "population":  235773,
+                                        "expectedTotal":  709.25,
+                                        "streetShare":  0.7437380915434915,
+                                        "expectedStreet":  527.4962414272213,
+                                        "ratePer100k":  223.73055499451647,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.5796595737338066,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.1791285879444331
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.5796595737338066
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.14303335966542363
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.07713332286220975
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.01924616399628576
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0017989941479754634
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.11104406629374498
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.2935636172458865
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.3539974877098318
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.24139482875053678
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  4,
+                                        "district":  "SAN MARTIN DE PORRES",
+                                        "ubigeo":  "150135",
+                                        "zone":  "Lima Norte",
+                                        "population":  812733,
+                                        "expectedTotal":  880.6666666666666,
+                                        "streetShare":  0.5265133218763367,
+                                        "expectedStreet":  463.6827321324272,
+                                        "ratePer100k":  57.05228311541764,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.3319915719330311,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.4065553566906601
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.3319915719330311
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.15117916726740077
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.06693132483633235
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.04241246631136164
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0009301163645432098
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.1255243328211545
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.28547300137308235
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.34070837434811024
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.24829429145765286
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  5,
+                                        "district":  "ATE",
+                                        "ubigeo":  "150103",
+                                        "zone":  "Lima Este",
+                                        "population":  756613,
+                                        "expectedTotal":  862.4166666666666,
+                                        "streetShare":  0.528502694773124,
+                                        "expectedStreet":  455.7895323505883,
+                                        "ratePer100k":  60.24077465634192,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.3529611127451062,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.40109485387802124
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.3529611127451062
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.1208728738129139
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.07040245278039947
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.05327632516855374
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0013923830465500942
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.1161648502791961
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.29630823007033047
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.3477249011650123
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.2398020184854611
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  6,
+                                        "district":  "SANTIAGO DE SURCO",
+                                        "ubigeo":  "150140",
+                                        "zone":  "Lima Centro",
+                                        "population":  442660,
+                                        "expectedTotal":  721.4166666666666,
+                                        "streetShare":  0.618184143146209,
+                                        "expectedStreet":  445.96834393472756,
+                                        "ratePer100k":  100.747378108419,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.5058691659942269,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.29212056566029787
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.5058691659942269
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.08362469059647992
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.089695296715945
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.02698427505674772
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0017060114987543784
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.10181458457663121
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.30401363814880616
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.36098932541585965
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.233182451858703
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  7,
+                                        "district":  "CALLAO",
+                                        "ubigeo":  "070101",
+                                        "zone":  "Callao",
+                                        "population":  556500,
+                                        "expectedTotal":  975.9166666666666,
+                                        "streetShare":  0.45183307699153374,
+                                        "expectedStreet":  440.95143038732095,
+                                        "ratePer100k":  79.23655532566414,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.27428619656711817,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.470393561758101
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.27428619656711817
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.12597087305039167
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.07777336525032297
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.05020068059093319
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0013753267830907134
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.12416654244816877
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.2898536570093392
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.3409251881634187
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.24505461237907328
+                                                               }
+                                                           ]
+                                    },
+                                    {
+                                        "rank":  8,
+                                        "district":  "LA VICTORIA",
+                                        "ubigeo":  "150115",
+                                        "zone":  "Lima Centro",
+                                        "population":  190925,
+                                        "expectedTotal":  597.3333333333334,
+                                        "streetShare":  0.7284600519997184,
+                                        "expectedStreet":  435.13347106116515,
+                                        "ratePer100k":  227.90806393147315,
+                                        "topStreetCrime":  "Hurto",
+                                        "topStreetProbability":  0.560491724871099,
+                                        "probabilities":  [
+                                                              {
+                                                                  "class":  "Violencia contra la mujer e IGF",
+                                                                  "probability":  0.1866407023044303
+                                                              },
+                                                              {
+                                                                  "class":  "Hurto",
+                                                                  "probability":  0.560491724871099
+                                                              },
+                                                              {
+                                                                  "class":  "Robo",
+                                                                  "probability":  0.13473578088451177
+                                                              },
+                                                              {
+                                                                  "class":  "Estafa",
+                                                                  "probability":  0.08489925297908485
+                                                              },
+                                                              {
+                                                                  "class":  "Extorsión",
+                                                                  "probability":  0.03127384414256085
+                                                              },
+                                                              {
+                                                                  "class":  "Secuestro",
+                                                                  "probability":  0.0019587021015468054
+                                                              }
+                                                          ],
+                                        "franjaSugerida":  "Tarde (12-18)",
+                                        "franjaSupuesta":  [
+                                                               {
+                                                                   "franja":  "Madrugada (00-06)",
+                                                                   "probability":  0.1097557853761965
+                                                               },
+                                                               {
+                                                                   "franja":  "Mañana (06-12)",
+                                                                   "probability":  0.29649450974247776
+                                                               },
+                                                               {
+                                                                   "franja":  "Tarde (12-18)",
+                                                                   "probability":  0.35455883988796366
+                                                               },
+                                                               {
+                                                                   "franja":  "Noche (18-24)",
+                                                                   "probability":  0.23919086499336195
+                                                               }
+                                                           ]
+                                    }
+                                ],
+                       "notes":  [
+                                     "Delitos de calle: hurto, robo, extorsión y secuestro (la violencia familiar y la estafa no se disuaden con patrullaje en la vía pública).",
+                                     "Volumen esperado: promedio mensual de denuncias del distrito en los 12 meses previos (oct-2025 a sep-2026).",
+                                     "Población: proyección del INEI al 30 de junio del año consultado (para años posteriores a 2026 se usa 2026).",
+                                     "Distribución horaria orientativa: el CSV no registra la hora del hecho. Se calcula con el supuesto de la PC3 (Tabla 11: P(franja | modalidad)) ponderado por las probabilidades del bosque; no es una predicción del modelo."
+                                 ],
+                       "nodesUsed":  3,
+                       "treesUsed":  32,
+                       "fromCache":  false,
+                       "clusterMs":  0.638,
+                       "latencyMs":  1.165,
+                       "createdAt":  "2026-11-28T11:33:35.186146279Z"
+                   },
+    "evaluacion":  {
+                       "model":  {
+                                     "trained":  true,
+                                     "version":  1,
+                                     "trainedAt":  "2026-11-28T11:15:57.64532472Z",
+                                     "totalTrees":  32,
+                                     "nodesReady":  [
+                                                        "ml-node-1",
+                                                        "ml-node-2",
+                                                        "ml-node-3"
+                                                    ],
+                                     "accuracy":  0.49102124576028644,
+                                     "top3Accuracy":  0.8832427034301338,
+                                     "featureSet":  "tb2",
+                                     "mode":  "final",
+                                     "evalYear":  2026,
+                                     "config":  {
+                                                    "maxDepth":  12,
+                                                    "minLeaf":  50,
+                                                    "mtry":  3,
+                                                    "sampleFrac":  0.3,
+                                                    "seed":  42,
+                                                    "classWeight":  "none"
+                                                }
+                                 },
+                       "current":  {
+                                       "evalYear":  2026,
+                                       "featureSet":  "tb2",
+                                       "testRecords":  164221,
+                                       "distinctQueries":  448,
+                                       "accuracy":  0.49102124576028644,
+                                       "top3Accuracy":  0.8832427034301338,
+                                       "baselineAccuracy":  0.3881537683974644,
+                                       "baselineClass":  "Violencia contra la mujer e IGF",
+                                       "persistenceAccuracy":  0.49024789765011784,
+                                       "macroRecall":  0.21464689366259143,
+                                       "macroF1":  0.18339950261835403,
+                                       "weightedF1":  0.4179374227914342,
+                                       "perClass":  [
+                                                        {
+                                                            "class":  "Violencia contra la mujer e IGF",
+                                                            "real":  63743,
+                                                            "predicted":  107578,
+                                                            "precision":  0.4738050530777668,
+                                                            "recall":  0.7996329008675462,
+                                                            "f1":  0.5950350511612703
+                                                        },
+                                                        {
+                                                            "class":  "Hurto",
+                                                            "real":  60758,
+                                                            "predicted":  56643,
+                                                            "precision":  0.5237187295870628,
+                                                            "recall":  0.48824846110800224,
+                                                            "f1":  0.505361964548854
+                                                        },
+                                                        {
+                                                            "class":  "Robo",
+                                                            "real":  19838,
+                                                            "predicted":  0,
+                                                            "precision":  0,
+                                                            "recall":  0,
+                                                            "f1":  0
+                                                        },
+                                                        {
+                                                            "class":  "Estafa",
+                                                            "real":  12635,
+                                                            "predicted":  0,
+                                                            "precision":  0,
+                                                            "recall":  0,
+                                                            "f1":  0
+                                                        },
+                                                        {
+                                                            "class":  "Extorsión",
+                                                            "real":  6877,
+                                                            "predicted":  0,
+                                                            "precision":  0,
+                                                            "recall":  0,
+                                                            "f1":  0
+                                                        },
+                                                        {
+                                                            "class":  "Secuestro",
+                                                            "real":  370,
+                                                            "predicted":  0,
+                                                            "precision":  0,
+                                                            "recall":  0,
+                                                            "f1":  0
+                                                        }
+                                                    ],
+                                       "classes":  [
+                                                       "Violencia contra la mujer e IGF",
+                                                       "Hurto",
+                                                       "Robo",
+                                                       "Estafa",
+                                                       "Extorsión",
+                                                       "Secuestro"
+                                                   ],
+                                       "confusion":  [
+                                                         [
+                                                             50971,
+                                                             12772,
+                                                             0,
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                                         [
+                                                             31093,
+                                                             29665,
+                                                             0,
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                                         [
+                                                             13338,
+                                                             6500,
+                                                             0,
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                                         [
+                                                             7168,
+                                                             5467,
+                                                             0,
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                                         [
+                                                             4757,
+                                                             2120,
+                                                             0,
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                                         [
+                                                             251,
+                                                             119,
+                                                             0,
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ]
+                                                     ],
+                                       "featureImportance":  [
+                                                                 {
+                                                                     "feature":  "Distrito (UBIGEO)",
+                                                                     "importance":  0.16286106726939423
+                                                                 },
+                                                                 {
+                                                                     "feature":  "Zona urbana",
+                                                                     "importance":  0.05660743572577977
+                                                                 },
+                                                                 {
+                                                                     "feature":  "Mes",
+                                                                     "importance":  0.0452649774849188
+                                                                 },
+                                                                 {
+                                                                     "feature":  "Año",
+                                                                     "importance":  0.067469389837859
+                                                                 },
+                                                                 {
+                                                                     "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                     "importance":  0.2424802441573355
+                                                                 },
+                                                                 {
+                                                                     "feature":  "% Hurto (12 meses previos)",
+                                                                     "importance":  0.21837532413490754
+                                                                 },
+                                                                 {
+                                                                     "feature":  "% Robo (12 meses previos)",
+                                                                     "importance":  0.08348677702085958
+                                                                 },
+                                                                 {
+                                                                     "feature":  "% Estafa (12 meses previos)",
+                                                                     "importance":  0.05258595659155631
+                                                                 },
+                                                                 {
+                                                                     "feature":  "% Extorsión (12 meses previos)",
+                                                                     "importance":  0.044045881494729495
+                                                                 },
+                                                                 {
+                                                                     "feature":  "% Secuestro (12 meses previos)",
+                                                                     "importance":  0.0010832906050746158
+                                                                 },
+                                                                 {
+                                                                     "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                     "importance":  0.025739655677585342
+                                                                 }
+                                                             ],
+                                       "nodesUsed":  3,
+                                       "treesUsed":  32,
+                                       "evalMs":  3.693
+                                   },
+                       "history":  [
+                                       {
+                                           "jobId":  "job-1795864557-v1",
+                                           "version":  1,
+                                           "createdAt":  "2026-11-28T11:15:57.64531942Z",
+                                           "mode":  "final",
+                                           "featureSet":  "tb2",
+                                           "classWeight":  "none",
+                                           "nodeCount":  3,
+                                           "workers":  0,
+                                           "totalTrees":  32,
+                                           "config":  {
+                                                          "maxDepth":  12,
+                                                          "minLeaf":  50,
+                                                          "mtry":  3,
+                                                          "sampleFrac":  0.3,
+                                                          "seed":  42,
+                                                          "classWeight":  "none"
+                                                      },
+                                           "durationMs":  440.122,
+                                           "maxTrainMs":  114.926,
+                                           "evalYear":  2026,
+                                           "accuracy":  0.49102124576028644,
+                                           "top3Accuracy":  0.8832427034301338,
+                                           "macroF1":  0.18339950261835403,
+                                           "baselineAccuracy":  0.3881537683974644,
+                                           "persistenceAccuracy":  0.49024789765011784
+                                       }
+                                   ]
+                   },
+    "metrics_final":  {
+                          "timestamp":  "2026-11-28T11:33:35.217259281Z",
+                          "uptimeS":  1063.408075468,
+                          "coordinator":  {
+                                              "cpuPct":  19.00907924949469,
+                                              "goroutines":  24,
+                                              "heapMB":  12.644248962402344,
+                                              "numCPU":  16,
+                                              "persistDropped":  0,
+                                              "persistQueue":  0,
+                                              "rssMB":  30.0859375
+                                          },
+                          "nodes":  [
+                                        {
+                                            "id":  "ml-node-1",
+                                            "address":  "172.19.0.4:49156",
+                                            "connectedAt":  "2026-11-28T11:15:57.038262767Z",
+                                            "lastSeen":  "2026-11-28T11:33:35.186126179Z",
+                                            "lateResponsesDropped":  0,
+                                            "stats":  {
+                                                          "trained":  true,
+                                                          "version":  1,
+                                                          "trees":  11,
+                                                          "shard":  0,
+                                                          "trainRecords":  607779,
+                                                          "goroutines":  6,
+                                                          "heapMB":  14.665077209472656,
+                                                          "numCPU":  16,
+                                                          "uptimeS":  1056.930057523,
+                                                          "requests":  543,
+                                                          "training":  false,
+                                                          "cpuPct":  0,
+                                                          "rssMB":  24.6328125,
+                                                          "featureSet":  "tb2",
+                                                          "phase":  "inactivo",
+                                                          "treesDone":  11,
+                                                          "treesTotal":  11
+                                                      }
+                                        },
+                                        {
+                                            "id":  "ml-node-2",
+                                            "address":  "172.19.0.5:36964",
+                                            "connectedAt":  "2026-11-28T11:15:57.205040481Z",
+                                            "lastSeen":  "2026-11-28T11:33:35.186116379Z",
+                                            "lateResponsesDropped":  0,
+                                            "stats":  {
+                                                          "trained":  true,
+                                                          "version":  1,
+                                                          "trees":  11,
+                                                          "shard":  1,
+                                                          "trainRecords":  607778,
+                                                          "goroutines":  6,
+                                                          "heapMB":  14.699676513671875,
+                                                          "numCPU":  16,
+                                                          "uptimeS":  1056.763346809,
+                                                          "requests":  543,
+                                                          "training":  false,
+                                                          "cpuPct":  0,
+                                                          "rssMB":  24.44921875,
+                                                          "featureSet":  "tb2",
+                                                          "phase":  "inactivo",
+                                                          "treesDone":  11,
+                                                          "treesTotal":  11
+                                                      }
+                                        },
+                                        {
+                                            "id":  "ml-node-3",
+                                            "address":  "172.19.0.3:45162",
+                                            "connectedAt":  "2026-11-28T11:15:56.878069153Z",
+                                            "lastSeen":  "2026-11-28T11:33:35.186119879Z",
+                                            "lateResponsesDropped":  0,
+                                            "stats":  {
+                                                          "trained":  true,
+                                                          "version":  1,
+                                                          "trees":  10,
+                                                          "shard":  2,
+                                                          "trainRecords":  607778,
+                                                          "goroutines":  6,
+                                                          "heapMB":  14.573013305664062,
+                                                          "numCPU":  16,
+                                                          "uptimeS":  1057.090323437,
+                                                          "requests":  543,
+                                                          "training":  false,
+                                                          "cpuPct":  0,
+                                                          "rssMB":  24.796875,
+                                                          "featureSet":  "tb2",
+                                                          "phase":  "inactivo",
+                                                          "treesDone":  10,
+                                                          "treesTotal":  10
+                                                      }
+                                        }
+                                    ],
+                          "model":  {
+                                        "trained":  true,
+                                        "version":  1,
+                                        "trainedAt":  "2026-11-28T11:15:57.64532472Z",
+                                        "totalTrees":  32,
+                                        "nodesReady":  [
+                                                           "ml-node-1",
+                                                           "ml-node-2",
+                                                           "ml-node-3"
+                                                       ],
+                                        "accuracy":  0.49102124576028644,
+                                        "top3Accuracy":  0.8832427034301338,
+                                        "featureSet":  "tb2",
+                                        "mode":  "final",
+                                        "evalYear":  2026,
+                                        "config":  {
+                                                       "maxDepth":  12,
+                                                       "minLeaf":  50,
+                                                       "mtry":  3,
+                                                       "sampleFrac":  0.3,
+                                                       "seed":  42,
+                                                       "classWeight":  "none"
+                                                   }
+                                    },
+                          "requests":  {
+                                           "denied":  4,
+                                           "httpErrors":  9,
+                                           "impacto":  15,
+                                           "patrullaje":  1,
+                                           "predict":  41,
+                                           "predictCacheHits":  20,
+                                           "predictClusterCalls":  21,
+                                           "rateLimited":  0
+                                       },
+                          "cacheHitPct":  48.78048780487805,
+                          "latency":  {
+                                          "impact_cache":  {
+                                                               "count":  2,
+                                                               "avgMs":  1.6155,
+                                                               "p50Ms":  2.25,
+                                                               "p95Ms":  2.25,
+                                                               "p99Ms":  2.25,
+                                                               "maxMs":  2.25,
+                                                               "pctUnder100ms":  100
+                                                           },
+                                          "impact_cluster":  {
+                                                                 "count":  13,
+                                                                 "avgMs":  2.078076923076923,
+                                                                 "p50Ms":  1.966,
+                                                                 "p95Ms":  3.115,
+                                                                 "p99Ms":  3.293,
+                                                                 "maxMs":  3.293,
+                                                                 "pctUnder100ms":  100
+                                                             },
+                                          "patrol_cluster":  {
+                                                                 "count":  1,
+                                                                 "avgMs":  1.165,
+                                                                 "p50Ms":  1.165,
+                                                                 "p95Ms":  1.165,
+                                                                 "p99Ms":  1.165,
+                                                                 "maxMs":  1.165,
+                                                                 "pctUnder100ms":  100
+                                                             },
+                                          "predict_cache":  {
+                                                                "count":  20,
+                                                                "avgMs":  0.22425000000000006,
+                                                                "p50Ms":  0.228,
+                                                                "p95Ms":  0.247,
+                                                                "p99Ms":  0.253,
+                                                                "maxMs":  0.253,
+                                                                "pctUnder100ms":  100
+                                                            },
+                                          "predict_cluster":  {
+                                                                  "count":  21,
+                                                                  "avgMs":  0.689,
+                                                                  "p50Ms":  0.666,
+                                                                  "p95Ms":  0.867,
+                                                                  "p99Ms":  0.917,
+                                                                  "maxMs":  0.917,
+                                                                  "pctUnder100ms":  100
+                                                              }
+                                      },
+                          "websocket":  {
+                                            "clients":  1,
+                                            "connectionsTotal":  1,
+                                            "messagesDropped":  0,
+                                            "messagesSent":  441
+                                        },
+                          "storage":  {
+                                          "mode":  "MongoDB + Redis",
+                                          "mongo":  "conectado",
+                                          "redis":  "conectado",
+                                          "database":  "tb2_denuncias",
+                                          "collections":  {
+                                                              "cluster_metrics":  35,
+                                                              "impact_reports":  13,
+                                                              "patrol_recommendations":  1,
+                                                              "predictions":  41,
+                                                              "training_jobs":  1,
+                                                              "users":  2
+                                                          },
+                                          "cacheKeys":  25
+                                      }
+                      },
+    "health_final":  {
+                         "status":  "ok",
+                         "time":  "2026-11-28T11:33:35.221676381Z",
+                         "uptimeS":  1063.412492568,
+                         "nodesExpected":  3,
+                         "nodesConnected":  3,
+                         "nodes":  [
+                                       "ml-node-1",
+                                       "ml-node-2",
+                                       "ml-node-3"
+                                   ],
+                         "model":  {
+                                       "trained":  true,
+                                       "version":  1,
+                                       "trainedAt":  "2026-11-28T11:15:57.64532472Z",
+                                       "totalTrees":  32,
+                                       "nodesReady":  [
+                                                          "ml-node-1",
+                                                          "ml-node-2",
+                                                          "ml-node-3"
+                                                      ],
+                                       "accuracy":  0.49102124576028644,
+                                       "top3Accuracy":  0.8832427034301338,
+                                       "featureSet":  "tb2",
+                                       "mode":  "final",
+                                       "evalYear":  2026,
+                                       "config":  {
+                                                      "maxDepth":  12,
+                                                      "minLeaf":  50,
+                                                      "mtry":  3,
+                                                      "sampleFrac":  0.3,
+                                                      "seed":  42,
+                                                      "classWeight":  "none"
+                                                  }
+                                   },
+                         "storage":  {
+                                         "mode":  "MongoDB + Redis",
+                                         "mongo":  "conectado",
+                                         "redis":  "conectado",
+                                         "database":  "tb2_denuncias",
+                                         "collections":  {
+                                                             "cluster_metrics":  35,
+                                                             "impact_reports":  13,
+                                                             "patrol_recommendations":  1,
+                                                             "predictions":  41,
+                                                             "training_jobs":  1,
+                                                             "users":  2
+                                                         },
+                                         "cacheKeys":  25
+                                     }
+                     }
+}

@@ -1,0 +1,97 @@
+ml-node-2-1  | 2026/11/28 11:15:57.203626 nodo ml-node-2 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-2-1  | 2026/11/28 11:15:57.204966 [ml-node-2] registrado en el coordinador coordinator:9090 (16 núcleos)
+ml-node-2-1  | 2026/11/28 11:15:57.205445 [ml-node-2] inicia entrenamiento v1: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-2-1  | 2026/11/28 11:15:57.631269 [ml-node-2] entrenado v1: shard 2/3, 607778 denuncias, 11 árboles con 16 goroutines en 102.5 ms
+ml-node-2-1  | 2026/11/28 11:33:44.412905 nodo ml-node-2 detenido
+ml-node-2-1  | 2026/11/28 11:33:44.892348 nodo ml-node-2 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-2-1  | 2026/11/28 11:33:44.893837 [ml-node-2] registrado en el coordinador coordinator:9090 (16 núcleos)
+ml-node-2-1  | 2026/11/28 11:33:44.894185 [ml-node-2] inicia entrenamiento v1: shard 2/3, 11 árboles, variables tb2, años 2018-2025
+coordinator-1  | 2026/11/28 11:33:35.096054 POST /api/v1/predict -> 400 (0.083 ms)
+coordinator-1  | 2026/11/28 11:33:35.107738 POST /api/v1/predict -> 400 (0.065 ms)
+coordinator-1  | 2026/11/28 11:33:35.111279 POST /api/v1/predict -> 404 (0.059 ms)
+ml-node-2-1    | 2026/11/28 11:33:45.178400 [ml-node-2] entrenado v1: shard 2/3, 607778 denuncias, 11 árboles con 16 goroutines en 45.8 ms
+coordinator-1  | 2026/11/28 11:33:35.112833 GET /api/v1/predict -> 405 (0.011 ms)
+coordinator-1  | 2026/11/28 11:33:35.132113 GET /api/v1/impacto -> 400 (0.054 ms)
+coordinator-1  | 2026/11/28 11:33:35.134041 GET /api/v1/districts -> 401 (0.029 ms)
+coordinator-1  | 2026/11/28 11:33:35.135917 GET /api/v1/districts -> 401 (0.028 ms)
+coordinator-1  | 2026/11/28 11:33:35.138202 POST /api/v1/train -> 403 (0.035 ms)
+coordinator-1  | 2026/11/28 11:33:35.139856 GET /api/v1/metrics -> 403 (0.047 ms)
+coordinator-1  | 2026/11/28 11:33:35.155231 GET /api/v1/impacto -> 200 (2.745 ms)
+coordinator-1  | 2026/11/28 11:33:35.166790 GET /api/v1/impacto -> 200 (2.012 ms)
+coordinator-1  | 2026/11/28 11:33:35.186693 GET /api/v1/patrullaje -> 200 (1.394 ms)
+coordinator-1  | 2026/11/28 11:33:35.214858 GET /api/v1/evaluacion -> 200 (0.314 ms)
+coordinator-1  | 2026/11/28 11:33:35.219427 GET /api/v1/metrics -> 200 (2.489 ms)
+coordinator-1  | 2026/11/28 11:33:35.223643 GET /api/v1/health -> 200 (1.971 ms)
+coordinator-1  | 2026/11/28 11:33:39.070342 GET /api/v1/health -> 200 (2.129 ms)
+coordinator-1  | 2026/11/28 11:33:44.104877 GET /api/v1/health -> 200 (1.969 ms)
+coordinator-1  | 2026/11/28 11:33:44.250565 login correcto de admin (admin) desde 172.18.0.3
+coordinator-1  | 2026/11/28 11:33:44.250628 POST /api/v1/auth/login -> 200 (74.733 ms)
+coordinator-1  | 2026/11/28 11:33:44.255338 GET /api/v1/health -> 200 (2.266 ms)
+coordinator-1  | 2026/11/28 11:33:44.263836 POST /api/v1/predict -> 200 (0.776 ms)
+coordinator-1  | 2026/11/28 11:33:44.412967 nodo ml-node-2 desconectado
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2345 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:44.585535 GET /api/v1/health -> 200 (1.932 ms)
+coordinator-1  | 2026/11/28 11:33:44.590534 POST /api/v1/predict -> 200 (0.771 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2361 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2369 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:44.597332 GET /api/v1/health -> 200 (1.882 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2386 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:44.893894 nodo ml-node-2 registrado desde 172.19.0.5:43236
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2362 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:44.894004 reentrenando ml-node-2 (versión 1, shard 2/3, 11 árboles)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2371 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2387 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:44.914789 GET /api/v1/health -> 200 (2.183 ms)
+coordinator-1  | 2026/11/28 11:33:45.178549 ml-node-2 listo de nuevo con la versión 1
+coordinator-1  | 2026/11/28 11:33:46.956282 GET /api/v1/health -> 200 (5.149 ms)
+coordinator-1  | 2026/11/28 11:33:46.964463 POST /api/v1/predict -> 200 (1.135 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:34 +0000] "POST /api/v1/predict HTTP/1.1" 200 2357 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:49.142643 GET /api/v1/health -> 200 (2.044 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "POST /api/v1/predict HTTP/1.1" 200 2376 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:33:54.181675 GET /api/v1/health -> 200 (2.123 ms)
+coordinator-1  | 2026/11/28 11:33:59.220014 GET /api/v1/health -> 200 (2.253 ms)
+coordinator-1  | 2026/11/28 11:34:04.255522 GET /api/v1/health -> 200 (2.189 ms)
+coordinator-1  | 2026/11/28 11:34:09.293750 GET /api/v1/health -> 200 (2.236 ms)
+coordinator-1  | 2026/11/28 11:34:14.328795 GET /api/v1/health -> 200 (2.016 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "POST /api/v1/predict HTTP/1.1" 200 2382 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "POST /api/v1/predict HTTP/1.1" 400 95 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:34:19.368941 GET /api/v1/health -> 200 (2.036 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "POST /api/v1/predict HTTP/1.1" 400 185 "-" "-" "-"
+coordinator-1  | 2026/11/28 11:34:24.405278 GET /api/v1/health -> 200 (2.145 ms)
+coordinator-1  | 2026/11/28 11:34:24.888589 GET /api/v1/health -> 200 (2.682 ms)
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "POST /api/v1/predict HTTP/1.1" 404 178 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/predict HTTP/1.1" 405 19 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/impacto HTTP/1.1" 400 177 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/districts HTTP/1.1" 401 137 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/districts HTTP/1.1" 401 125 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "POST /api/v1/train HTTP/1.1" 403 154 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/metrics HTTP/1.1" 403 129 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/impacto?mes=3&anio=2026&top=10 HTTP/1.1" 200 81409 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/impacto?mes=3&anio=2026&top=10 HTTP/1.1" 200 81408 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/patrullaje?mes=10&anio=2026&top=8 HTTP/1.1" 200 13572 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/evaluacion HTTP/1.1" 200 4788 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/metrics HTTP/1.1" 200 4568 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:35 +0000] "GET /api/v1/health HTTP/1.1" 200 1061 "-" "-" "-"
+web-1          | 127.0.0.1 - - [28/Nov/2026:11:33:40 +0000] "GET / HTTP/1.1" 200 601 "-" "Wget" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "POST /api/v1/auth/login HTTP/1.1" 200 396 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "GET /api/v1/health HTTP/1.1" 200 1061 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "POST /api/v1/predict HTTP/1.1" 200 2344 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "GET /api/v1/health HTTP/1.1" 200 1051 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "POST /api/v1/predict HTTP/1.1" 200 2326 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "GET /api/v1/health HTTP/1.1" 200 1051 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:44 +0000] "GET /api/v1/health HTTP/1.1" 200 1042 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:46 +0000] "GET /api/v1/health HTTP/1.1" 200 1061 "-" "-" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:33:46 +0000] "POST /api/v1/predict HTTP/1.1" 200 2327 "-" "-" "-"
+web-1          | 127.0.0.1 - - [28/Nov/2026:11:33:50 +0000] "GET / HTTP/1.1" 200 601 "-" "Wget" "-"
+web-1          | 127.0.0.1 - - [28/Nov/2026:11:34:00 +0000] "GET / HTTP/1.1" 200 601 "-" "Wget" "-"
+web-1          | 127.0.0.1 - - [28/Nov/2026:11:34:10 +0000] "GET / HTTP/1.1" 200 601 "-" "Wget" "-"
+web-1          | 127.0.0.1 - - [28/Nov/2026:11:34:20 +0000] "GET / HTTP/1.1" 200 601 "-" "Wget" "-"
+web-1          | 172.18.0.1 - - [28/Nov/2026:11:34:24 +0000] "GET /api/v1/health HTTP/1.1" 200 1061 "-" "-" "-"
+ml-node-3-1    | 2026/11/28 11:15:56.876600 nodo ml-node-3 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-3-1    | 2026/11/28 11:15:56.877909 [ml-node-3] registrado en el coordinador coordinator:9090 (16 núcleos)
+ml-node-3-1    | 2026/11/28 11:15:57.205453 [ml-node-3] inicia entrenamiento v1: shard 3/3, 10 árboles, variables tb2, años 2018-2025
+ml-node-3-1    | 2026/11/28 11:15:57.641695 [ml-node-3] entrenado v1: shard 3/3, 607778 denuncias, 10 árboles con 16 goroutines en 106.2 ms
+ml-node-1-1    | 2026/11/28 11:15:57.036878 nodo ml-node-1 iniciando; coordinador coordinator:9090; dataset /data/DATASET_Denuncias Policiales - Enero 2018 a Septiembre 2026.csv
+ml-node-1-1    | 2026/11/28 11:15:57.038213 [ml-node-1] registrado en el coordinador coordinator:9090 (16 núcleos)
+ml-node-1-1    | 2026/11/28 11:15:57.205436 [ml-node-1] inicia entrenamiento v1: shard 1/3, 11 árboles, variables tb2, años 2018-2025
+ml-node-1-1    | 2026/11/28 11:15:57.645154 [ml-node-1] entrenado v1: shard 1/3, 607779 denuncias, 11 árboles con 16 goroutines en 114.9 ms

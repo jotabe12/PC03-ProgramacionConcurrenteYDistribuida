@@ -1,0 +1,2538 @@
+{
+    "fecha":  "2026-11-28T06:36:00",
+    "resumen":  [
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "base (variables reales)",
+                        "variables":  "base",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4544,
+                        "top3":  0.8673,
+                        "f1Macro":  0.1792,
+                        "f1Ponderado":  0.3885,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 (reales + patrón 12 meses)",
+                        "variables":  "tb2",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4648,
+                        "top3":  0.8672,
+                        "f1Macro":  0.1774,
+                        "f1Ponderado":  0.3906,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 + pesos sqrt",
+                        "variables":  "tb2",
+                        "pesos":  "sqrt",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4552,
+                        "top3":  0.8483,
+                        "f1Macro":  0.1799,
+                        "f1Ponderado":  0.3880,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 + pesos balanced",
+                        "variables":  "tb2",
+                        "pesos":  "balanced",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.1020,
+                        "top3":  0.5268,
+                        "f1Macro":  0.0727,
+                        "f1Ponderado":  0.0778,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 profundidad 16",
+                        "variables":  "tb2",
+                        "pesos":  "none",
+                        "profundidad":  16,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4652,
+                        "top3":  0.8676,
+                        "f1Macro":  0.1776,
+                        "f1Ponderado":  0.3909,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 mtry 5",
+                        "variables":  "tb2",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  5,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4645,
+                        "top3":  0.8659,
+                        "f1Macro":  0.1771,
+                        "f1Ponderado":  0.3900,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 hoja mínima 20",
+                        "variables":  "tb2",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  20,
+                        "arboles":  32,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4642,
+                        "top3":  0.8679,
+                        "f1Macro":  0.1773,
+                        "f1Ponderado":  0.3904,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "validacion",
+                        "experimento":  "tb2 64 árboles",
+                        "variables":  "tb2",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  64,
+                        "anioEvaluado":  2025,
+                        "denuncias":  228329,
+                        "exactitud":  0.4645,
+                        "top3":  0.8660,
+                        "f1Macro":  0.1773,
+                        "f1Ponderado":  0.3904,
+                        "lineaBase":  0.3727,
+                        "persistencia":  0.4654
+                    },
+                    {
+                        "etapa":  "prueba 2026",
+                        "experimento":  "pc4 (con franja imputada: fuga)",
+                        "variables":  "pc4",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2026,
+                        "denuncias":  164221,
+                        "exactitud":  0.5134,
+                        "top3":  0.8973,
+                        "f1Macro":  0.1947,
+                        "f1Ponderado":  0.4430,
+                        "lineaBase":  0.3882,
+                        "persistencia":  0.4902
+                    },
+                    {
+                        "etapa":  "prueba 2026",
+                        "experimento":  "base (variables reales)",
+                        "variables":  "base",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2026,
+                        "denuncias":  164221,
+                        "exactitud":  0.4832,
+                        "top3":  0.8834,
+                        "f1Macro":  0.1804,
+                        "f1Ponderado":  0.4111,
+                        "lineaBase":  0.3882,
+                        "persistencia":  0.4902
+                    },
+                    {
+                        "etapa":  "prueba 2026",
+                        "experimento":  "tb2 + pesos sqrt",
+                        "variables":  "tb2",
+                        "pesos":  "sqrt",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2026,
+                        "denuncias":  164221,
+                        "exactitud":  0.4859,
+                        "top3":  0.8254,
+                        "f1Macro":  0.1858,
+                        "f1Ponderado":  0.4171,
+                        "lineaBase":  0.3882,
+                        "persistencia":  0.4902
+                    },
+                    {
+                        "etapa":  "prueba 2026",
+                        "experimento":  "tb2 (modelo final)",
+                        "variables":  "tb2",
+                        "pesos":  "none",
+                        "profundidad":  12,
+                        "mtry":  3,
+                        "hojaMin":  50,
+                        "arboles":  32,
+                        "anioEvaluado":  2026,
+                        "denuncias":  164221,
+                        "exactitud":  0.4910,
+                        "top3":  0.8832,
+                        "f1Macro":  0.1834,
+                        "f1Ponderado":  0.4179,
+                        "lineaBase":  0.3882,
+                        "persistencia":  0.4902
+                    }
+                ],
+    "detalle":  [
+                    {
+                        "experimento":  "base (variables reales)",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "featureSet":  "base",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  42,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "base",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.45436628724340755,
+                                           "top3Accuracy":  0.8672704737462171,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.20779447462063,
+                                           "macroF1":  0.17918164706855721,
+                                           "weightedF1":  0.38845981226651477,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  121936,
+                                                                "precision":  0.4553618291562787,
+                                                                "recall":  0.6524063542792687,
+                                                                "f1":  0.5363594211858349
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  103776,
+                                                                "precision":  0.4607327320382362,
+                                                                "recall":  0.5808469799309977,
+                                                                "f1":  0.5138641102250501
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  2617,
+                                                                "precision":  0.15552158960641957,
+                                                                "recall":  0.013513513513513514,
+                                                                "f1":  0.02486635100045823
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 55525,
+                                                                 28440,
+                                                                 1143,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 33725,
+                                                                 47813,
+                                                                 778,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 16761,
+                                                                 12950,
+                                                                 407,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8533,
+                                                                 9599,
+                                                                 155,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 7136,
+                                                                 4803,
+                                                                 128,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 256,
+                                                                 171,
+                                                                 6,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.5403325591483772
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.07932476715960479
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.1461411551230657
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.2342015185689523
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  3.978
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5364,
+                                           "Hurto":  0.5139,
+                                           "Robo":  0.0249,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 (reales + patrón 12 meses)",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  43,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.4647548055656531,
+                                           "top3Accuracy":  0.8671697419075106,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.21064265444400293,
+                                           "macroF1":  0.17742450806803148,
+                                           "weightedF1":  0.39063004646911575,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  141580,
+                                                                "precision":  0.4481423929933606,
+                                                                "recall":  0.7454998355031255,
+                                                                "f1":  0.5597826086956522
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  86749,
+                                                                "precision":  0.4918673414102756,
+                                                                "recall":  0.5183560911608922,
+                                                                "f1":  0.5047644397125366
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 63448,
+                                                                 21660,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 39647,
+                                                                 42669,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 19737,
+                                                                 10381,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 9959,
+                                                                 8328,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8481,
+                                                                 3586,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 308,
+                                                                 125,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.17964246706931003
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.08014794526019212
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.0481358622470327
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.05840570770307559
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.17458239570025455
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.20422317512416108
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.09786554430502294
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.06533768956134604
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.06413904922481647
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0011690702328231856
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.02635109357196521
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  4.186
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5598,
+                                           "Hurto":  0.5048,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 + pesos sqrt",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "classWeight":  "sqrt",
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  44,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.4551677623078978,
+                                           "top3Accuracy":  0.8483416473597309,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.20866912878530425,
+                                           "macroF1":  0.17990922739310303,
+                                           "weightedF1":  0.3880231992840642,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  120747,
+                                                                "precision":  0.4546282723380291,
+                                                                "recall":  0.6450039949240964,
+                                                                "f1":  0.5333365718588328
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  105839,
+                                                                "precision":  0.46044463760995474,
+                                                                "recall":  0.5920234219349823,
+                                                                "f1":  0.5180090882517074
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  347,
+                                                                "precision":  0.19020172910662825,
+                                                                "recall":  0.002191380569758948,
+                                                                "f1":  0.004332840965041851
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  1396,
+                                                                "precision":  0.167621776504298,
+                                                                "recall":  0.012795975282987915,
+                                                                "f1":  0.02377686328303612
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 54895,
+                                                                 29539,
+                                                                 147,
+                                                                 527,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 32991,
+                                                                 48733,
+                                                                 104,
+                                                                 488,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 16654,
+                                                                 13301,
+                                                                 66,
+                                                                 97,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8431,
+                                                                 9605,
+                                                                 17,
+                                                                 234,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 7509,
+                                                                 4500,
+                                                                 11,
+                                                                 47,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 267,
+                                                                 161,
+                                                                 2,
+                                                                 3,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.13594988108751394
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.06830938138515451
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.06610591821825682
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.09391435938581283
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.14621600018072814
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.15619656027309123
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.09604200026169346
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.09966473998231429
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.10268172545229509
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0020737684812608555
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.032845665291878774
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  3.681
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5333,
+                                           "Hurto":  0.5180,
+                                           "Robo":  0.0043,
+                                           "Estafa":  0.0238,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 + pesos balanced",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "classWeight":  "balanced",
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  45,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.10198003757735548,
+                                           "top3Accuracy":  0.5267618217572012,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.20291463548939853,
+                                           "macroF1":  0.07270753234032883,
+                                           "weightedF1":  0.07782864365740927,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  603,
+                                                                "precision":  0.6981757877280266,
+                                                                "recall":  0.004946656013535743,
+                                                                "f1":  0.009823709908879841
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  11940,
+                                                                "precision":  0.6019262981574539,
+                                                                "recall":  0.087309879002867,
+                                                                "f1":  0.15249957562383296
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  625,
+                                                                "precision":  0.184,
+                                                                "recall":  0.00381831462912544,
+                                                                "f1":  0.007481377874638129
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  60623,
+                                                                "precision":  0.09844448476650776,
+                                                                "recall":  0.32635205337124734,
+                                                                "f1":  0.1512609301736155
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  154525,
+                                                                "precision":  0.06208704093188804,
+                                                                "recall":  0.7950609099196155,
+                                                                "f1":  0.11517960046100655
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  13,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 421,
+                                                                 1767,
+                                                                 300,
+                                                                 17626,
+                                                                 64984,
+                                                                 10
+                                                             ],
+                                                             [
+                                                                 61,
+                                                                 7187,
+                                                                 166,
+                                                                 28239,
+                                                                 46663,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 42,
+                                                                 1553,
+                                                                 115,
+                                                                 6555,
+                                                                 21853,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 32,
+                                                                 1144,
+                                                                 32,
+                                                                 5968,
+                                                                 11109,
+                                                                 2
+                                                             ],
+                                                             [
+                                                                 47,
+                                                                 274,
+                                                                 10,
+                                                                 2141,
+                                                                 9594,
+                                                                 1
+                                                             ],
+                                                             [
+                                                                 0,
+                                                                 15,
+                                                                 2,
+                                                                 94,
+                                                                 322,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.0952768508307501
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.04116243770886274
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.12950820173666175
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.12036681142332353
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.13525581244507096
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.11336001079319022
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.11608358391643314
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.09756701852868664
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.08065977061519657
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.00665665144013513
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.0641028505616893
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  2.818
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.0098,
+                                           "Hurto":  0.1525,
+                                           "Robo":  0.0075,
+                                           "Estafa":  0.1513,
+                                           "Extorsión":  0.1152,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 profundidad 16",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "maxDepth":  16,
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  46,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.4651664922108011,
+                                           "top3Accuracy":  0.8675551506816918,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.21082427667955977,
+                                           "macroF1":  0.17756706897092678,
+                                           "weightedF1":  0.3909445119775664,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  141846,
+                                                                "precision":  0.44822554037477264,
+                                                                "recall":  0.7470390562579311,
+                                                                "f1":  0.5602809379874335
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  86483,
+                                                                "precision":  0.492952372142502,
+                                                                "recall":  0.5179066038194275,
+                                                                "f1":  0.505121475838127
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 63579,
+                                                                 21529,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 39684,
+                                                                 42632,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 19739,
+                                                                 10379,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 10024,
+                                                                 8263,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8512,
+                                                                 3555,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 308,
+                                                                 125,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.1615724563158716
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.08639510582885314
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.0620127982115528
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.06443226999314995
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.19597341817144157
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.1873804467182406
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.0939056455563485
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.06502086252957312
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.05284548837462099
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0012332992130909411
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.029228209087256797
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  3.275
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5603,
+                                           "Hurto":  0.5051,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 mtry 5",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "mtry":  5,
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  47,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.4644701286301784,
+                                           "top3Accuracy":  0.8658996448107774,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.21046368916875152,
+                                           "macroF1":  0.1771235585311731,
+                                           "weightedF1":  0.3899886768190156,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  143806,
+                                                                "precision":  0.4461635814917319,
+                                                                "recall":  0.7538774263288998,
+                                                                "f1":  0.5605685978140262
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  84523,
+                                                                "precision":  0.49561657773623746,
+                                                                "recall":  0.5089047086836095,
+                                                                "f1":  0.5021727533730123
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 64161,
+                                                                 20947,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 40425,
+                                                                 41891,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 20178,
+                                                                 9940,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 10148,
+                                                                 8139,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8584,
+                                                                 3483,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 310,
+                                                                 123,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.16066822135290826
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.03504087176875129
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.060059562516134785
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.04580835593530298
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.24701608532787356
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.24464278835259215
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.09811336943299351
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.04914527332469297
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.03743843770967638
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0008231059998472379
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.021243928279226863
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  3.719
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5606,
+                                           "Hurto":  0.5022,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 hoja mínima 20",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "minLeaf":  20,
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  48,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.464224868501154,
+                                           "top3Accuracy":  0.8679099019397448,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.210429811663988,
+                                           "macroF1":  0.17734465896944335,
+                                           "weightedF1":  0.39043348541559575,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  140637,
+                                                                "precision":  0.44770579577209413,
+                                                                "recall":  0.7398129435540725,
+                                                                "f1":  0.5578329531108108
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  87692,
+                                                                "precision":  0.4907175112895133,
+                                                                "recall":  0.5227659264298556,
+                                                                "f1":  0.5062350007058491
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 62964,
+                                                                 22144,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 39284,
+                                                                 43032,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 19663,
+                                                                 10455,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 9959,
+                                                                 8328,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8469,
+                                                                 3598,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 298,
+                                                                 135,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.16231358951584043
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.07964251654075927
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.05370862073641675
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.06498755898978344
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.20380900334579044
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.19523252001384375
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.0903453999375332
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.06632585934368262
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.05296116160543961
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0015031520015698198
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.029170617969340642
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  3.684
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5578,
+                                           "Hurto":  0.5062,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 64 árboles",
+                        "etapa":  "validacion",
+                        "parametros":  {
+                                           "trees":  64,
+                                           "featureSet":  "tb2",
+                                           "mode":  "validacion"
+                                       },
+                        "version":  49,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2025,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  228329,
+                                           "distinctQueries":  598,
+                                           "accuracy":  0.4645007861463064,
+                                           "top3Accuracy":  0.8659565801978724,
+                                           "baselineAccuracy":  0.3727428403750728,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.4653548169527305,
+                                           "macroRecall":  0.21052535365750819,
+                                           "macroF1":  0.17732589807727794,
+                                           "weightedF1":  0.3904113690818337,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  85108,
+                                                                "predicted":  141751,
+                                                                "precision":  0.44758767133917926,
+                                                                "recall":  0.7454763359496169,
+                                                                "f1":  0.5593430280482591
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  82316,
+                                                                "predicted":  86578,
+                                                                "precision":  0.49219201182748507,
+                                                                "recall":  0.5176757859954323,
+                                                                "f1":  0.5046123604154085
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  30118,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  18287,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  12067,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  433,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 63446,
+                                                                 21662,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 39703,
+                                                                 42613,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 19820,
+                                                                 10298,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 9988,
+                                                                 8299,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 8486,
+                                                                 3581,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 308,
+                                                                 125,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.1689513690450886
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.07380036360511012
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.049482807336084275
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.07002226650143134
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.21800595094460576
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.2000599157146806
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.08720148282146185
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.061697914873843435
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.04308742563013353
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0011776020318657087
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.026512901495694702
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  64,
+                                           "evalMs":  5.097
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5593,
+                                           "Hurto":  0.5046,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "pc4 (con franja imputada: fuga)",
+                        "etapa":  "prueba 2026",
+                        "parametros":  {
+                                           "featureSet":  "pc4"
+                                       },
+                        "version":  50,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Franja horaria (imputada)",
+                                         "Mes",
+                                         "Año"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2026,
+                                           "featureSet":  "pc4",
+                                           "testRecords":  164221,
+                                           "distinctQueries":  1760,
+                                           "accuracy":  0.5133752686927981,
+                                           "top3Accuracy":  0.8973334713587178,
+                                           "baselineAccuracy":  0.3881537683974644,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.49024789765011784,
+                                           "macroRecall":  0.22571744821619277,
+                                           "macroF1":  0.1946614830056097,
+                                           "weightedF1":  0.44298244248028373,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  63743,
+                                                                "predicted":  80797,
+                                                                "precision":  0.5344505365298217,
+                                                                "recall":  0.6774390913512072,
+                                                                "f1":  0.5975093399750935
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  60758,
+                                                                "predicted":  83424,
+                                                                "precision":  0.49296365554276944,
+                                                                "recall":  0.6768655979459495,
+                                                                "f1":  0.5704595580585649
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  19838,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  12635,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  6877,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  370,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 43182,
+                                                                 20561,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 19633,
+                                                                 41125,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 11766,
+                                                                 8072,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 3373,
+                                                                 9262,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 2585,
+                                                                 4292,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 258,
+                                                                 112,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.30256344521807177
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.055829900410984595
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Franja horaria (imputada)",
+                                                                         "importance":  0.4172472162147847
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.07819055042794536
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.14616888772821354
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  15.564
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5975,
+                                           "Hurto":  0.5705,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "base (variables reales)",
+                        "etapa":  "prueba 2026",
+                        "parametros":  {
+                                           "featureSet":  "base"
+                                       },
+                        "version":  51,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2026,
+                                           "featureSet":  "base",
+                                           "testRecords":  164221,
+                                           "distinctQueries":  448,
+                                           "accuracy":  0.48318424562023127,
+                                           "top3Accuracy":  0.8833949373100882,
+                                           "baselineAccuracy":  0.3881537683974644,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.49024789765011784,
+                                           "macroRecall":  0.21121013938452265,
+                                           "macroF1":  0.18036006487005696,
+                                           "weightedF1":  0.41105311454767374,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  63743,
+                                                                "predicted":  107297,
+                                                                "precision":  0.46825167525653094,
+                                                                "recall":  0.7881963509718715,
+                                                                "f1":  0.587488306828812
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  60758,
+                                                                "predicted":  56924,
+                                                                "precision":  0.5113308973367999,
+                                                                "recall":  0.47906448533526447,
+                                                                "f1":  0.4946720823915297
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  19838,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  12635,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  6877,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  370,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 50242,
+                                                                 13501,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 31651,
+                                                                 29107,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 13398,
+                                                                 6440,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 7123,
+                                                                 5512,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 4639,
+                                                                 2238,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 244,
+                                                                 126,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.5205408241698896
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.10295539604549715
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.1377381243904285
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.23876565539418482
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  2.574
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5875,
+                                           "Hurto":  0.4947,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 + pesos sqrt",
+                        "etapa":  "prueba 2026",
+                        "parametros":  {
+                                           "featureSet":  "tb2",
+                                           "classWeight":  "sqrt"
+                                       },
+                        "version":  52,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2026,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  164221,
+                                           "distinctQueries":  448,
+                                           "accuracy":  0.48586356190742963,
+                                           "top3Accuracy":  0.8254425438890276,
+                                           "baselineAccuracy":  0.3881537683974644,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.49024789765011784,
+                                           "macroRecall":  0.21404520818096334,
+                                           "macroF1":  0.18580402102272264,
+                                           "weightedF1":  0.4171494119322879,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  63743,
+                                                                "predicted":  102190,
+                                                                "precision":  0.475868480281828,
+                                                                "recall":  0.7628916116279435,
+                                                                "f1":  0.5861281360549138
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  60758,
+                                                                "predicted":  61301,
+                                                                "precision":  0.5060928859235575,
+                                                                "recall":  0.5106158859738635,
+                                                                "f1":  0.5083443252853129
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  19838,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  12635,
+                                                                "predicted":  730,
+                                                                "precision":  0.1863013698630137,
+                                                                "recall":  0.010763751483973091,
+                                                                "f1":  0.02035166479610924
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  6877,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  370,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 48629,
+                                                                 14829,
+                                                                 0,
+                                                                 285,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 29496,
+                                                                 31024,
+                                                                 0,
+                                                                 238,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 12715,
+                                                                 7103,
+                                                                 0,
+                                                                 20,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 6657,
+                                                                 5842,
+                                                                 0,
+                                                                 136,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 4463,
+                                                                 2367,
+                                                                 0,
+                                                                 47,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 230,
+                                                                 136,
+                                                                 0,
+                                                                 4,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.13219774066742893
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.045775255716037334
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.0594651249200438
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.10699139439820972
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.18361844813840325
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.16337282611549722
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.0863682485144293
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.08919149019026926
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.09696546170014655
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0018406890632312798
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.03421332057630329
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  2.25
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5861,
+                                           "Hurto":  0.5083,
+                                           "Robo":  0,
+                                           "Estafa":  0.0204,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    },
+                    {
+                        "experimento":  "tb2 (modelo final)",
+                        "etapa":  "prueba 2026",
+                        "parametros":  {
+                                           "featureSet":  "tb2"
+                                       },
+                        "version":  53,
+                        "features":  [
+                                         "Distrito (UBIGEO)",
+                                         "Zona urbana",
+                                         "Mes",
+                                         "Año",
+                                         "% Violencia contra la mujer e IGF (12 meses previos)",
+                                         "% Hurto (12 meses previos)",
+                                         "% Robo (12 meses previos)",
+                                         "% Estafa (12 meses previos)",
+                                         "% Extorsión (12 meses previos)",
+                                         "% Secuestro (12 meses previos)",
+                                         "Volumen de denuncias (12 meses previos, log2)"
+                                     ],
+                        "evaluacion":  {
+                                           "evalYear":  2026,
+                                           "featureSet":  "tb2",
+                                           "testRecords":  164221,
+                                           "distinctQueries":  448,
+                                           "accuracy":  0.49102124576028644,
+                                           "top3Accuracy":  0.8832427034301338,
+                                           "baselineAccuracy":  0.3881537683974644,
+                                           "baselineClass":  "Violencia contra la mujer e IGF",
+                                           "persistenceAccuracy":  0.49024789765011784,
+                                           "macroRecall":  0.21464689366259143,
+                                           "macroF1":  0.18339950261835403,
+                                           "weightedF1":  0.4179374227914342,
+                                           "perClass":  [
+                                                            {
+                                                                "class":  "Violencia contra la mujer e IGF",
+                                                                "real":  63743,
+                                                                "predicted":  107578,
+                                                                "precision":  0.4738050530777668,
+                                                                "recall":  0.7996329008675462,
+                                                                "f1":  0.5950350511612703
+                                                            },
+                                                            {
+                                                                "class":  "Hurto",
+                                                                "real":  60758,
+                                                                "predicted":  56643,
+                                                                "precision":  0.5237187295870628,
+                                                                "recall":  0.48824846110800224,
+                                                                "f1":  0.505361964548854
+                                                            },
+                                                            {
+                                                                "class":  "Robo",
+                                                                "real":  19838,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Estafa",
+                                                                "real":  12635,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Extorsión",
+                                                                "real":  6877,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            },
+                                                            {
+                                                                "class":  "Secuestro",
+                                                                "real":  370,
+                                                                "predicted":  0,
+                                                                "precision":  0,
+                                                                "recall":  0,
+                                                                "f1":  0
+                                                            }
+                                                        ],
+                                           "classes":  [
+                                                           "Violencia contra la mujer e IGF",
+                                                           "Hurto",
+                                                           "Robo",
+                                                           "Estafa",
+                                                           "Extorsión",
+                                                           "Secuestro"
+                                                       ],
+                                           "confusion":  [
+                                                             [
+                                                                 50971,
+                                                                 12772,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 31093,
+                                                                 29665,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 13338,
+                                                                 6500,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 7168,
+                                                                 5467,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 4757,
+                                                                 2120,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                             [
+                                                                 251,
+                                                                 119,
+                                                                 0,
+                                                                 0,
+                                                                 0,
+                                                                 0
+                                                             ]
+                                                         ],
+                                           "featureImportance":  [
+                                                                     {
+                                                                         "feature":  "Distrito (UBIGEO)",
+                                                                         "importance":  0.16286106726939423
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Zona urbana",
+                                                                         "importance":  0.05660743572577977
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Mes",
+                                                                         "importance":  0.0452649774849188
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Año",
+                                                                         "importance":  0.067469389837859
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Violencia contra la mujer e IGF (12 meses previos)",
+                                                                         "importance":  0.2424802441573355
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Hurto (12 meses previos)",
+                                                                         "importance":  0.21837532413490754
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Robo (12 meses previos)",
+                                                                         "importance":  0.08348677702085958
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Estafa (12 meses previos)",
+                                                                         "importance":  0.05258595659155631
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Extorsión (12 meses previos)",
+                                                                         "importance":  0.044045881494729495
+                                                                     },
+                                                                     {
+                                                                         "feature":  "% Secuestro (12 meses previos)",
+                                                                         "importance":  0.0010832906050746158
+                                                                     },
+                                                                     {
+                                                                         "feature":  "Volumen de denuncias (12 meses previos, log2)",
+                                                                         "importance":  0.025739655677585342
+                                                                     }
+                                                                 ],
+                                           "nodesUsed":  3,
+                                           "treesUsed":  32,
+                                           "evalMs":  2.155
+                                       },
+                        "f1PorClase":  {
+                                           "Violencia contra la mujer e IGF":  0.5950,
+                                           "Hurto":  0.5054,
+                                           "Robo":  0,
+                                           "Estafa":  0,
+                                           "Extorsión":  0,
+                                           "Secuestro":  0
+                                       }
+                    }
+                ]
+}
