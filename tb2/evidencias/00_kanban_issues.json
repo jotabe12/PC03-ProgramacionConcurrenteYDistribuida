@@ -1,0 +1,197 @@
+{
+    "proyecto":  "CC65 · Grupo 3 · Kanban del proyecto (PC3 → PC4 → TB2)",
+    "numero":  1,
+    "url":  "https://github.com/users/jotabe12/projects/1",
+    "repositorio":  "jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias",
+    "tareas":  [
+                   {
+                       "issue":  1,
+                       "titulo":  "PC3 · Caso, dataset y pregunta de impacto social",
+                       "estado":  "Done",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/1"
+                   },
+                   {
+                       "issue":  2,
+                       "titulo":  "PC3 · Carga y limpieza concurrente del CSV (más de 1 M de registros)",
+                       "estado":  "Done",
+                       "responsable":  "Tomás",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/2"
+                   },
+                   {
+                       "issue":  3,
+                       "titulo":  "PC3 · Diseño del Random Forest y paralelización con goroutines",
+                       "estado":  "Done",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/3"
+                   },
+                   {
+                       "issue":  4,
+                       "titulo":  "PC3 · Informe, repositorio y tablero Kanban",
+                       "estado":  "Done",
+                       "responsable":  "Tomás",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/4"
+                   },
+                   {
+                       "issue":  5,
+                       "titulo":  "PC4 · Clúster TCP de nodos ML (topología estrella) y RF distribuido",
+                       "estado":  "Done",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/5"
+                   },
+                   {
+                       "issue":  6,
+                       "titulo":  "PC4 · API REST, Swagger y Postman (\u003c100 ms)",
+                       "estado":  "Done",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/6"
+                   },
+                   {
+                       "issue":  7,
+                       "titulo":  "PC4 · Persistencia MongoDB + Redis y Docker Compose",
+                       "estado":  "Done",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/7"
+                   },
+                   {
+                       "issue":  8,
+                       "titulo":  "PC4 · Correcciones (pc4-mejora), pruebas -race e informe",
+                       "estado":  "Done",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/8"
+                   },
+                   {
+                       "issue":  9,
+                       "titulo":  "TB2 · Estructura tb2/, Git Flow y tablero Kanban",
+                       "estado":  "In Progress",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/9"
+                   },
+                   {
+                       "issue":  10,
+                       "titulo":  "TB2 · Seguridad de la API: JWT, roles, CORS y cuotas",
+                       "estado":  "Todo",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/10"
+                   },
+                   {
+                       "issue":  11,
+                       "titulo":  "TB2 · Tiempo real: WebSocket, CPU por nodo, latencias y logs",
+                       "estado":  "Todo",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/11"
+                   },
+                   {
+                       "issue":  12,
+                       "titulo":  "TB2 · Modelo corregido: sin franja imputada y con patrón criminológico reciente",
+                       "estado":  "Todo",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/12"
+                   },
+                   {
+                       "issue":  13,
+                       "titulo":  "TB2 · Impacto social: población INEI, tasa por 100 mil y patrullaje priorizado",
+                       "estado":  "Todo",
+                       "responsable":  "Tomás",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/13"
+                   },
+                   {
+                       "issue":  14,
+                       "titulo":  "TB2 · Frontend: login, menú y dashboard de impacto",
+                       "estado":  "Todo",
+                       "responsable":  "Tomás",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/14"
+                   },
+                   {
+                       "issue":  15,
+                       "titulo":  "TB2 · Frontend: predicción, patrullaje y entrenamiento en vivo",
+                       "estado":  "Todo",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/15"
+                   },
+                   {
+                       "issue":  16,
+                       "titulo":  "TB2 · Frontend: evaluación del modelo y panel de administración",
+                       "estado":  "Todo",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/16"
+                   },
+                   {
+                       "issue":  17,
+                       "titulo":  "TB2 · Docker Compose: 7 contenedores y redes segmentadas",
+                       "estado":  "Todo",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/17"
+                   },
+                   {
+                       "issue":  18,
+                       "titulo":  "TB2 · Experimento: speedup con 1-3 nodos y 1-8 workers",
+                       "estado":  "Todo",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/18"
+                   },
+                   {
+                       "issue":  19,
+                       "titulo":  "TB2 · Experimento: métricas del modelo y comparación PC4 vs TB2",
+                       "estado":  "Todo",
+                       "responsable":  "Karim",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/19"
+                   },
+                   {
+                       "issue":  20,
+                       "titulo":  "TB2 · Experimento: carga concurrente de la API (\u003c100 ms)",
+                       "estado":  "Todo",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/20"
+                   },
+                   {
+                       "issue":  21,
+                       "titulo":  "TB2 · Pruebas end to end y de seguridad",
+                       "estado":  "Todo",
+                       "responsable":  "Juan Diego",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/21"
+                   },
+                   {
+                       "issue":  22,
+                       "titulo":  "TB2 · Respuesta documentada a la pregunta de impacto social",
+                       "estado":  "Todo",
+                       "responsable":  "Tomás",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/22"
+                   },
+                   {
+                       "issue":  23,
+                       "titulo":  "TB2 · Capturas y evidencias",
+                       "estado":  "Todo",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/23"
+                   },
+                   {
+                       "issue":  24,
+                       "titulo":  "TB2 · Informe final (entregables 3 y 4 con correcciones)",
+                       "estado":  "Todo",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/24"
+                   },
+                   {
+                       "issue":  25,
+                       "titulo":  "TB2 · Revisión cruzada contra la rúbrica",
+                       "estado":  "Todo",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/25"
+                   },
+                   {
+                       "issue":  26,
+                       "titulo":  "TB2 · Video (6 min máx.) y entrega en el aula virtual",
+                       "estado":  "Todo",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/26"
+                   },
+                   {
+                       "issue":  27,
+                       "titulo":  "TB2 · Preparación de la sustentación (semana 15)",
+                       "estado":  "Todo",
+                       "responsable":  "Equipo",
+                       "url":  "https://github.com/jotabe12/CC65-TB2-Grupo3-RandomForest-Denuncias/issues/27"
+                   }
+               ]
+}
