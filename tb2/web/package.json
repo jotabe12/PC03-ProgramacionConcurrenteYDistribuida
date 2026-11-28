@@ -1,0 +1,17 @@
+{
+  "name": "tb2-grupo3-web",
+  "private": true,
+  "version": "3.0.0",
+  "description": "SPA del TB2 (Grupo 3): patrullaje preventivo con un Random Forest distribuido en Go",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
