@@ -1,0 +1,13 @@
+data/
+evidencias/
+informe/
+docs/
+postman/
+scripts/
+web/
+docker/
+.env
+*.docx
+*.pdf
+*.md
+.git

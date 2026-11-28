@@ -1,0 +1,582 @@
+openapi: 3.0.3
+info:
+  title: API TB2 · Random Forest distribuido para el patrullaje preventivo (Grupo 3)
+  version: "3.0.0"
+  description: |
+    API concentradora del trabajo final de CC65 Programación Concurrente y Distribuida (2026-20), Caso 2: denuncias policiales (SIDPOL, MININTER).
+
+    * El coordinador recibe las consultas HTTP y reparte el trabajo por **TCP (JSON)** a los nodos ML (topología estrella).
+    * Cada nodo entrena su parte de un **Random Forest distribuido** sobre su shard estratificado (denuncia *k* → nodo *k mod N*).
+    * El frontend recibe eventos en tiempo real por **WebSocket** (`GET /ws`): progreso del entrenamiento, predicciones, métricas y logs.
+    * Persistencia en **MongoDB** (usuarios, entrenamientos, predicciones, reportes de impacto, métricas) y caché en **Redis** (TTL).
+
+    **Seguridad:** todas las rutas salvo `health`, `auth/login` y la documentación requieren `Authorization: Bearer <token>`.
+    Roles: `admin` (entrena, ve métricas y logs) y `analista` (consultas, con cuota por minuto). CORS con lista blanca de orígenes.
+
+    **Orden sugerido:** `POST /api/v1/auth/login` → botón **Authorize** con el token → `GET /api/v1/health` →
+    `POST /api/v1/predict` → `GET /api/v1/impacto` → `GET /api/v1/evaluacion` → (admin) `POST /api/v1/train`, `GET /api/v1/metrics`.
+
+    El CSV no registra la hora del hecho: el modelo del TB2 usa solo variables reales (distrito, zona, mes, año y el patrón de los
+    12 meses previos). La distribución por franja horaria que acompaña algunas respuestas es un **supuesto** (PC3, Tabla 11).
+  contact:
+    name: Grupo 3 — U201816862 Karim Samanamud · U201916314 Tomás Pastor · U202221147 Juan Diego Sánchez
+servers:
+  - url: /
+    description: Mismo origen (a través de nginx en http://localhost:8080)
+tags:
+  - name: Autenticación
+  - name: Estado
+  - name: Predicción e impacto
+  - name: Modelo
+  - name: Administración
+security:
+  - bearerAuth: []
+paths:
+  /api/v1/auth/login:
+    post:
+      tags: [Autenticación]
+      summary: Inicia sesión y devuelve un JWT (HS256)
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/LoginRequest" }
+            example: { username: admin, password: "Admin#TB2-2026" }
+      responses:
+        "200":
+          description: Token emitido
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/LoginResponse" }
+        "400": { $ref: "#/components/responses/BadRequest" }
+        "401":
+          description: Usuario o contraseña incorrectos (INVALID_CREDENTIALS)
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+        "429":
+          description: Demasiados intentos fallidos desde la misma IP (TOO_MANY_ATTEMPTS); ver cabecera Retry-After
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+  /api/v1/auth/me:
+    get:
+      tags: [Autenticación]
+      summary: Datos del token vigente
+      responses:
+        "200":
+          description: Usuario, rol y vigencia
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  username: { type: string }
+                  role: { type: string, enum: [admin, analista] }
+                  issuedAt: { type: string, format: date-time }
+                  expiresAt: { type: string, format: date-time }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+  /api/v1/health:
+    get:
+      tags: [Estado]
+      summary: Estado del coordinador, de los nodos, del modelo y de las bases de datos (público)
+      security: []
+      responses:
+        "200":
+          description: '"ok" si están todos los nodos esperados; "degradado" si falta alguno'
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Health" }
+  /api/v1/districts:
+    get:
+      tags: [Predicción e impacto]
+      summary: Los 50 distritos de Lima Metropolitana y Callao con su población (INEI 2026)
+      responses:
+        "200":
+          description: Catálogo global (ordenado por UBIGEO)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count: { type: integer, example: 50 }
+                  populationYear: { type: integer, example: 2026 }
+                  districts:
+                    type: array
+                    items: { $ref: "#/components/schemas/District" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "429": { $ref: "#/components/responses/Quota" }
+  /api/v1/predict:
+    post:
+      tags: [Predicción e impacto]
+      summary: Probabilidad de cada modalidad de delito para un distrito y mes (consulta al clúster o a Redis)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/PredictRequest" }
+            example: { district: SAN JUAN DE LURIGANCHO, mes: 10, anio: 2026 }
+      responses:
+        "200":
+          description: Predicción del bosque distribuido (promedio sobre todos los árboles de los nodos listos)
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/PredictResponse" }
+        "400": { $ref: "#/components/responses/BadRequest" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "404":
+          description: Distrito fuera de Lima Metropolitana y Callao (UNKNOWN_DISTRICT)
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+        "409":
+          description: Modelo aún no entrenado (MODEL_NOT_TRAINED)
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+        "429": { $ref: "#/components/responses/Quota" }
+        "503":
+          description: Ningún nodo ML disponible (CLUSTER_UNAVAILABLE)
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+  /api/v1/impacto:
+    get:
+      tags: [Predicción e impacto]
+      summary: Pregunta de impacto social — ranking de distritos para priorizar el patrullaje del mes
+      description: |
+        Para los 50 distritos: denuncias de calle esperadas (promedio mensual de los 12 meses previos × P(calle) del bosque),
+        tasa por 100,000 habitantes (INEI) y población cubierta por los N primeros. Si el mes ya ocurrió (hasta septiembre de 2026),
+        incluye `backtest`: qué porcentaje de los delitos de calle REALES concentraron los distritos priorizados.
+      parameters:
+        - { name: mes, in: query, required: true, schema: { type: integer, minimum: 1, maximum: 12 }, example: 3 }
+        - { name: anio, in: query, required: true, schema: { type: integer, minimum: 2018, maximum: 2033 }, example: 2026 }
+        - { name: top, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 10 } }
+        - { name: orden, in: query, schema: { type: string, enum: [casos, tasa], default: casos } }
+      responses:
+        "200":
+          description: Ranking, resumen de cobertura y verificación contra lo real
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ImpactResponse" }
+        "400": { $ref: "#/components/responses/BadRequest" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "409":
+          description: Sin modelo, o modelo pc4 (con franja imputada) vigente
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+        "429": { $ref: "#/components/responses/Quota" }
+  /api/v1/patrullaje:
+    get:
+      tags: [Predicción e impacto]
+      summary: Plan de patrullaje — los N distritos prioritarios del mes con el delito de calle a vigilar
+      parameters:
+        - { name: mes, in: query, required: true, schema: { type: integer, minimum: 1, maximum: 12 }, example: 10 }
+        - { name: anio, in: query, required: true, schema: { type: integer, minimum: 2018, maximum: 2033 }, example: 2026 }
+        - { name: top, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 10 } }
+        - { name: orden, in: query, schema: { type: string, enum: [casos, tasa], default: casos } }
+      responses:
+        "200":
+          description: Mismo formato que /impacto, con solo los N distritos (franja sugerida = supuesto)
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/ImpactResponse" }
+        "400": { $ref: "#/components/responses/BadRequest" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+  /api/v1/evaluacion:
+    get:
+      tags: [Modelo]
+      summary: Métricas del modelo vigente (accuracy, top-3, F1, matriz de confusión) e historial de entrenamientos
+      responses:
+        "200":
+          description: Evaluación actual e historial (más reciente primero)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  model: { $ref: "#/components/schemas/ModelInfo" }
+                  current: { $ref: "#/components/schemas/Evaluation" }
+                  history:
+                    type: array
+                    items: { $ref: "#/components/schemas/JobSummary" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+  /api/v1/train:
+    post:
+      tags: [Modelo]
+      summary: (admin) Entrena el Random Forest distribuido con los parámetros indicados
+      description: |
+        Reparte los árboles en bloques contiguos entre los nodos (fan-out por TCP), espera a todos (fan-in), evalúa con partición
+        temporal y publica la versión nueva. El progreso de cada nodo se emite por WebSocket (canal `training`).
+        Modo `final`: entrena 2018–2025 y evalúa 2026. Modo `validacion`: entrena 2018–2024 y evalúa 2025.
+      requestBody:
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/TrainRequest" }
+            example: { trees: 32, workers: 4, nodes: 3, featureSet: tb2, mode: final }
+      responses:
+        "200":
+          description: Entrenamiento completado (también se guarda en MongoDB, colección training_jobs)
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/TrainingJob" }
+        "400": { $ref: "#/components/responses/BadRequest" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "403": { $ref: "#/components/responses/Forbidden" }
+        "409":
+          description: Entrenamiento en curso (TRAINING_IN_PROGRESS) o más nodos de los conectados (NOT_ENOUGH_NODES)
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+        "502":
+          description: Un nodo falló al entrenar (NODE_TRAIN_FAILED)
+          content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+  /api/v1/metrics:
+    get:
+      tags: [Administración]
+      summary: (admin) Métricas del clúster — CPU y memoria por nodo, latencias p50/p95/p99, caché, WebSocket y bases de datos
+      responses:
+        "200":
+          description: Foto de métricas (también se guarda cada 30 s en cluster_metrics)
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Metrics" }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "403": { $ref: "#/components/responses/Forbidden" }
+  /api/v1/admin/logs:
+    get:
+      tags: [Administración]
+      summary: (admin) Últimas líneas de log del coordinador y de los nodos
+      parameters:
+        - { name: limit, in: query, schema: { type: integer, default: 200, maximum: 1000 } }
+        - { name: level, in: query, schema: { type: string, enum: [info, warn, error, acceso] }, description: '"acceso" = accesos HTTP (buffer aparte)' }
+        - { name: source, in: query, schema: { type: string }, example: ml-node-1 }
+      responses:
+        "200":
+          description: Entradas en orden cronológico
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count: { type: integer }
+                  entries:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        seq: { type: integer }
+                        time: { type: string, format: date-time }
+                        source: { type: string }
+                        level: { type: string }
+                        text: { type: string }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "403": { $ref: "#/components/responses/Forbidden" }
+  /ws:
+    get:
+      tags: [Administración]
+      summary: WebSocket (RFC 6455) de eventos en tiempo real
+      description: |
+        Abrir con `new WebSocket("ws://localhost:8080/ws", ["jwt", token])` (el token viaja como subprotocolo) o con `?token=`.
+        Mensajes JSON `{type, time, data}`; `type` ∈ `hello`, `training` (inicio/progreso/fin por nodo), `prediction`,
+        `metrics` (solo admin, cada 2 s) y `logs` (solo admin). El cliente puede enviar `{"subscribe":["metrics"]}` o `{"unsubscribe":[...]}`.
+        Se valida el `Origin` con la misma lista blanca de CORS.
+      security: []
+      parameters:
+        - { name: token, in: query, schema: { type: string }, description: Alternativa al subprotocolo }
+      responses:
+        "101": { description: Switching Protocols }
+        "401": { $ref: "#/components/responses/Unauthorized" }
+        "403":
+          description: Origen no permitido (CORS_ORIGIN_DENIED)
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  responses:
+    BadRequest:
+      description: Petición inválida (BAD_REQUEST)
+      content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+    Unauthorized:
+      description: Falta el token o es inválido/expirado (UNAUTHORIZED / INVALID_TOKEN)
+      content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+    Forbidden:
+      description: El rol no tiene permiso (FORBIDDEN) u origen no permitido (CORS_ORIGIN_DENIED)
+      content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+    Quota:
+      description: Cuota por minuto del rol analista superada (QUOTA_EXCEEDED); ver Retry-After
+      content: { application/json: { schema: { $ref: "#/components/schemas/Error" } } }
+  schemas:
+    Error:
+      type: object
+      properties:
+        error: { type: string }
+        code: { type: string, example: BAD_REQUEST }
+        hint: { type: string }
+    LoginRequest:
+      type: object
+      required: [username, password]
+      properties:
+        username: { type: string, example: admin }
+        password: { type: string, format: password }
+    LoginResponse:
+      type: object
+      properties:
+        token: { type: string }
+        tokenType: { type: string, example: Bearer }
+        expiresAt: { type: string, format: date-time }
+        user:
+          type: object
+          properties:
+            username: { type: string }
+            role: { type: string, enum: [admin, analista] }
+    District:
+      type: object
+      properties:
+        district: { type: string, example: SAN JUAN DE LURIGANCHO }
+        ubigeo: { type: string, example: "150132" }
+        zone: { type: string, example: Lima Este }
+        population: { type: integer }
+        denuncias: { type: integer }
+        denunciasCalle: { type: integer }
+    PredictRequest:
+      type: object
+      required: [district, mes, anio]
+      properties:
+        district: { type: string, example: SAN JUAN DE LURIGANCHO }
+        mes: { type: integer, minimum: 1, maximum: 12, example: 10 }
+        anio: { type: integer, minimum: 2018, maximum: 2033, example: 2026 }
+        franja: { type: integer, minimum: 0, maximum: 3, description: Solo si el modelo vigente es pc4 (franja imputada) }
+    ClassProb:
+      type: object
+      properties:
+        class: { type: string }
+        probability: { type: number }
+    FranjaProb:
+      type: object
+      properties:
+        franja: { type: string, example: Tarde (12-18) }
+        probability: { type: number }
+    PredictResponse:
+      type: object
+      properties:
+        district: { type: string }
+        ubigeo: { type: string }
+        zone: { type: string }
+        mes: { type: integer }
+        anio: { type: integer }
+        population: { type: integer }
+        probabilities: { type: array, items: { $ref: "#/components/schemas/ClassProb" } }
+        top3: { type: array, items: { $ref: "#/components/schemas/ClassProb" } }
+        topClass: { type: string }
+        topProbability: { type: number }
+        topStreetCrime: { type: string }
+        topStreetProbability: { type: number }
+        recentMix: { type: array, items: { $ref: "#/components/schemas/ClassProb" }, description: Mezcla real de los 12 meses previos }
+        recentWindow: { type: string, example: oct-2025 a sep-2026 }
+        franjaSupuesta: { type: array, items: { $ref: "#/components/schemas/FranjaProb" } }
+        franjaNote: { type: string }
+        modelVersion: { type: integer }
+        featureSet: { type: string }
+        nodesUsed: { type: integer }
+        treesUsed: { type: integer }
+        fromCache: { type: boolean }
+        clusterMs: { type: number }
+        latencyMs: { type: number }
+    ImpactRow:
+      type: object
+      properties:
+        rank: { type: integer }
+        district: { type: string }
+        zone: { type: string }
+        population: { type: integer }
+        expectedTotal: { type: number }
+        streetShare: { type: number }
+        expectedStreet: { type: number }
+        ratePer100k: { type: number }
+        topStreetCrime: { type: string }
+        topStreetProbability: { type: number }
+        franjaSugerida: { type: string, description: Supuesto horario de la PC3 }
+        actualStreet: { type: integer, description: Delitos de calle reales del mes (si ya ocurrió) }
+        actualRank: { type: integer }
+    ImpactResponse:
+      type: object
+      properties:
+        question: { type: string }
+        anio: { type: integer }
+        mes: { type: integer }
+        orden: { type: string }
+        historyFrom: { type: string }
+        historyTo: { type: string }
+        summary:
+          type: object
+          properties:
+            topN: { type: integer }
+            populationTop: { type: integer }
+            populationTotal: { type: integer }
+            populationPct: { type: number }
+            expectedStreetTop: { type: number }
+            expectedStreetTotal: { type: number }
+            expectedCoveragePct: { type: number }
+        backtest:
+          type: object
+          properties:
+            realStreetTop: { type: integer }
+            realStreetTotal: { type: integer }
+            realCoveragePct: { type: number }
+            oracleCoveragePct: { type: number }
+            overlapAtN: { type: integer }
+            realTopDistricts: { type: array, items: { type: string } }
+        rows: { type: array, items: { $ref: "#/components/schemas/ImpactRow" } }
+        notes: { type: array, items: { type: string } }
+        fromCache: { type: boolean }
+        latencyMs: { type: number }
+    TrainRequest:
+      type: object
+      properties:
+        trees: { type: integer, minimum: 1, maximum: 512, default: 32 }
+        maxDepth: { type: integer, minimum: 1, maximum: 24, default: 12 }
+        minLeaf: { type: integer, minimum: 1, default: 50 }
+        mtry: { type: integer, minimum: 1, default: 3 }
+        sampleFrac: { type: number, minimum: 0, maximum: 1, default: 0.3 }
+        workers: { type: integer, minimum: 0, maximum: 64, default: 0, description: Goroutines por nodo (0 = todos los núcleos) }
+        nodes: { type: integer, minimum: 1, description: Nodos a usar (por defecto todos los conectados) }
+        featureSet: { type: string, enum: [tb2, base, pc4], default: tb2 }
+        classWeight: { type: string, enum: [none, sqrt, balanced], default: none }
+        mode: { type: string, enum: [final, validacion], default: final }
+    Evaluation:
+      type: object
+      properties:
+        evalYear: { type: integer }
+        featureSet: { type: string }
+        testRecords: { type: integer }
+        distinctQueries: { type: integer }
+        accuracy: { type: number }
+        top3Accuracy: { type: number }
+        baselineAccuracy: { type: number }
+        baselineClass: { type: string }
+        persistenceAccuracy: { type: number, description: Predecir la modalidad más frecuente de los 12 meses previos }
+        macroF1: { type: number }
+        weightedF1: { type: number }
+        perClass:
+          type: array
+          items:
+            type: object
+            properties:
+              class: { type: string }
+              precision: { type: number }
+              recall: { type: number }
+              f1: { type: number }
+        confusion: { type: array, items: { type: array, items: { type: integer } }, description: "[real][predicha]" }
+        featureImportance:
+          type: array
+          items:
+            type: object
+            properties:
+              feature: { type: string }
+              importance: { type: number }
+    JobSummary:
+      type: object
+      properties:
+        jobId: { type: string }
+        version: { type: integer }
+        mode: { type: string }
+        featureSet: { type: string }
+        classWeight: { type: string }
+        nodeCount: { type: integer }
+        workers: { type: integer }
+        totalTrees: { type: integer }
+        durationMs: { type: number }
+        maxTrainMs: { type: number }
+        accuracy: { type: number }
+        top3Accuracy: { type: number }
+        macroF1: { type: number }
+    TrainingJob:
+      type: object
+      properties:
+        jobId: { type: string }
+        version: { type: integer }
+        mode: { type: string }
+        featureSet: { type: string }
+        features: { type: array, items: { type: string } }
+        trainFrom: { type: integer }
+        trainTo: { type: integer }
+        durationMs: { type: number }
+        maxTrainMs: { type: number }
+        maxExpandMs: { type: number }
+        nodeCount: { type: integer }
+        totalTrees: { type: integer }
+        trainRecords: { type: integer, example: 1823335 }
+        nodes:
+          type: array
+          items:
+            type: object
+            properties:
+              nodeId: { type: string }
+              roundTripMs: { type: number }
+              result:
+                type: object
+                properties:
+                  shard: { type: integer }
+                  shards: { type: integer }
+                  trees: { type: integer }
+                  trainRecords: { type: integer }
+                  workers: { type: integer }
+                  loadMs: { type: number }
+                  expandMs: { type: number }
+                  trainMs: { type: number }
+                  cachedMatrix: { type: boolean }
+        evaluation: { $ref: "#/components/schemas/Evaluation" }
+    ModelInfo:
+      type: object
+      properties:
+        trained: { type: boolean }
+        version: { type: integer }
+        totalTrees: { type: integer }
+        nodesReady: { type: array, items: { type: string } }
+        accuracy: { type: number }
+        top3Accuracy: { type: number }
+        featureSet: { type: string }
+        mode: { type: string }
+        evalYear: { type: integer }
+    Health:
+      type: object
+      properties:
+        status: { type: string, enum: [ok, degradado] }
+        nodesExpected: { type: integer }
+        nodesConnected: { type: integer }
+        nodes: { type: array, items: { type: string } }
+        model: { $ref: "#/components/schemas/ModelInfo" }
+        storage:
+          type: object
+          properties:
+            mode: { type: string, example: MongoDB + Redis }
+            mongo: { type: string }
+            redis: { type: string }
+            collections: { type: object, additionalProperties: { type: integer } }
+            cacheKeys: { type: integer }
+    Metrics:
+      type: object
+      properties:
+        coordinator: { type: object }
+        nodes:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string }
+              lastSeen: { type: string, format: date-time }
+              stats:
+                type: object
+                properties:
+                  cpuPct: { type: number, description: "% de un núcleo" }
+                  rssMB: { type: number }
+                  heapMB: { type: number }
+                  goroutines: { type: integer }
+                  trees: { type: integer }
+                  phase: { type: string }
+        requests: { type: object, additionalProperties: { type: integer } }
+        cacheHitPct: { type: number }
+        latency:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              count: { type: integer }
+              avgMs: { type: number }
+              p50Ms: { type: number }
+              p95Ms: { type: number }
+              p99Ms: { type: number }
+              maxMs: { type: number }
+              pctUnder100ms: { type: number }
+        websocket: { type: object, additionalProperties: { type: integer } }
