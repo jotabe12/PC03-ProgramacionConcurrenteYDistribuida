@@ -58,6 +58,11 @@ type Coordinator struct {
 	nodes map[string]*NodeConn
 	seq   atomic.Uint64
 	ln    net.Listener
+	// conns guarda toda conexión aceptada (también las que aún no se registran) y
+	// wg cuenta la goroutine aceptadora y las de cada conexión: Close cierra todas y
+	// espera a que terminen, así ninguna sigue viva (ni escribe logs) tras el cierre.
+	conns map[net.Conn]struct{}
+	wg    sync.WaitGroup
 
 	// OnRegister se invoca (en otra goroutine) cuando un nodo se registra.
 	OnRegister func(id string, stats protocol.NodeStats)
@@ -68,7 +73,7 @@ type Coordinator struct {
 }
 
 func New() *Coordinator {
-	return &Coordinator{nodes: map[string]*NodeConn{}, Logf: log.Printf}
+	return &Coordinator{nodes: map[string]*NodeConn{}, conns: map[net.Conn]struct{}{}, Logf: log.Printf}
 }
 
 // Listen abre el servidor TCP y atiende cada conexión en su propia goroutine.
@@ -78,7 +83,9 @@ func (c *Coordinator) Listen(addr string) (net.Addr, error) {
 		return nil, err
 	}
 	c.ln = ln
+	c.wg.Add(1)
 	go func() {
+		defer c.wg.Done()
 		for {
 			conn, err := ln.Accept()
 			if err != nil {
@@ -87,12 +94,26 @@ func (c *Coordinator) Listen(addr string) (net.Addr, error) {
 				}
 				continue
 			}
-			go c.handle(conn)
+			c.mu.Lock()
+			c.conns[conn] = struct{}{}
+			c.mu.Unlock()
+			c.wg.Add(1) // la aceptadora sigue contada: Add nunca ocurre con el contador en cero
+			go func() {
+				defer c.wg.Done()
+				defer func() {
+					c.mu.Lock()
+					delete(c.conns, conn)
+					c.mu.Unlock()
+				}()
+				c.handle(conn)
+			}()
 		}
 	}()
 	return ln.Addr(), nil
 }
 
+// Close deja de aceptar nodos, cierra todas las conexiones y espera a que sus
+// goroutines terminen (apagado ordenado).
 func (c *Coordinator) Close() {
 	if c.ln != nil {
 		c.ln.Close()
@@ -101,7 +122,11 @@ func (c *Coordinator) Close() {
 	for _, n := range c.nodes {
 		n.close()
 	}
+	for conn := range c.conns {
+		conn.Close() // incluye conexiones que aún no enviaron REGISTER
+	}
 	c.mu.Unlock()
+	c.wg.Wait()
 }
 
 func (n *NodeConn) close() {

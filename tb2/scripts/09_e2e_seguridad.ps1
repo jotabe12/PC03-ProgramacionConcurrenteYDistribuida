@@ -52,6 +52,7 @@ Paso "evento hello" ($null -ne $hello) "usuario $($hello.data.user), canales: $(
 
 Write-Host "3) Entrenamiento (admin) mientras se escucha el WebSocket" -ForegroundColor Cyan
 $job = Start-Job -ScriptBlock { param($tok)
+    Add-Type -AssemblyName System.Net.Http   # el proceso del job no carga este ensamblado por defecto
     $c = New-Object System.Net.Http.HttpClient; $c.Timeout = [TimeSpan]::FromMinutes(10)
     $req = New-Object System.Net.Http.HttpRequestMessage ([System.Net.Http.HttpMethod]::Post), "http://localhost:8080/api/v1/train"
     $req.Headers.Add("Authorization", "Bearer $tok")
@@ -110,7 +111,8 @@ $cuota = @{}
 for ($i = 1; $i -le 360; $i++) { $v = Invoke-Api GET "/api/v1/districts" -Token $ana; $k = "$($v.Status) $($v.Json.code)".Trim(); $cuota[$k] = 1 + [int]$cuota[$k] }
 Paso "cuota del analista (300/min) -> 429 QUOTA_EXCEEDED" ($cuota.ContainsKey("429 QUOTA_EXCEEDED")) (($cuota.Keys | Sort-Object | ForEach-Object { "HTTP $($_): $($cuota[$_])" }) -join ", ")
 $hdr = Invoke-Api GET "/api/v1/health" -SinToken
-Paso "cabeceras de seguridad" ($hdr.Headers["X-Content-Type-Options"] -eq "nosniff" -and $hdr.Headers["X-Frame-Options"] -eq "DENY") "nosniff, DENY, no-referrer"
+$xcto = "$($hdr.Headers['X-Content-Type-Options'])"; $xfo = "$($hdr.Headers['X-Frame-Options'])"; $rp = "$($hdr.Headers['Referrer-Policy'])"
+Paso "cabeceras de seguridad" ($xcto -eq "nosniff" -and $xfo -eq "DENY" -and $rp -eq "no-referrer") "X-Content-Type-Options=$xcto; X-Frame-Options=$xfo; Referrer-Policy=$rp"
 
 $r.pasos = $pasos
 $ok = @($pasos | Where-Object { $_.correcto }).Count
